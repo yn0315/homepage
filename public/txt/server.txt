@@ -1,0 +1,269 @@
+ssh -i C:\\Users\\myosi\\Downloads\\homepagekey.pem ubuntu@54.180.162.116 -> 우분투에서 ec2 연결하기
+
+보안키 경로 ubuntu@ec2 퍼블릭 ipv4 주소 입력
+
+--------------------------------------------------------------------------------------------------------------------
+sudo -s로 관리자 권한으로 들어와서 업그레이드
+
+sudo apt update -> 안하면 데이터베이스 설치 안됨
+
+sudo apt install mariadb-server -> 마리아데이터베이스 서버설치 
+
+sudo apt-get install mariadb-client -> 마리아데이터베이스 클라이언트 설치
+
+
+sudo mysql_secure_installation -> 보안설정
+
+Switch to unix_socket authentication [Y/n] n      -> 소켓인증으로 전환할건지
+
+Change the root password? [Y/n] n  -> root계정의 비번 변경여부
+
+Remove anonymous users? [Y/n] y -> 익명계정 삭제여부
+
+Disallow root login remotely? [Y/n] y -> 원격접속허용여부
+
+Remove test database and access to it? [Y/n] y -> 테스트데이터베이스 삭제
+
+Reload privilege tables now? [Y/n] y  -> 설정 즉시적용후 재시작 여부
+
+sudo mysql -u root -p -> sql root계정으로 접속
+
+show databases; -> 현재 있는 데이터베이스 출력
+
+-------------------------------------------------------------------------------------------------------------------
+외부접속 허용
+
+use mysql
+
+grant all privileges on *.* to 'root'@'%'identified by '비밀번호';   -> 외부접속 허용명령어
+
+flush privileges;   -> 권한 적용
+
+exit로 빠져나옴
+
+가장 상위 폴더로 이동 후 
+
+ /etc/mysql/mariadb.conf.d/로 가서 50-server.cnf 환경설정
+
+nano 50-server.cnf
+
+bind-address 가 127.0.0.1 로 설정되어있는 부분 주석처리 후 재시작  -> 이거 안하면 외부접근 막혀서 connection 에러남
+
+service mysql restart  -> mysql 재시작
+
+--------------------------------------------------------------------------------------------------------------------
+
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -                  -> 최신버전 node.js설치를 위한 명령어
+
+sudo apt install nodejs -> 우분투에 nodejs 설치
+
+node --version    -> 설치한 node.js버전 확인
+
+sudo npm install -g pm2   -> 자동으로 재시작해주는 프로세스 관리툴 설치
+
+sudo apt-get install git  -> git 설치
+
+git --version -> git 버전확인
+
+git clone https://github.com/yn0315/web.git  -> 깃허브 http주소 복사해서 clone 해옴
+
+cd web   -> 깃허브 주소에 올려져 있는 폴더명(web)으로 이동
+
+ssh-keygen -> 현재 접속해 있는 서버의 ubuntu 계정에 대한 배포용 키 생성 -> enter 로 계속 넘김
+
+cat ~/.ssh/id_rsa.pub -> 받은 키 출력 명령어
+
+복사해서 깃허브 setting -> 왼쪽 메뉴 Deploy keys 로 들어가 add deploy key 누르고 붙여넣기 후 저장
+
+cd ../ 로 상위폴더로 빠져나온 후 
+
+기존 http 주소를 복사해서 받아온 코드 삭제 후 ssh 방식으로 다시 불러옴
+
+rm -rf web  -> 삭제하는 명령어
+
+git clone git@github.com:yn0315/web.git 
+
+-> 문구가 출력되면 yes입력
+
+cd web -> 폴더명으로 이동
+
+pm2 start index.js -> 서버파일 지정해서 시작
+
+cd ../ -> 상위 폴더로 이동(홈)
+
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3000 
+
+-> 3000번으로 들어오는 방문을 80으로 보내는 명령어 -> 이거 안 쓰면 화면이 안 뜸........ 
+
+-> node.js 의 기본 포트가 3000번임
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+우분투에서 서버 열고 난 후 
+
+워크벤치 접속
+
++버튼 누름
+
+connection name 에 아무거나 입력 homepage 입력함
+
+host name 에 ec2인스턴스 퍼블릭 ipv4 주소 입력
+
+password 옆 store in vault...클릭 후 비밀번호 (0000) 입력
+
+test connection 누름
+
+-------------------------------------------------------------------------------------------------------------------
+nginx 설치
+
+sudo apt-get install nginx  -> nginx 설치
+
+sudo vi /etc/nginx/nginx.conf -> 메인 설정파일
+
+아래와 같은 정보 출력
+user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+include /etc/nginx/modules-enabled/*.conf;
+
+events {
+        worker_connections 768;
+        # multi_accept on;
+}
+
+http {
+
+        ##
+        # Basic Settings
+        ##
+
+        sendfile on;
+        tcp_nopush on;
+        types_hash_max_size 2048;
+        # server_tokens off;
+
+        # server_names_hash_bucket_size 64;
+        # server_name_in_redirect off;
+
+        include /etc/nginx/mime.types;
+        default_type application/octet-stream;
+
+        ##
+        # SSL Settings
+        ##
+
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3; # Dropping SSLv3, ref: POODLE
+        ssl_prefer_server_ciphers on;
+
+        ##
+        # Logging Settings
+        ##
+
+        access_log /var/log/nginx/access.log;
+        error_log /var/log/nginx/error.log;
+
+        ##
+        # Gzip Settings
+        ##
+
+        gzip on;
+
+        # gzip_vary on;
+        # gzip_proxied any;
+        # gzip_comp_level 6;
+        # gzip_buffers 16 8k;
+        # gzip_http_version 1.1;
+        # gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/javascript;
+
+        ##
+        # Virtual Host Configs
+        ##
+
+        include /etc/nginx/conf.d/*.conf;
+        include /etc/nginx/sites-enabled/*;
+
+---------------------------------------------추가할 부분------------------------------------------------------------------------
+
+        include /etc/nginx/sites-enabled/*.conf;   -----------------------------> sites-enabled디렉토리에서 서버블록을 찾도록함
+        server_names_hash_bucket_size 64;  ----------------------------->도메인주소 찾을 때 사이즈 
+        }
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+#mail {
+#       # See sample authentication script at:
+#       # http://wiki.nginx.org/ImapAuthenticateWithApachePhpScript
+#
+#       # auth_http localhost/auth.php;
+#       # pop3_capabilities "TOP" "USER";
+#       # imap_capabilities "IMAP4rev1" "UIDPLUS";
+#
+#       server {
+#               listen     localhost:110;
+#               protocol   pop3;
+#               proxy      on;
+#       }
+#
+#       server {
+#               listen     localhost:143;
+#               protocol   imap;
+#               proxy      on;
+#       }
+#}
+                           
+
+-------------------------------------------------------------------------------------------------------------------
+
+서버블록 파일 만들기  ---- nginx에서 관리되는 호스트정보
+
+sudo vi /etc/nginx/sites-available/도메인이름(프로토콜 제외).conf -> 명령어
+
+/etc/nginx/sites-available/도메인이름(프로토콜제외).conf
+
+esc -> a 누르면 insert모드실행, 이후 입력
+
+빈 창이 출력됨
+아래와 같이 입력
+
+-----------------------------------------------------------------------------------------------------------------
+
+server {
+  listen  80;
+  server_name yn0315.shop;   -> 도메인 이름
+
+  location / {
+    root  /web/public/index.html;  -> 홈디렉토리
+    index  index.html index.htm index.nginx-debian.html;
+    try_files $uri $uri/ =404;
+    try_files $uri $uri/ /index.html;
+  }
+
+  error_page  500 502 503 504  /50x.html;
+  location = /50x.html {
+    root  /usr/share/nginx/html;
+  }
+}
+
+-------------------------------------------------------------------------------------------------------------------
+
+다 작성 후 ctrl + c 누르면
+
+Type  :qa  and press <Enter> to exit Vim   라는 문구 출력
+
+ :wq!      -> 콜론부터 전부 작성, 저장 후 나가는 명령어
+
+sudo systemctl restart nginx  -> nginx 재시작
+
+
+nginx 삭제 및 설치 명령어
+
+sudo apt-get purge nginx nginx-common nginx-full
+
+sudo apt-get install nginx
+
+ ---------------------------------------------------------------------------------------------------------------------
+
+
+
+

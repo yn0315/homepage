@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homepage</title>
+
+    <link rel="stylesheet" href="./css/main.css">
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+    <div id="outer_pop_up" style="display: none;">
+        <div id="inner_pop_up">
+            <!-- 팝업창 안에 이미지 -->
+            <p><a href=""><img src="/img/pop_up_img.jpg"></a></p>
+            <div class="pop_up_button">
+                <button class="pop_up_24button"><strong>24</strong>시간 동안 다시 열람하지 않습니다.</button>
+                <button class="pop_up_exit">닫기</button>
+            </div>
+        </div>
+
+    </div>
+
+    <header id="header">
+        <div class="inner_header">
+            <h1 class="logo">
+                <a href="http://yn0000.shop">
+                    <img id="logo_img" src="/img/logo_img.gif" alt="로고">
+                </a>
+            </h1>
+
+            <div id="menu">
+                <ul class="menu_ul">
+                    <li><a href="#">포트폴리오</a></li>
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">인터뷰작성</a></li>
+                </ul>
+                <ul id="second_menu" class="menu_ul">
+                    <li><a href="#">브랜딩</a></li>
+                    <li><a href="#">로고디자인</a></li>
+                    <li><a href="#">네이밍</a></li>
+                    <li><a href="#">편집디자인</a></li>
+                    <li><a href="#">홈페이지</a></li>
+
+                </ul>
+                <ul id="third_menu" class="menu_ul">
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">문의</a></li>
+                    <li><a href="#">후기</a></li>
+
+                </ul>
+            </div>
+            <!-- 파일다운로드 -->
+            <a id="file_download" href="/txt/server.txt" target="_blank" download="server.txt">회사소개서 다운</a>
+
+            <div class="tel_no">
+                <div>
+                    <p>1544-1234</p>
+                    <p>평일 9-6시 (점심 01:00 - 2시)</p>
+                </div>
+            </div>
+            <div class="info_box">
+                <p>우리 1005-000-000000</p>
+                <p>(주)디자인오브</p>
+                <p>brand@brand.co.kr</p>
+            </div>
+            <ul id="and_page">
+                <li><a href="/login">LOGIN</a></li>
+                <li><a href="/join">JOIN</a></li>
+                <li><a href="#">CART</a></li>
+                <li><a href="#">MYPAGE</a></li>
+            </ul>
+
+        </div>
+
+    </header>
+    <section id="main">
+        <div id="mainScreen">
+            <div id="picture_div_one">
+                <ul id="img_album_one">
+                    <li><img src="/img/1.jpg"></li>
+                    <!-- <li><img src="/img/2.jpg"></li>
+                    <li><img src="/img/3.jpg"></li>
+                    <li><img src="/img/4.jpg"></li>
+                    <li><img src="/img/5.jpg"></li> -->
+                </ul>
+                <ul id="img_album_two">
+                    <li><img src="/img/6.jpg"></li>
+                    <li><img src="/img/7.jpg"></li>
+                    <li><img src="/img/8.jpg"></li>
+                    <li><img src="/img/9.jpg"></li>
+                    
+                </ul>
+
+            </div>
+            <div id="picture_div_two">
+            <ul id="img_album_three">
+                <li><img src="/img/10.jpg"></li>
+                <li><img src="/img/11.jpg"></li>
+                <li><img src="/img/12.jpg"></li>
+                <li><img src="/img/13.jpg"></li>
+                <li><img src="/img/14.jpg"></li>
+                <li><img src="/img/15.jpg"></li>
+                <li><img src="/img/16.jpg"></li>
+                <li><img src="/img/17.jpg"></li>
+
+            </ul>
+        </div>
+
+        </div>
+
+
+    </section>
+
+    <script>
+        (function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.")}var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(args){ch.q.push(args)};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x)}}if(document.readyState==="complete"){l()}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l)}})();
+      
+        ChannelIO('boot', {
+          "pluginKey": "06f227e7-8bbb-4f70-a8fb-3e59dd2df902"
+        });
+      </script>
+</body>
+
+</html>
