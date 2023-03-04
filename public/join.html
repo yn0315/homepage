@@ -6,22 +6,94 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+
+    <link rel="stylesheet" href="./css/main.css">
+
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 
 <body>
+
+    <header id="header">
+        <div class="inner_header">
+            <h1 class="logo">
+                <a href="http://yn0000.shop">
+                    <img id="logo_img" src="/img/logo_img.gif" alt="로고">
+                </a>
+            </h1>
+
+            <div id="menu">
+                <ul class="menu_ul">
+                    <li><a href="#">포트폴리오</a></li>
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">인터뷰작성</a></li>
+                </ul>
+                <ul id="second_menu" class="menu_ul">
+                    <li><a href="#">브랜딩</a></li>
+                    <li><a href="#">로고디자인</a></li>
+                    <li><a href="#">네이밍</a></li>
+                    <li><a href="#">편집디자인</a></li>
+                    <li><a href="#">홈페이지</a></li>
+
+                </ul>
+                <ul id="third_menu" class="menu_ul">
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">문의</a></li>
+                    <li><a href="#">후기</a></li>
+
+                </ul>
+            </div>
+            <!-- 파일다운로드 -->
+            <a id="file_download" href="/txt/server.txt" target="_blank" download="server.txt">회사소개서 다운</a>
+
+            <div class="tel_no">
+                <div>
+                    <p>1544-1234</p>
+                    <p>평일 9-6시 (점심 01:00 - 2시)</p>
+                </div>
+            </div>
+            <div class="info_box">
+                <p>우리 1005-000-000000</p>
+                <p>(주)디자인오브</p>
+                <p>brand@brand.co.kr</p>
+            </div>
+            <ul id="and_page">
+                <li><a href="/login">LOGIN</a></li>
+                <li><a href="/join">JOIN</a></li>
+                <li><a href="#">CART</a></li>
+                <li><a href="#">MYPAGE</a></li>
+            </ul>
+
+        </div>
+
+    </header>
     <section id="join">
         <div id="join_outer_box">
             <div id="join_inner_box">
-                <form action="">
-                    <input type="text">이름
-                    <input type="text">id
-                    <button>id중복확인</button>
-                    <input type="password">비밀번호
-                    <label>
-                        <input type="radio">
-                        <input type="radio">
-                    </label>
+                <form action="/joinAction" method="POST" class="joinForm">
 
+                    <h2>회원가입</h2>
+                    <div class="textForm">
+                        <input name="loginId" type="text" class="id" placeholder="아이디">
+                        </input>
+                    </div>
+                    <div class="textForm">
+                        <input name="loginPw" type="password" class="pw" placeholder="비밀번호">
+                    </div>
+                    <div class="textForm">
+                        <input name="loginPwConfirm" type="password" class="pw" placeholder="비밀번호 확인">
+                    </div>
+                    <div class="textForm">
+                        <input name="name" type="password" class="name" placeholder="이름">
+                    </div>
+                    <div class="textForm">
+                        <input name="email" type="text" class="email" placeholder="이메일">
+                    </div>
+
+                    <input type="submit" class="btn" value="J O I N" />
                 </form>
             </div>
         </div>

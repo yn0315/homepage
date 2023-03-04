@@ -197,3 +197,123 @@ ul{
 
 }
 
+#join {
+    position: relative;
+    text-align: center;
+    left: 270px;
+}
+
+#join_outer_box {
+    display: inline-block;
+    text-align: center;
+    width: 1000px;
+    height: 1000px;
+}
+
+#join_inner_box {
+    display: inline-block;
+    text-align: center;
+    width: 500px;
+    height: 500px;
+
+}
+
+.joinForm {
+    position:relative;
+    width:400px;
+    height:400px;
+    text-align:center;
+  }
+  
+  .joinForm h2 {
+    text-align: center;
+    margin: 30px;
+  }
+  
+  .textForm {
+    border-bottom: 1px solid #adadad;
+    margin: 30px;
+    padding: 10px 10px;
+  }
+  
+  
+  .id {
+    width: 100%;
+    border:none;
+    outline:none;
+    color: black;
+    font-size:16px;
+    height:25px;
+    background: none;
+  }
+  
+  .pw {
+    width: 100%;
+    border:none;
+    outline:none;
+    color: black;
+    font-size:16px;
+    height:25px;
+    background: none;
+  }
+  
+  .name {
+    width: 100%;
+    border:none;
+    outline:none;
+    color: black;
+    font-size:16px;
+    height:25px;
+    background: none;
+  }
+  
+  .email {
+    width: 100%;
+    border:none;
+    outline:none;
+    color: black;
+    font-size:16px;
+    height:25px;
+    background: none;
+  }
+  
+  .nickname {
+    width: 100%;
+    border:none;
+    outline:none;
+    color: black;
+    font-size:16px;
+    height:25px;
+    background: none;
+  }
+  
+  .cellphoneNo {
+    width: 100%;
+    border:none;
+    outline:none;
+    color: black;
+    font-size:16px;
+    height:25px;
+    background: none;
+  }
+  
+  .btn {
+    position:relative;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 40px;
+    width:300px;
+    height:40px;
+    background-position: left;
+    background-size: 200%;
+    /* color:white; */
+    font-weight: bold;
+    border:none;
+    cursor:pointer;
+    transition: 0.4s;
+    display:inline;
+  }
+  
+  .btn:hover {
+    background-position: right;
+  }
