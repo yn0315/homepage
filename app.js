@@ -123,7 +123,7 @@ app.post('/joinAction', function (req, res) {
         }
         else 
         {
-            const data = fs.readFile(path.join(__dirname,'/views/index.ejs'));
+            const data = fs.readFile(path.join(__dirname,'/views/index.ejs'), 'utf-8');
             console.log('ok');
             res.header('Content-Type','text/plain');
             res.writeHead(200, { 'Content-Type': 'text/html' });
