@@ -227,52 +227,52 @@
         <script>
 
 
-            // function value() {
-            //     var val = false
-            //     $('#name').val() == null || $('#name').val() == 'undefined' || $('#name').val() == '' ? alert('이름을 입력해주세요.') :
-            //         $('#telno').val() == null || $('#telno').val() == 'undefined' || $('#telno').val() == '' ? alert('연락처를 입력해주세요.') :
-            //             $('#email').val() == null || $('#email').val() == 'undefined' || $('#email').val() == '' ? alert('email 을 입력해주세요.') :
-            //                 $('#message').val() == null || $('#message').val() == 'undefined' || $('#message').val() == '' ? alert('메시지를 입력해주세요.') : val = true;
-            //     return val;
-            // }
-            // $('#submit').on('click', function () {
-            //     if (value()) {
+            function value() {
+                var val = false
+                $('#name').val() == null || $('#name').val() == 'undefined' || $('#name').val() == '' ? alert('이름을 입력해주세요.') :
+                    $('#telno').val() == null || $('#telno').val() == 'undefined' || $('#telno').val() == '' ? alert('연락처를 입력해주세요.') :
+                        $('#email').val() == null || $('#email').val() == 'undefined' || $('#email').val() == '' ? alert('email 을 입력해주세요.') :
+                            $('#message').val() == null || $('#message').val() == 'undefined' || $('#message').val() == '' ? alert('메시지를 입력해주세요.') : val = true;
+                return val;
+            }
+            $('#submit').on('click', function () {
+                if (value()) {
 
-            //         var param = {
-            //             "name": $('#name').val(),
-            //             "telno": $('#telno').val(),
-            //             "companyName": $('#companyName').val() == null || $('#companyName').val() == 'undefined' || $('#companyName').val() == '' ? '' : $('#companyName').val(),
-            //             "email": $('#email').val(),
-            //             "budget": $('#budget').val() == null || $('#budget').val() == 'undefined' || $('#budget').val() == '' ? '' : $('#budget').val(),
-            //             "message": $('#message').val().replace(/(?:\r\n|\r|\n)/g, '<br />')
-            //         }
-            //         console.log(param);
-            //         var rvalue = new Array();
-            //         $.ajax({
-            //             type: "post",
-            //             url: "/submit",
-            //             data: param,
-            //             async: false,
-            //             success: function (data) {
+                    var param = {
+                        "name": $('#name').val(),
+                        "telno": $('#telno').val(),
+                        "companyName": $('#companyName').val() == null || $('#companyName').val() == 'undefined' || $('#companyName').val() == '' ? '' : $('#companyName').val(),
+                        "email": $('#email').val(),
+                        "budget": $('#budget').val() == null || $('#budget').val() == 'undefined' || $('#budget').val() == '' ? '' : $('#budget').val(),
+                        "message": $('#message').val().replace(/(?:\r\n|\r|\n)/g, '<br />')
+                    }
+                    console.log(param);
+                    var rvalue = new Array();
+                    $.ajax({
+                        type: "post",
+                        url: "/submit",
+                        data: param,
+                        async: false,
+                        success: function (data) {
                             
-            //                 // var data = JSON.parse(data);
+                            // var data = JSON.parse(data);
 
-            //                 alert('메일이 발송되었습니다.');
+                            alert('메일이 발송되었습니다.');
                             
-            //                 // windows.location.href("http://yn0315.shop");
+                            // windows.location.href("http://yn0315.shop");
                             
 
 
-            //             },
-            //             error: function (e) {
-            //                 alert(e.reponseText);
-            //             }
-            //         });
+                        },
+                        error: function (e) {
+                            alert(e.reponseText);
+                        }
+                    });
 
 
-            //     }
+                }
 
-            // })
+            })
 
 
         </script>
