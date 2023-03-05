@@ -166,8 +166,8 @@ app.post('/loginAction', function (req, res) {
         console.log(results[0].user_id);
         console.log($id + "2222222");
         
-        if (results[0].user_id == $id) {
-            if (results[0].user_pw == $pw) {
+        if (results[0].user_id === $id) {
+            if (results[0].user_pw === $pw) {
                 console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
                 res.render(__dirname+ '/views/index.ejs', {users : results}); 
