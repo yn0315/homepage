@@ -231,8 +231,9 @@ app.post('/submit', function (req, res) {
         {
             console.log('ok');
 
-            res.header('Content-Type','text/plain');
-            res.end('200',res.redirect('/'));
+            // res.header('Content-Type','text/plain');
+            // res.end('200',res.redirect('/'));
+            res.redirect('/');
 
         }
 
