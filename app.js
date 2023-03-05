@@ -187,3 +187,63 @@ app.post('/loginAction', function (req, res) {
     
     
 });
+
+
+app.post('/submit', function (req, res) {
+
+    const name = req.body.name;
+    const telno = req.body.tel;
+    const companyName = req.body.companyName;
+    const email = req.body.email;
+    const budget = req.body.budget;
+    const message = req.body.message;
+
+
+    console.log(req.body.name);
+    console.log(req.body.telno);
+    console.log(req.body.companyName);
+    console.log(req.body.email);
+    console.log(req.body.budget);
+    console.log(req.body.message);
+
+    // res.redirect('/');
+
+    let insert_query = `insert into my_db.contact values('${name}','${telno}','${companyName}','${email}','${budget}','${message}')`;
+    // let select_query = `select * from my_db.contact`;
+    console.log(insert_query);
+    let commit_query = `commit`;
+
+    connection.query(insert_query, function (err, results, fields)
+    {
+        if(err)
+        {
+            console.log(err);
+        }
+        else 
+        {
+            console.log('ok');
+
+        }
+
+    });
+
+    connection.query(commit_query, function (err, results, fields)
+    {
+        if(err)
+        {
+            console.log(err);
+        }
+        else 
+        {
+            console.log('ok');
+
+            res.header('Content-Type','text/plain');
+            res.end('200',res.redirect('/'));
+
+        }
+
+    });
+
+
+
+});

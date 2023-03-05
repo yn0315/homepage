@@ -163,6 +163,121 @@
 
     </section>
 
+    <section>
+        <div id="about">
+            <div id="inner_about">
+            <p>
+                브랜드 디자인 한 길만 걸어온 전문성,<br>
+                소비자와 브랜드가 만나고 소통하는 모든 길목에<br>
+                브랜디오가 있습니다.
+            </p>
+            <div>
+                <img src="/img/long_logo.gif">
+            </div>
+        </div>
+        </div>
+    </section>
+    <section id="contact" class="me">
+        <div class="contact">
+            <h3>상담문의</h3>
+            <div class="request_box">
+                <form id="request_form" name="contact_form" action="/submit" method="post">
+                    <div class="name_tel_companyname" style="">
+                        <div id="contactNameBox">
+                            <label>이름* <input class="contactForm" id="name" type="text" name="name"
+                                    placeholder="홍길동"></label>
+                        </div>
+                        <div id="contactTelBox">
+                            <label>연락처* <input class="contactForm" id="telno" type="text" name="tel"
+                                    placeholder="010-xxxx-xxxx"></label>
+                        </div>
+                        <div id="contactCompanyNameBox">
+                            <label>회사명<input class="contactForm" id="companyName" type="text" name="companyName"
+                                    placeholder="Studio"></label>
+                        </div>
+                    </div>
+                    <div class="email_budget" style="">
+                        <div id="contactEmailBox">
+                            <label>이메일* <input class="contactForm" id="email" type="email" name="email"
+                                    placeholder="aaa@naver.com"></label>
+                        </div>
+                        <div id="contactBudgetBox">
+                            <label>예산 <input class="contactForm" id="budget" type="text" name="budget"
+                                    placeholder="10,000,000"></label>
+                        </div>
+                    </div>
+                    <div class="msgArea" style="">
+                        <div id="contactMsgBox">
+                            <label>문의 내용*
+                                <textarea class="contactForm" id="message" name="message"
+                                    style="border: 1px solid #e0e0e0;"
+                                    placeholder=" 궁금하신 사항이나 문의하실 내용을 적어주세요"></textarea>
+                            </label>
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <button id="submit" type="submit" name="submit">SEND</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+        <script>
+
+
+            function value() {
+                var val = false
+                $('#name').val() == null || $('#name').val() == 'undefined' || $('#name').val() == '' ? alert('이름을 입력해주세요.') :
+                    $('#telno').val() == null || $('#telno').val() == 'undefined' || $('#telno').val() == '' ? alert('연락처를 입력해주세요.') :
+                        $('#email').val() == null || $('#email').val() == 'undefined' || $('#email').val() == '' ? alert('email 을 입력해주세요.') :
+                            $('#message').val() == null || $('#message').val() == 'undefined' || $('#message').val() == '' ? alert('메시지를 입력해주세요.') : val = true;
+                return val;
+            }
+            $('#submit').on('click', function () {
+                if (value()) {
+
+                    var param = {
+                        "name": $('#name').val(),
+                        "telno": $('#telno').val(),
+                        "companyName": $('#companyName').val() == null || $('#companyName').val() == 'undefined' || $('#companyName').val() == '' ? '' : $('#companyName').val(),
+                        "email": $('#email').val(),
+                        "budget": $('#budget').val() == null || $('#budget').val() == 'undefined' || $('#budget').val() == '' ? '' : $('#budget').val(),
+                        "message": $('#message').val().replace(/(?:\r\n|\r|\n)/g, '<br />')
+                    }
+                    console.log(param);
+                    var rvalue = new Array();
+                    $.ajax({
+                        type: "post",
+                        url: "/submit",
+                        data: param,
+                        async: false,
+                        success: function (data) {
+                            
+                            // var data = JSON.parse(data);
+
+                            alert('메일이 발송되었습니다.');
+                            
+                            // windows.location.href("http://yn0315.shop");
+                            
+
+
+                        },
+                        error: function (e) {
+                            alert(e.reponseText);
+                        }
+                    });
+
+
+                }
+
+            })
+
+
+        </script>
+
+
     <script>
         (function () { var w = window; if (w.ChannelIO) { return w.console.error("ChannelIO script included twice.") } var ch = function () { ch.c(arguments) }; ch.q = []; ch.c = function (args) { ch.q.push(args) }; w.ChannelIO = ch; function l() { if (w.ChannelIOInitialized) { return } w.ChannelIOInitialized = true; var s = document.createElement("script"); s.type = "text/javascript"; s.async = true; s.src = "https://cdn.channel.io/plugin/ch-plugin-web.js"; var x = document.getElementsByTagName("script")[0]; if (x.parentNode) { x.parentNode.insertBefore(s, x) } } if (document.readyState === "complete") { l() } else { w.addEventListener("DOMContentLoaded", l); w.addEventListener("load", l) } })();
 

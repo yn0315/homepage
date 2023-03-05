@@ -377,6 +377,139 @@ ul{
 
 }
 
+#about {
+    text-align: center;
+    padding-top: 50px;
+
+}
+
+#about #inner_about {
+    display: inline-block;
+}
+
+#about #inner_about p {
+    font-size: 30px;
+}
+
+/* 상담 */
+/* section me 스타일 */
+
+section.me {
+    margin-bottom: 150px;
+}
+
+section.me .contact {
+    height: 924px;
+    text-align: center;
+    padding-top: 10%;
+}
+
+section.me .contact h3 {
+    color: #000;
+    font-size: 45px;
+    font-weight: 400;
+    margin-bottom: 5%
+}
+
+
+/* 상담문의 */
+
+section.me .contact{
+    text-align: center;
+    
+}
+
+section.me .contact .request_box {
+    display: inline-block;
+    width: 1120px;
+    height: 550px;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 16px;
+
+
+}
+
+textarea.contactForm {
+    height: 350px;
+    width: 99%;
+    border: 1px solid black;
+    resize: vertical;
+    margin-top: 1%;
+}
+
+#contactNameBox {
+    position: relative;
+    float: left;
+    width: 30%;
+    margin-top: 1%;
+}
+
+#contactTelBox {
+    position: relative;
+    float: left;
+    width: 30%;
+    margin-top: 1%;
+}
+
+#contactCompanyNameBox {
+    position: relative;
+    float: left;
+    width: 40%;
+    margin-top: 1%;
+}
+
+#contactEmailBox {
+    position: relative;
+    float: left;
+    width: 50%;
+}
+
+#contactBudgetBox {
+    position: relative;
+    float: left;
+    width: 50%;
+}
+
+.name_tel_companyname {
+    overflow: hidden;
+}
+
+.email_budget {
+    clear: both;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.msgArea {
+    clear: both;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+#submit {
+    border: 1px solid black;
+    width: 100px;
+    height: 30px;
+    margin-top: 15px;
+    background-color: black;
+    color: white;
+    font-weight: normal;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+#request_form textarea,
+#request_form input[type="text"],
+#request_form input[type="email"] {
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 0;
+
+}
+
+/* 가입 */
+
 #join {
     position: relative;
     text-align: center;
