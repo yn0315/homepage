@@ -70,66 +70,83 @@
 
     </header>
     <section id="login_body">
-    <div id="login_form_outBox">
+        <div id="login_form_outBox">
 
-        <div id="login_form">
+            <div id="login_form">
 
-            <form action="/loginAction" method="POST">
+                <form action="/loginAction" method="POST">
 
 
-                <div class="input-box">
-                    <input id="id" type="text" name="username" placeholder="아이디">
-                    
-                </div>
+                    <div class="input-box">
+                        <input id="id" type="text" name="username" placeholder="아이디">
 
-                <div class="input-box">
-                    <input id="pw" type="password" name="password" placeholder="비밀번호">
-                    
-                </div>
-                
-                <button id="login_button" type="submit" >로그인</button>
+                    </div>
 
-            </form>
+                    <div class="input-box">
+                        <input id="pw" type="password" name="password" placeholder="비밀번호">
+
+                    </div>
+
+                    <button id="login_button" type="submit">로그인</button>
+
+                </form>
+            </div>
         </div>
-    </div>
 
-    <script>
-        function value() {
-            var val = false
-            $('#id').val() == null || $('#id').val() == 'undefined' || $('#id').val() == '' ? alert('아이디를 입력해주세요.') :
-                $('#pw').val() == null || $('#input_password').val() == 'undefined' || $('#input_password').val() == '' ? alert('비밀번호를 입력해주세요.') : val = true;
+        <script>
+            function value() {
+                var val = false
+                $('#id').val() == null || $('#id').val() == 'undefined' || $('#id').val() == '' ? alert('아이디를 입력해주세요.') :
+                    $('#pw').val() == null || $('#input_password').val() == 'undefined' || $('#input_password').val() == '' ? alert('비밀번호를 입력해주세요.') : val = true;
 
-            return val;
-        }
-        $('#login_button').on('click', function () {
-            if (value()) {
-
-                var param = {
-                    "id": $('#id').val(),
-                    "pw": $('#pw').val()
-                }
-                console.log(param);
-                var rvalue = new Array();
-                $.ajax({
-                    type: "post",
-                    url: "/loginAction",
-                    data: param,
-                    async: false,
-                    success: function (data) {
-                        alert('로그인되었습니다.');
-                        console.log(data, "!!!!!!!");
-                    },
-                    error: function (e) {
-                        alert(e.reponseText);
-                    }
-                });
-
-
+                return val;
             }
+            $('#login_button').on('click', function () {
+                if (value()) {
 
-        })
-    </script>
-</section>
+                    var param = {
+                        "id": $('#id').val(),
+                        "pw": $('#pw').val()
+                        
+                    }
+
+                    var login = {
+                        "login": "login"
+                    }
+                    console.log(param);
+                    var rvalue = new Array();
+                    $.ajax({
+                        type: "post",
+                        url: "/loginAction",
+                        data: param,
+                        async: false,
+                        success: function (data) {
+                            alert('로그인되었습니다.');
+                            $.ajax({
+                                type: "get",
+                                url: "/",
+                                data: login,
+                                async: false,
+                                success: function (data) {
+                                    console.log("로그인");
+
+                                },
+                                error: function (e) {
+                                    alert(e.reponseText);
+                                }
+                            });
+                        },
+                        error: function (e) {
+                            alert(e.reponseText);
+                        }
+                    });
+
+
+                }
+
+            })
+        </script>
+    </section>
 
 </body>
 
