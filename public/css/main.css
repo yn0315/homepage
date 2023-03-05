@@ -29,7 +29,7 @@ ul{
 }
 
 #header {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 240px;
@@ -378,9 +378,10 @@ ul{
 }
 
 #about {
+    position: relative;
     text-align: center;
     padding-top: 50px;
-
+    
 }
 
 #about #inner_about {
@@ -395,7 +396,9 @@ ul{
 /* section me 스타일 */
 
 section.me {
+    position: relative;;
     margin-bottom: 150px;
+    
 }
 
 section.me .contact {
