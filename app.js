@@ -163,7 +163,7 @@ app.post('/loginAction', function (req, res) {
     connection.query(select_query, function(err, results, fields){
         if (err) throw err;  // 에러 있으면 띄우고
         // console.log(results);
-        console.log(results.user_id);
+        console.log(results);
         
         if (results.user_id == id) {
             if (results.user_pw == pw) {
