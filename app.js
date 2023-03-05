@@ -172,7 +172,7 @@ app.post('/loginAction', function (req, res) {
             console.log("1111111111111111111111");
             if (results[0].user_pw === $pw) {
                 console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                res.send(200)
+                res.send('200')
                 res.render(__dirname+ '/views/index.ejs', {users : results}); 
                 // getlist.ejs 에 render 해줄건데 , users 에 쿼리문 날리고난 results 를 담을거다 
             }
