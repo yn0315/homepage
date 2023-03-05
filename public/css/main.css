@@ -294,7 +294,7 @@ ul{
 }
 
 
-#img_album_two li img{
+#img_album_two li a img{
     width: 18em;
     transition: 0.7s;
     animation: mainOpen_other 2s;
