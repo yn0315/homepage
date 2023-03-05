@@ -168,7 +168,18 @@ ul{
 
 #img_album_one li img {
     transition: 0.7s;
+    animation: mainOpen 2s;
 }
+
+@keyframes mainOpen {
+    0% {
+        width: 0em;
+    }
+    100% {
+        width: 36em;
+    }
+}
+
 #img_album_one li a:hover img {
     transform: scale(1.2);
     overflow: hidden;
@@ -190,7 +201,18 @@ ul{
 #img_album_two li img{
     width: 18em;
     transition: 0.7s;
+    animation: mainOpen_other 2s;
 }
+
+@keyframes mainOpen_other {
+    0% {
+        width: 0em;
+    }
+    100% {
+        width: 18em;
+    }
+}
+
 
 #img_album_two li a:hover img {
     transform: scale(1.2);
@@ -221,7 +243,17 @@ ul{
 #img_album_three li img{
     width: 18em;
     transition: 0.7s;
+    animation: mainOpen_other 2s;
 
+}
+
+@keyframes mainOpen_other {
+    0% {
+        width: 0em;
+    }
+    100% {
+        width: 18em;
+    }
 }
 
 #img_album_three li a .img-box{
