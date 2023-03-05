@@ -30,7 +30,7 @@ app.use(cors({
     origin: '*', // 모든 도메인 허용
     methods: '*', // 모든 메서드 허용
     allowedHeaders: '*' // 모든 헤더 허용
-  }));
+}));
 app.listen(PORT, function () {
     console.log('server Start.')
 
@@ -40,7 +40,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(express.static('public'));
 app.use(express.static(__dirname + '/public'));
 
-app.use(function(req,res,next) {
+app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", '*');
     res.header('Access-control-Allow-Headers', 'Origin, X-Requested-With,Content-Type,Accept');
     next();
@@ -63,43 +63,43 @@ app.set('view engine', 'ejs');
 
 
 app.get('/', function (req, res) {
-    fs.readFile(__dirname+ '/views/index.ejs', 'utf-8',function (error, data) {
+    fs.readFile(__dirname + '/views/index.ejs', 'utf-8', function (error, data) {
         if (error) {
             console.log(error);
         } else {
             res.writeHead(200, { 'Content-Type': 'text/html' });
 
-           res.end(data); 
+            res.end(data);
         }
     });
-    
+
 });
 
 
 app.get('/join', function (req, res) {
-    fs.readFile(__dirname+ '/public/join.html', 'utf-8',function (error, data) {
+    fs.readFile(__dirname + '/public/join.html', 'utf-8', function (error, data) {
         if (error) {
             console.log(error);
         } else {
             res.writeHead(200, { 'Content-Type': 'text/html' });
 
-           res.end(data); 
+            res.end(data);
         }
     });
-    
+
 });
 
 app.get('/login', function (req, res) {
-    fs.readFile(__dirname+ '/public/login.html', 'utf-8',function (error, data) {
+    fs.readFile(__dirname + '/public/login.html', 'utf-8', function (error, data) {
         if (error) {
             console.log(error);
         } else {
             res.writeHead(200, { 'Content-Type': 'text/html' });
 
-           res.end(data); 
+            res.end(data);
         }
     });
-    
+
 });
 
 app.post('/joinAction', function (req, res) {
@@ -108,28 +108,25 @@ app.post('/joinAction', function (req, res) {
     const pw = req.body.pw;
     const name = req.body.name;
     const email = req.body.email;
-    
+
 
     let insert_query = `insert into my_db.member values('${id}','${pw}','${name}','${email}')`;
     // let select_query = `select * from my_db.contact`;
     console.log(insert_query);
     let commit_query = `commit`;
 
-    connection.query(insert_query, function (err, results, fields)
-    {
-        if(err)
-        {
+    connection.query(insert_query, function (err, results, fields) {
+        if (err) {
             console.log(err);
         }
-        else 
-        {
+        else {
             // const data = fs.readFileSync(__dirname +'/views/index.ejs', 'utf-8');
             console.log('ok');
-            res.header('Content-Type','text/plain');
+            res.header('Content-Type', 'text/plain');
             res.send('200');
             // res.end(res.redirect('/'));
 
-        //    res.end(data); 
+            //    res.end(data); 
 
         }
 
@@ -137,7 +134,7 @@ app.post('/joinAction', function (req, res) {
 
     });
 
-    
+
 
 
 });
@@ -154,32 +151,32 @@ app.post('/loginAction', function (req, res) {
 
     let select_query = `select * from my_db.member where user_id ='${$id}'`;
 
-    connection.query(select_query, function(err, results, fields){
+    connection.query(select_query, function (err, results, fields) {
         if (err) throw err;  // 에러 있으면 띄우고
         // console.log(results);
         console.log(results[0].user_id);
         console.log($id + "2222222");
         console.log($pw + "2222222");
         console.log(results[0].user_pw);
-        
+
         if (results[0].user_id === $id) {
             console.log("1111111111111111111111");
             if (results[0].user_pw === $pw) {
                 console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                 // res.header('Content-Type','text/plain');
                 // res.send('200', {user: results});
-                res.render(__dirname+ '/views/index.ejs',{users : results});
-                
-               
+                res.render(__dirname + '/views/index.ejs', { users: results });
+
+
                 // res.end();
                 // getlist.ejs 에 render 해줄건데 , users 에 쿼리문 날리고난 results 를 담을거다 
             }
         }
-        
+
 
     });
-    
-    
+
+
 });
 
 
@@ -207,37 +204,34 @@ app.post('/submit', function (req, res) {
     console.log(insert_query);
     let commit_query = `commit`;
 
-    connection.query(insert_query, function (err, results, fields)
-    {
-        if(err)
-        {
-            console.log(err);
-        }
-        else 
-        {
-            console.log('ok');
+    if (name != null && telno != null && companyName != null && email != null && budget != null && message != null) {
 
-        }
+        connection.query(insert_query, function (err, results, fields) {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                console.log('ok');
 
-    });
+            }
 
-    connection.query(commit_query, function (err, results, fields)
-    {
-        if(err)
-        {
-            console.log(err);
-        }
-        else 
-        {
-            console.log('ok');
+        });
 
-            // res.header('Content-Type','text/plain');
-            res.end('200');
-            // res.redirect('/');
+        connection.query(commit_query, function (err, results, fields) {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                console.log('ok');
 
-        }
+                // res.header('Content-Type','text/plain');
+                res.end('200');
+                // res.redirect('/');
 
-    });
+            }
+
+        });
+    }
 
 
 
