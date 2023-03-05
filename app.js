@@ -104,23 +104,11 @@ app.get('/login', function (req, res) {
 
 app.post('/joinAction', function (req, res) {
 
-    // res.redirect('/index.html');
-
-    // fs.readFile('/index.html',function(error,data){
-    //     if (error){
-    //         console.log(error);
-    //     }else{
-    //         res.writeHead(200,{'Content-Type': 'text/html'});
-
-    //         res.end(data);
-    //     }
-    // });
-    
     const id = req.body.id;
     const pw = req.body.pw;
     const name = req.body.name;
     const email = req.body.email;
-
+    
 
     let insert_query = `insert into my_db.member values('${id}','${pw}','${name}','${email}')`;
     // let select_query = `select * from my_db.contact`;
@@ -135,8 +123,11 @@ app.post('/joinAction', function (req, res) {
         }
         else 
         {
+            const data = await fs.readFile(path.join(__dirname,'/veiws/index.ejs'));
             console.log('ok');
-            res.send('200',res.redirect('/'));
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+
+           res.end(data); 
 
         }
 
