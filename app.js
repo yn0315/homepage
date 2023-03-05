@@ -123,11 +123,11 @@ app.post('/joinAction', function (req, res) {
         }
         else 
         {
-            const data = fs.readFile(__dirname +'/views/index.ejs', 'utf-8');
+            // const data = fs.readFile(__dirname +'/views/index.ejs', 'utf-8');
             console.log('ok');
             res.header('Content-Type','text/plain');
             res.writeHead(200, { 'Content-Type': 'text/html' });
-            res.end(data);
+            res.end(res.redirect('/'));
 
         //    res.end(data); 
 
