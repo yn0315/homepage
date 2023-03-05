@@ -15,18 +15,38 @@
 
 </head>
 
+
+
+
 <body>
-    <div id="outer_pop_up" style="display: none;">
-        <div id="inner_pop_up">
+
+    <div id="icon_go_box">
+        <ul id="inner_icon">
+            <li><a href="#"><img src="/img/phone.png"></a></li>
+            <li><a href="https://www.naver.com"><img src="/img/naver.png"></a></li>
+            <li><a href="https://www.instagram.com"><img src="/img/insta.png"></a></li>
+            <li><a href="https://www.kakaocorp.com/"><img src="/img/kakao.png"></a></li>
+        </ul>
+    </div>
+    <div id="outer_pop_up" style="top:50px;left:10px" class=""> 
+        <div id="inner_pop_up" style="width:350px;height:350px">
             <!-- 팝업창 안에 이미지 -->
             <p><a href=""><img src="/img/pop_up_img.jpg"></a></p>
             <div class="pop_up_button">
-                <button class="pop_up_24button"><strong>24</strong>시간 동안 다시 열람하지 않습니다.</button>
-                <button class="pop_up_exit">닫기</button>
+                <button type="submit" onclick = "exit_24()" class="pop_up_24button"><strong>24</strong>시간 동안 다시 열람하지 않습니다.</button>
+                <button type="button" onclick ="exit()" class="pop_up_exit">닫기</button>
             </div>
         </div>
 
     </div>
+    <script>
+        function exit() {
+            const $pop = document.getElementById('outer_pop_up');
+            $pop.style.display="none";
+            
+        }
+    </script>
+
 
     <header id="header">
         <div class="inner_header">
