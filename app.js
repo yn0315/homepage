@@ -232,18 +232,8 @@ app.post('/submit', function (req, res) {
             console.log('ok');
 
             // res.header('Content-Type','text/plain');
-            // res.end('200',res.redirect('/'));
+            res.end('200');
             // res.redirect('/');
-
-            fs.readFile(__dirname+ '/views/index.ejs', 'utf-8',function (error, data) {
-                if (error) {
-                    console.log(error);
-                } else {
-                    res.writeHead(200, { 'Content-Type': 'text/html' });
-        
-                   res.end(data); 
-                }
-            });
 
         }
 
