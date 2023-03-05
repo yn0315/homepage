@@ -143,7 +143,36 @@ app.post('/joinAction', function (req, res) {
 
     });
 
-    res.redirect('/index.html');
+    res.redirect('/');
 
 
+});
+
+
+app.post('/loginAction', function (req, res) {
+    //로그인요청시 해야할 것
+    //아이디 정보 가져와서 sql에 있는지 확인
+    //있으면 비밀번호랑 확인
+    //다 맞으면 로그인 완료, 메인으로 이동
+    const id = req.body.id;
+    const pw = req.body.pw;
+    // res.redirect('/');
+
+    let select_query = `select * from my_db.member`;
+
+    connection.query(select_query, function(err, results, fields){
+        if (err) throw err;  // 에러 있으면 띄우고
+        console.log(results);
+        
+        if (results.user_id == id) {
+            if (results.user_pw == pw) {
+
+                res.render(__dirname + '/views/index.ejs', {users : results}); 
+                console.log(results); // getlist.ejs 에 render 해줄건데 , users 에 쿼리문 날리고난 results 를 담을거다 
+            }
+        }
+
+    });
+
+    
 });

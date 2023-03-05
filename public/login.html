@@ -78,12 +78,12 @@
 
 
                 <div class="input-box">
-                    <input id="username" type="text" name="username" placeholder="아이디">
+                    <input id="id" type="text" name="username" placeholder="아이디">
                     
                 </div>
 
                 <div class="input-box">
-                    <input id="password" type="password" name="password" placeholder="비밀번호">
+                    <input id="pw" type="password" name="password" placeholder="비밀번호">
                     
                 </div>
                 
@@ -92,6 +92,42 @@
             </form>
         </div>
     </div>
+
+    <script>
+        function value() {
+            var val = false
+            $('#id').val() == null || $('#id').val() == 'undefined' || $('#id').val() == '' ? alert('아이디를 입력해주세요.') :
+                $('#pw').val() == null || $('#input_password').val() == 'undefined' || $('#input_password').val() == '' ? alert('비밀번호를 입력해주세요.') : val = true;
+
+            return val;
+        }
+        $('#login_button').on('click', function () {
+            if (value()) {
+
+                var param = {
+                    "id": $('#id').val(),
+                    "pw": $('#pw').val()
+                }
+                console.log(param);
+                var rvalue = new Array();
+                $.ajax({
+                    type: "post",
+                    url: "/loginAction",
+                    data: param,
+                    async: false,
+                    success: function (data) {
+                        console.log(data);
+                    },
+                    error: function (e) {
+                        alert(e.reponseText);
+                    }
+                });
+
+
+            }
+
+        })
+    </script>
 </section>
 
 </body>
