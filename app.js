@@ -123,13 +123,13 @@ app.post('/joinAction', function (req, res) {
         }
         else 
         {
-            const data = fs.readFileSync(__dirname +'/views/index.ejs', 'utf-8');
+            // const data = fs.readFileSync(__dirname +'/views/index.ejs', 'utf-8');
             console.log('ok');
             res.header('Content-Type','text/plain');
             res.send('200');
             // res.end(res.redirect('/'));
 
-           res.end(data); 
+        //    res.end(data); 
 
         }
 
@@ -233,7 +233,17 @@ app.post('/submit', function (req, res) {
 
             // res.header('Content-Type','text/plain');
             // res.end('200',res.redirect('/'));
-            res.redirect('/');
+            // res.redirect('/');
+
+            fs.readFile(__dirname+ '/views/index.ejs', 'utf-8',function (error, data) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    res.writeHead(200, { 'Content-Type': 'text/html' });
+        
+                   res.end(data); 
+                }
+            });
 
         }
 
