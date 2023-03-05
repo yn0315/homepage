@@ -136,6 +136,7 @@ app.post('/joinAction', function (req, res) {
         else 
         {
             console.log('ok');
+            res.redirect('/');
 
         }
 
@@ -143,7 +144,7 @@ app.post('/joinAction', function (req, res) {
 
     });
 
-    res.redirect('/');
+    
 
 
 });
