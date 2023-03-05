@@ -107,7 +107,6 @@
                     var param = {
                         "id": $('#id').val(),
                         "pw": $('#pw').val()
-                        
                     }
 
                     var login = {
@@ -122,19 +121,6 @@
                         async: false,
                         success: function (data) {
                             alert('로그인되었습니다.');
-                            $.ajax({
-                                type: "get",
-                                url: "/",
-                                data: login,
-                                async: false,
-                                success: function (data) {
-                                    console.log("로그인");
-
-                                },
-                                error: function (e) {
-                                    alert(e.reponseText);
-                                }
-                            });
                         },
                         error: function (e) {
                             alert(e.reponseText);

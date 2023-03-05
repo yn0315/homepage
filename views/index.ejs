@@ -78,9 +78,11 @@
                 <li><a href="#">MYPAGE</a></li>
             </ul>
             <div class="invisible">
-            <% users.forEach(function (value) { %> 
-                <p><%=value.user_id%>님 </p>
-                <% }); %>
+                <% users.forEach(function (value) { %>
+                    <p>
+                        <%=value.user_id%>님
+                    </p>
+                    <% }); %>
             </div>
 
         </div>
@@ -90,34 +92,51 @@
         <div id="mainScreen">
             <div id="picture_div_one">
                 <ul id="img_album_one">
-                    <li><img src="/img/1.jpg"></li>
+                    <li><a href=""><div class="img-box">
+                        <img src="/img/1.jpg">
+                    </div></a>
+                    </li>
                     <!-- <li><img src="/img/2.jpg"></li>
                     <li><img src="/img/3.jpg"></li>
                     <li><img src="/img/4.jpg"></li>
                     <li><img src="/img/5.jpg"></li> -->
                 </ul>
                 <ul id="img_album_two">
-                    <li><img src="/img/6.jpg"></li>
-                    <li><img src="/img/7.jpg"></li>
-                    <li><img src="/img/8.jpg"></li>
-                    <li><img src="/img/9.jpg"></li>
-                    
+                    <li>
+                        <a href="#">
+                            <div class="img-box"><img src="/img/6.jpg">
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="img-box"><img src="/img/7.jpg">
+                            </div>
+                        </a>
+                    </li>
+                    <li><a href="#">
+                            <div class="img-box"><img src="/img/8.jpg"></div>
+                        </a></li>
+                    <li><a href="#">
+                            <div class="img-box"><img src="/img/9.jpg"></div>
+                        </a></li>
+
                 </ul>
 
             </div>
             <div id="picture_div_two">
-            <ul id="img_album_three">
-                <li><img src="/img/10.jpg"></li>
-                <li><img src="/img/11.jpg"></li>
-                <li><img src="/img/12.jpg"></li>
-                <li><img src="/img/13.jpg"></li>
-                <li><img src="/img/14.jpg"></li>
-                <li><img src="/img/15.jpg"></li>
-                <li><img src="/img/16.jpg"></li>
-                <li><img src="/img/17.jpg"></li>
+                <ul id="img_album_three">
+                    <li><a href="#"><div class="img-box"><img src="/img/10.jpg"></div></a></li>
+                    <li><a href="#"><div class="img-box"><img src="/img/11.jpg"></div></a></li>
+                    <li><a href="#"><div class="img-box"><img src="/img/12.jpg"></div></a></li>
+                    <li><a href="#"><div class="img-box"><img src="/img/13.jpg"></div></a></li>
+                    <li><a href="#"><div class="img-box"><img src="/img/14.jpg"></div></a></li>
+                    <li><a href="#"><div class="img-box"><img src="/img/15.jpg"></div></a></li>
+                    <li><a href="#"><div class="img-box"><img src="/img/16.jpg"></div></a></li>
+                    <li><a href="#"><div class="img-box"><img src="/img/17.jpg"></div></a></li>
 
-            </ul>
-        </div>
+                </ul>
+            </div>
 
         </div>
 
@@ -125,12 +144,12 @@
     </section>
 
     <script>
-        (function(){var w=window;if(w.ChannelIO){return w.console.error("ChannelIO script included twice.")}var ch=function(){ch.c(arguments)};ch.q=[];ch.c=function(args){ch.q.push(args)};w.ChannelIO=ch;function l(){if(w.ChannelIOInitialized){return}w.ChannelIOInitialized=true;var s=document.createElement("script");s.type="text/javascript";s.async=true;s.src="https://cdn.channel.io/plugin/ch-plugin-web.js";var x=document.getElementsByTagName("script")[0];if(x.parentNode){x.parentNode.insertBefore(s,x)}}if(document.readyState==="complete"){l()}else{w.addEventListener("DOMContentLoaded",l);w.addEventListener("load",l)}})();
-      
+        (function () { var w = window; if (w.ChannelIO) { return w.console.error("ChannelIO script included twice.") } var ch = function () { ch.c(arguments) }; ch.q = []; ch.c = function (args) { ch.q.push(args) }; w.ChannelIO = ch; function l() { if (w.ChannelIOInitialized) { return } w.ChannelIOInitialized = true; var s = document.createElement("script"); s.type = "text/javascript"; s.async = true; s.src = "https://cdn.channel.io/plugin/ch-plugin-web.js"; var x = document.getElementsByTagName("script")[0]; if (x.parentNode) { x.parentNode.insertBefore(s, x) } } if (document.readyState === "complete") { l() } else { w.addEventListener("DOMContentLoaded", l); w.addEventListener("load", l) } })();
+
         ChannelIO('boot', {
-          "pluginKey": "06f227e7-8bbb-4f70-a8fb-3e59dd2df902"
+            "pluginKey": "06f227e7-8bbb-4f70-a8fb-3e59dd2df902"
         });
-      </script>
+    </script>
 </body>
 
 </html>

@@ -151,15 +151,47 @@ ul{
     margin: 0;
     display: inline-block;
     float: left;
+    
 }
 
-#img_album_one li img{
+#img_album_one li {
     width: 36em;
+    overflow: hidden;
+}
+
+#img_album_one li a .img-box{
+    overflow: hidden;
+}
+
+#img_album_one li img {
+    transition: 0.7s;
+}
+#img_album_one li a:hover img {
+    transform: scale(1.2);
+    overflow: hidden;
+   
+}
+
+
+
+#img_album_one li img{
+    width: 100%;
+    /* width: 36em; */
+}
+
+#img_album_two li a .img-box{
+    overflow: hidden;
 }
 
 
 #img_album_two li img{
     width: 18em;
+    transition: 0.7s;
+}
+
+#img_album_two li a:hover img {
+    transform: scale(1.2);
+    overflow: hidden;
 }
 
 #img_album_one {
@@ -184,7 +216,19 @@ ul{
 
 #img_album_three li img{
     width: 18em;
+    transition: 0.7s;
+
 }
+
+#img_album_three li a .img-box{
+    overflow: hidden;
+}
+
+#img_album_three li a:hover img {
+    transform: scale(1.2);
+    overflow: hidden;
+}
+
 #img_album_three{
     /* position: relative; */
     display: grid;
