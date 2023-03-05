@@ -165,6 +165,8 @@ app.post('/loginAction', function (req, res) {
         // console.log(results);
         console.log(results[0].user_id);
         console.log($id + "2222222");
+        console.log($pw + "2222222");
+        console.log(results[0].user_pw);
         
         if (results[0].user_id === $id) {
             console.log("1111111111111111111111");
