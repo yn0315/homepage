@@ -164,6 +164,7 @@ app.post('/loginAction', function (req, res) {
         if (err) throw err;  // 에러 있으면 띄우고
         // console.log(results);
         console.log(results[0].user_id);
+        console.log($id + "2222222");
         
         if (results[0].user_id == $id) {
             if (results[0].user_pw == $pw) {
