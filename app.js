@@ -126,7 +126,7 @@ app.post('/joinAction', function (req, res) {
             // const data = fs.readFile(__dirname +'/views/index.ejs', 'utf-8');
             console.log('ok');
             res.header('Content-Type','text/plain');
-            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.send('200');
             res.end(res.redirect('/'));
 
         //    res.end(data); 
