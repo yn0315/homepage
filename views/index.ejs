@@ -216,7 +216,7 @@
                         </div>
                     </div>
                     <div style="text-align: center;">
-                        <button id="submit" type="submit" onlick="javasrcipt:document.forms.submit()" name="submit">SEND</button>
+                        <button id="submit" type="submit" name="submit">SEND</button>
                     </div>
 
                 </form>
@@ -225,7 +225,14 @@
         </div>
 
         <script>
+            const form = document.querySelector('#request_form');
 
+            function submitInput(e){
+                e.prventDefault();
+                console.log(e);
+            };
+
+            form.addEventListener("submit", submitInput);
 
             // function value() {
             //     var val = false
