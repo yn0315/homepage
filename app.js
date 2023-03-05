@@ -174,8 +174,7 @@ app.post('/loginAction', function (req, res) {
                 console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
                 res.render(__dirname+ '/views/index.ejs', {users : results}); 
-                
-                console.log(results); // getlist.ejs 에 render 해줄건데 , users 에 쿼리문 날리고난 results 를 담을거다 
+                // getlist.ejs 에 render 해줄건데 , users 에 쿼리문 날리고난 results 를 담을거다 
             }
         }
 
