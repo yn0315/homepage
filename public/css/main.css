@@ -18,6 +18,9 @@ ul{
     }
 
 /* common */
+.invisible {
+    display: none;
+}
 
 .clearfix::after {
     content: '';
@@ -218,6 +221,16 @@ ul{
 
 }
 
+#join_inner_box p {
+    text-align: left;
+    margin-left: 40px;
+    font-size: 11px;
+}
+
+#join_inner_box #incorrect{
+    color: red;
+}
+
 .joinForm {
     position:relative;
     width:400px;
@@ -236,6 +249,7 @@ ul{
     padding: 10px 10px;
   }
   
+
   
   .id {
     width: 100%;
@@ -317,3 +331,5 @@ ul{
   .btn:hover {
     background-position: right;
   }
+
+  

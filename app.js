@@ -102,3 +102,62 @@ app.get('/login', function (req, res) {
     
 });
 
+app.post('/joinAction', function (req, res) {
+
+    // res.redirect('/index.html');
+
+    // fs.readFile('/index.html',function(error,data){
+    //     if (error){
+    //         console.log(error);
+    //     }else{
+    //         res.writeHead(200,{'Content-Type': 'text/html'});
+
+    //         res.end(data);
+    //     }
+    // });
+    
+    const id = req.body.id;
+    const pw = req.body.pw;
+    const name = req.body.name;
+    const email = req.body.email;
+
+
+    let insert_query = `insert into my_db.member values('${id}','${pw}','${name}','${email}')`;
+    // let select_query = `select * from my_db.contact`;
+    console.log(insert_query);
+    let commit_query = `commit`;
+
+    connection.query(insert_query, function (err, results, fields)
+    {
+        if(err)
+        {
+            console.log(err);
+        }
+        else 
+        {
+            console.log('ok');
+
+        }
+
+
+
+    });
+    connection.query(commit_query, function (err, results, fields)
+    {
+        if(err)
+        {
+            console.log(err);
+        }
+        else 
+        {
+            console.log('ok');
+
+        }
+
+
+
+    });
+    res.redirect('/index.html');
+
+
+});

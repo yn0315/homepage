@@ -9,6 +9,7 @@
 
 
     <link rel="stylesheet" href="./css/main.css">
+    <script src="/script.js"></script>
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -77,27 +78,97 @@
 
                     <h2>회원가입</h2>
                     <div class="textForm">
-                        <input name="loginId" type="text" class="id" placeholder="아이디">
+                        <input id="id" name="loginId" type="text" class="id" placeholder="아이디">
                         </input>
                     </div>
                     <div class="textForm">
-                        <input name="loginPw" type="password" class="pw" placeholder="비밀번호">
+                        <input id="input_password" name="loginPw" type="password" class="pw" placeholder="비밀번호">
                     </div>
                     <div class="textForm">
-                        <input name="loginPwConfirm" type="password" class="pw" placeholder="비밀번호 확인">
+                        <input id="confirm_password" name="loginPwConfirm" type="password" class="pw"
+                            placeholder="비밀번호 확인">
+
+                    </div>
+                    <p id="incorrect" class="invisible">불일치</p>
+                    <p id="correct" class="invisible">일치</p>
+                    <div class="textForm">
+                        <input id="name" name="name" type="text" class="name" placeholder="이름">
                     </div>
                     <div class="textForm">
-                        <input name="name" type="password" class="name" placeholder="이름">
-                    </div>
-                    <div class="textForm">
-                        <input name="email" type="text" class="email" placeholder="이메일">
+                        <input id="email" name="email" type="text" class="email" placeholder="이메일">
                     </div>
 
-                    <input type="submit" class="btn" value="J O I N" />
+                    <input id="submit" type="submit" class="btn" value="J O I N" />
                 </form>
             </div>
         </div>
     </section>
+    <script>
+
+
+        const $pw = document.getElementById('confirm_password');
+        $pw.addEventListener('keyup', function () {
+            password_keyup();
+
+        });
+
+        // pw.keyup(function() {
+        //     let pw1 = document.getElementById('#input_password').val;
+        //     let pw2 = this.val;
+
+        //     if(pw1 != "" || pw2 != "") {
+        //         if(pw1 == pw2) { //일치하면
+
+        //             cor.style.removeClass;
+        //             incor.style.
+        //         } else { //불일치하면
+        //             $('#incorrect').removeClass;
+
+        //         }
+        //     }
+        // })
+
+        function value() {
+            var val = false
+            $('#id').val() == null || $('#id').val() == 'undefined' || $('#id').val() == '' ? alert('아이디를 입력해주세요.') :
+                $('#input_password').val() == null || $('#input_password').val() == 'undefined' || $('#input_password').val() == '' ? alert('비밀번호를 입력해주세요.') :
+                    $('#name').val() == null || $('#name').val() == 'undefined' || $('#name').val() == '' ? alert('이름을 입력해주세요.') :
+                        $('#email').val() == null || $('#email').val() == 'undefined' || $('#email').val() == '' ? alert('email 을 입력해주세요.') : val = true;
+
+            return val;
+        }
+        $('#submit').on('click', function () {
+            if (value()) {
+
+                var param = {
+                    "id": $('#id').val(),
+                    "pw": $('#input_password').val(),
+                    "name": $('#name').val(),
+                    "email": $('#email').val()
+    
+                }
+                console.log(param);
+                var rvalue = new Array();
+                $.ajax({
+                    type: "post",
+                    url: "/joinAction",
+                    data: param,
+                    async: false,
+                    success: function (data) {
+                        console.log(data);
+                    },
+                    error: function (e) {
+                        alert(e.reponseText);
+                    }
+                });
+
+
+            }
+
+        })
+
+
+    </script>
 </body>
 
 </html>
