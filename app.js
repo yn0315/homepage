@@ -142,21 +142,7 @@ app.post('/joinAction', function (req, res) {
 
 
     });
-    connection.query(commit_query, function (err, results, fields)
-    {
-        if(err)
-        {
-            console.log(err);
-        }
-        else 
-        {
-            console.log('ok');
 
-        }
-
-
-
-    });
     res.redirect('/index.html');
 
 
