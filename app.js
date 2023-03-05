@@ -158,7 +158,7 @@ app.post('/loginAction', function (req, res) {
     const pw = req.body.pw;
     // res.redirect('/');
 
-    let select_query = `select * from my_db.member where user_id ='${id}`;
+    let select_query = `select * from my_db.member where user_id ='${id}'`;
 
     connection.query(select_query, function(err, results, fields){
         if (err) throw err;  // 에러 있으면 띄우고
