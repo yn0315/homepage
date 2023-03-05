@@ -173,6 +173,9 @@ app.post('/loginAction', function (req, res) {
             if (results[0].user_pw === $pw) {
                 console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
                 res.header('Content-Type','text/plain');
+                res.send('200', {user: results});
+                // res.render(__dirname+ '/views/index.ejs',{users : results});
+                
                
                 // res.end();
                 // getlist.ejs 에 render 해줄건데 , users 에 쿼리문 날리고난 results 를 담을거다 
@@ -181,6 +184,6 @@ app.post('/loginAction', function (req, res) {
         
 
     });
-    res.render(__dirname+ '/views/index.ejs',{users : results});
+    
     
 });
