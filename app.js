@@ -136,7 +136,7 @@ app.post('/joinAction', function (req, res) {
         else 
         {
             console.log('ok');
-            res.redirect('/');
+            res.send('200',res.redirect('/'));
 
         }
 
