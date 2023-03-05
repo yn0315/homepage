@@ -167,7 +167,8 @@ app.post('/loginAction', function (req, res) {
         if (results.user_id == id) {
             if (results.user_pw == pw) {
 
-                res.render(__dirname + '/views/index.ejs', {users : results}); 
+                res.render('/', {users : results}); 
+                
                 console.log(results); // getlist.ejs 에 render 해줄건데 , users 에 쿼리문 날리고난 results 를 담을거다 
             }
         }
