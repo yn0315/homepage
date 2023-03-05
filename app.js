@@ -63,7 +63,7 @@ app.set('view engine', 'ejs');
 
 
 app.get('/', function (req, res) {
-    fs.readFile('/index.ejs', 'utf-8',function (error, data) {
+    fs.readFile(__dirname+ '/views/index.ejs', 'utf-8',function (error, data) {
         if (error) {
             console.log(error);
         } else {
