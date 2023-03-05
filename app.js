@@ -154,19 +154,19 @@ app.post('/loginAction', function (req, res) {
     //아이디 정보 가져와서 sql에 있는지 확인
     //있으면 비밀번호랑 확인
     //다 맞으면 로그인 완료, 메인으로 이동
-    const id = req.body.id;
-    const pw = req.body.pw;
+    const $id = req.body.id;
+    const $pw = req.body.pw;
     // res.redirect('/');
 
-    let select_query = `select * from my_db.member where user_id ='${id}'`;
+    let select_query = `select * from my_db.member where user_id ='${$id}'`;
 
     connection.query(select_query, function(err, results, fields){
         if (err) throw err;  // 에러 있으면 띄우고
         // console.log(results);
         console.log(results[0].user_id);
         
-        if (results[0].user_id == id) {
-            if (results[0].user_pw == pw) {
+        if (results[0].user_id == $id) {
+            if (results[0].user_pw == $pw) {
                 console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 
                 res.render(__dirname+ '/views/index.ejs', {users : results}); 
