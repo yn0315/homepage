@@ -53,10 +53,12 @@
         }
 
         function exit24() {
-            const winName = document.getElementById('outer_pop_up');
+            const winName = document.getElementById('button24');
             setCookie( winName, "done" , expiredays);
-            var obj = eval( "window." + winName );
-            obj.style.display = "none";
+            // var obj = eval( "window." + winName );
+            // obj.style.display = "none";
+            const exit = document.getElementById('outer_pop_up');
+            exit.className = "invisible";
         }
 
 
