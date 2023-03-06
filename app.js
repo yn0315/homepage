@@ -204,34 +204,34 @@ app.post('/submit', function (req, res) {
     console.log(insert_query);
     let commit_query = `commit`;
 
-    if (name != null && telno != null && companyName != null && email != null && budget != null && message != null) {
 
-        connection.query(insert_query, function (err, results, fields) {
-            if (err) {
-                console.log(err);
-            }
-            else {
-                console.log('ok');
 
-            }
+    connection.query(insert_query, function (err, results, fields) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            console.log('ok');
 
-        });
+        }
 
-        connection.query(commit_query, function (err, results, fields) {
-            if (err) {
-                console.log(err);
-            }
-            else {
-                console.log('ok');
+    });
 
-                res.header('Content-Type','text/plain');
-                res.send('200',res.redirect('/'));
-                // res.redirect('/');
+    connection.query(commit_query, function (err, results, fields) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            console.log('ok');
 
-            }
+            res.header('Content-Type','text/plain');
+            res.send('200',res.redirect('/'));
+            // res.redirect('/');
 
-        });
-    }
+        }
+
+    });
+
 
 
 
