@@ -225,14 +225,14 @@
         </div>
 
         <script>
-            const form = document.querySelector('#request_form');
+            // const form = document.querySelector('#request_form');
 
-            function submitInput(e){
-                e.prventDefault();
-                console.log(e);
-            };
+            // function submitInput(e){
+            //     e.preventDefault();
+            //     console.log(e);
+            // };
 
-            form.addEventListener("submit", submitInput);
+            // form.addEventListener("submit", submitInput);
 
             function value() {
                 var val = false
@@ -267,7 +267,7 @@
                         success: function (data) {
                             
                             alert('메일이 발송되었습니다.');
-                            location.href("http://yn0000.shop");
+                            // location.href("http://yn0000.shop");
                             
                         },
                         error: function (e) {
