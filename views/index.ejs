@@ -234,48 +234,52 @@
 
             form.addEventListener("submit", submitInput);
 
-            // function value() {
-            //     var val = false
-            //     $('#name').val() == null || $('#name').val() == 'undefined' || $('#name').val() == '' ? alert('이름을 입력해주세요.') :
-            //         $('#telno').val() == null || $('#telno').val() == 'undefined' || $('#telno').val() == '' ? alert('연락처를 입력해주세요.') :
-            //             $('#email').val() == null || $('#email').val() == 'undefined' || $('#email').val() == '' ? alert('email 을 입력해주세요.') :
-            //                 $('#message').val() == null || $('#message').val() == 'undefined' || $('#message').val() == '' ? alert('메시지를 입력해주세요.') : val = true;
-            //     return val;
-            // }
-            // $('#submit').on('click', function () {
-            //     if (value()) {
+            function value() {
+                var val = false
+                $('#name').val() == null || $('#name').val() == 'undefined' || $('#name').val() == '' ? alert('이름을 입력해주세요.') :
+                    $('#telno').val() == null || $('#telno').val() == 'undefined' || $('#telno').val() == '' ? alert('연락처를 입력해주세요.') :
+                        $('#email').val() == null || $('#email').val() == 'undefined' || $('#email').val() == '' ? alert('email 을 입력해주세요.') :
+                            $('#message').val() == null || $('#message').val() == 'undefined' || $('#message').val() == '' ? alert('메시지를 입력해주세요.') : val = true;
+            console.log(val);
+                            return val;
+            }
 
-            //         var param = {
-            //             "name": $('#name').val(),
-            //             "telno": $('#telno').val(),
-            //             "companyName": $('#companyName').val() == null || $('#companyName').val() == 'undefined' || $('#companyName').val() == '' ? '' : $('#companyName').val(),
-            //             "email": $('#email').val(),
-            //             "budget": $('#budget').val() == null || $('#budget').val() == 'undefined' || $('#budget').val() == '' ? '' : $('#budget').val(),
-            //             "message": $('#message').val().replace(/(?:\r\n|\r|\n)/g, '<br />')
-            //         }
-            //         console.log(param);
-            //         var rvalue = new Array();
-            //         $.ajax({
-            //             type: "post",
-            //             url: "/submit",
-            //             data: param,
-            //             async: false,
-            //             success: function (data) {
+            
+            $('#submit').on('click', function () {
+                console.log(value);
+                if (value()) {
+                    
+                    var param = {
+                        "name": $('#name').val(),
+                        "telno": $('#telno').val(),
+                        "companyName": $('#companyName').val() == null || $('#companyName').val() == 'undefined' || $('#companyName').val() == '' ? '' : $('#companyName').val(),
+                        "email": $('#email').val(),
+                        "budget": $('#budget').val() == null || $('#budget').val() == 'undefined' || $('#budget').val() == '' ? '' : $('#budget').val(),
+                        "message": $('#message').val().replace(/(?:\r\n|\r|\n)/g, '<br />')
+                    }
+                    console.log(param);
+                    var rvalue = new Array();
+                    $.ajax({
+                        type: "post",
+                        url: "/submit",
+                        data: param,
+                        async: false,
+                        success: function (data) {
                             
-            //                 alert('메일이 발송되었습니다.');
-            //                 location.href("http://yn0000.shop");
+                            alert('메일이 발송되었습니다.');
+                            location.href("http://yn0000.shop");
                             
-            //             },
-            //             error: function (e) {
-            //                 alert(e.reponseText);
-            //             }
-            //         });
+                        },
+                        error: function (e) {
+                            alert(e.reponseText);
+                        }
+                    });
 
 
 
-            //     }
+                }
 
-            // })
+            })
 
 
         </script>
