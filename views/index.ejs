@@ -216,7 +216,7 @@
                         </div>
                     </div>
                     <div style="text-align: center;">
-                        <button id="submit" type="submit" onclick="submit()" name="submit">SEND</button>
+                        <button id="submit" type="button" name="submit">SEND</button>
                     </div>
 
                 </form>
@@ -245,7 +245,7 @@
             }
 
             
-           function submit() {
+            $('#submit').on('click', function () {
                 console.log(value + "if문 바깥쪽");
                 if (value()) {
                     console.log(value +"if문 안쪽");
@@ -280,7 +280,7 @@
 
                 }
 
-            }
+            })
 
 
         </script>
