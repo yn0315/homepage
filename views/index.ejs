@@ -33,7 +33,7 @@
             <!-- 팝업창 안에 이미지 -->
             <p><a href=""><img src="/img/pop_up_img.jpg"></a></p>
             <div class="pop_up_button">
-                <button type="button" onclick="exit24()" class="pop_up_24button">24시간 동안 다시 열람하지 않습니다.</button>
+                <button id="button24" type="button" onclick="exit24()" class="pop_up_24button">24시간 동안 다시 열람하지 않습니다.</button>
                 <button type="button" onclick="exit()" class="pop_up_exit">닫기</button>
             </div>
         </div>
@@ -53,6 +53,7 @@
         }
 
         function exit24() {
+            const winName = document.getElementById('button24');
             setCookie( winName, "done" , expiredays);
             var obj = eval( "window." + winName );
             obj.style.display = "none";
