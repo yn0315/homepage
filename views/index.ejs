@@ -247,7 +247,8 @@
             
             $('#submit').on('click', function () {
                 console.log(value);
-                if (value()) {
+                if (value === true) {
+                    console.log(value, "if문 안쪽");
                     
                     var param = {
                         "name": $('#name').val(),
