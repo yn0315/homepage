@@ -216,7 +216,7 @@
                         </div>
                     </div>
                     <div style="text-align: center;">
-                        <button id="submit" type="submit" name="submit">SEND</button>
+                        <button id="submit" type="button" onclick="submit()" name="submit">SEND</button>
                     </div>
 
                 </form>
@@ -245,7 +245,7 @@
             }
 
             
-            $('#submit').on('click', function () {
+           function submit() {
                 console.log(value + "if문 바깥쪽");
                 if (value()) {
                     console.log(value +"if문 안쪽");
@@ -268,7 +268,7 @@
                         success: function (data) {
                             
                             alert('메일이 발송되었습니다.');
-                            location.href("http://yn0000.shop");
+                            // location.href("http://yn0000.shop");
                             
                         },
                         error: function (e) {
