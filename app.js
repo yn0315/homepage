@@ -167,6 +167,19 @@ app.post('/loginAction', function (req, res) {
                 // res.send('200', {user: results});
                 // res.send('200');
                 console.log(results);
+
+
+
+
+                fs.readFile(__dirname + '/views/index.ejs', 'utf-8', function (error, data) {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        res.writeHead(200, {user: results});
+            
+                        res.end(data);
+                    }
+                });
                
 
 
@@ -174,6 +187,8 @@ app.post('/loginAction', function (req, res) {
                 // res.end();
                 // getlist.ejs 에 render 해줄건데 , users 에 쿼리문 날리고난 results 를 담을거다 
             }
+
+
         }
 
 
