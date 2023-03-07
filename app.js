@@ -169,7 +169,8 @@ app.post('/loginAction', function (req, res) {
                 console.log(results);
                 // res.redirect('/', {user: results});
                 // res.send('200');
-                res.render('index', { users: results });
+                res.render(__dirname + '/index.ejs','utf-8', { users: results });
+                // res.render(__dirname + '/index.ejs');
 
 
 
