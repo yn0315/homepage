@@ -187,7 +187,7 @@ app.post('/loginAction', function (req, res) {
                         console.log(error);
                         res.status(500).send("Internal server error");
                       } else {
-                        res.render('index', { users: results });
+                        res.render(__dirname + '/views/index.ejs', { users: results });
                       }
                 });
                
