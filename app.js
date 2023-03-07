@@ -180,7 +180,7 @@ app.post('/loginAction', function (req, res) {
                     } else {
                         res.writeHead(200, {user: results});
             
-                        res.end(data);
+                        // res.end(data);
                     }
                 });
                
