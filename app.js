@@ -102,6 +102,34 @@ app.get('/login', function (req, res) {
 
 });
 
+
+app.get('/login/:id', function (req, res) {
+    // Post.findById(req.params.title, function (err, post) {
+        
+        // const title = req.body.title;
+        const id = req.params.id;
+
+        let select_query = `select * from my_db.member where user_id = '${id}'`;
+        // let select_query = `select * from my_db.contact`;
+        console.log(select_query);
+        let commit_query = `commit`;
+    
+       
+        connection.query(select_query, function(err, results, fields){
+            if (err) throw err;  // 에러 있으면 띄우고
+            console.log(results);
+            
+            res.render(__dirname + '/views/index.ejs', {users : results}); 
+            console.log(results); // getlist.ejs 에 render 해줄건데 , users 에 쿼리문 날리고난 results 를 담을거다 
+        });
+       
+        // res.render(__dirname + '/views/public/article.ejs', {users : results});
+    // })
+  
+
+});
+
+
 app.post('/joinAction', function (req, res) {
 
     const id = req.body.id;
@@ -220,7 +248,7 @@ app.post('/loginAction', function (req, res) {
       }
     });
   })
-  
+
 app.post('/submit', function (req, res) {
 
     const name = req.body.name;
