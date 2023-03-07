@@ -140,70 +140,91 @@ app.post('/joinAction', function (req, res) {
 });
 
 
-app.post('/loginAction', function (req, res) {
-    //로그인요청시 해야할 것
-    //아이디 정보 가져와서 sql에 있는지 확인
-    //있으면 비밀번호랑 확인
-    //다 맞으면 로그인 완료, 메인으로 이동
-    const $id = req.body.id;
-    const $pw = req.body.pw;
-    // res.redirect('/');
+// app.post('/loginAction', function (req, res) {
+//     //로그인요청시 해야할 것
+//     //아이디 정보 가져와서 sql에 있는지 확인
+//     //있으면 비밀번호랑 확인
+//     //다 맞으면 로그인 완료, 메인으로 이동
+//     const $id = req.body.id;
+//     const $pw = req.body.pw;
+//     // res.redirect('/');
 
-    let select_query = `select * from my_db.member where user_id ='${$id}'`;
+//     let select_query = `select * from my_db.member where user_id ='${$id}'`;
 
-    connection.query(select_query, function (err, results, fields) {
-        if (err) throw err;  // 에러 있으면 띄우고
-        // console.log(results);
-        console.log(results[0].user_id);
-        console.log($id + "2222222");
-        console.log($pw + "2222222");
-        console.log(results[0].user_pw);
+//     connection.query(select_query, function (err, results, fields) {
+//         if (err) throw err;  // 에러 있으면 띄우고
+//         // console.log(results);
+//         console.log(results[0].user_id);
+//         console.log($id + "2222222");
+//         console.log($pw + "2222222");
+//         console.log(results[0].user_pw);
 
-        if (results[0].user_id === $id) {
-            console.log("1111111111111111111111");
-            if (results[0].user_pw === $pw) {
-                console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                // res.header('Content-Type','text/plain');
-                // res.send('200', {user: results});
-                // res.send('200');
-                console.log(results);
-                // res.redirect('/', {user: results});
-                // res.send('200');
-                // res.render(__dirname + '/views/index.ejs', { users: results});
-
-
+//         if (results[0].user_id === $id) {
+//             console.log("1111111111111111111111");
+//             if (results[0].user_pw === $pw) {
+//                 console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//                 // res.header('Content-Type','text/plain');
+//                 // res.send('200', {user: results});
+//                 // res.send('200');
+//                 console.log(results);
+//                 // res.redirect('/', {user: results});
+//                 // res.send('200');
+//                 // res.render(__dirname + '/views/index.ejs', { users: results});
 
 
-                fs.readFile(__dirname + '/views/index.ejs', 'utf-8', function (error, data) {
-                    // if (error) {
-                    //     console.log(error);
-                    // } else {
-                    //     res.writeHead(200, {user: results});
+
+
+//                 fs.readFile(__dirname + '/views/index.ejs', 'utf-8', function (error, data) {
+//                     // if (error) {
+//                     //     console.log(error);
+//                     // } else {
+//                     //     res.writeHead(200, {user: results});
             
-                    //     res.end(data);
-                    // }
+//                     //     res.end(data);
+//                     // }
 
-                    if (error) {
-                        console.log(error);
-                        res.status(500).send("Internal server error");
-                      } else {
-                        res.render(__dirname + '/views/index.ejs', { users: results });
-                      }
-                });
+//                     if (error) {
+//                         console.log(error);
+//                         res.status(500).send("Internal server error");
+//                       } else {
+//                         res.render(__dirname + '/views/index.ejs', { users: results });
+//                       }
+//                 });
                
 
-            }
+//             }
 
 
-        }
+//         }
 
 
+//     });
+
+//     // res.render(__dirname + '/views/index.ejs', { users: results });
+
+
+// });
+
+app.post('/loginAction', function (req, res) {
+    const $id = req.body.id;
+    const $pw = req.body.pw;
+    const select_query = `select * from my_db.member where user_id ='${$id}'`;
+  
+    connection.query(select_query, function (err, results, fields) {
+      if (err) throw err;
+  
+      if (results[0].user_id === $id && results[0].user_pw === $pw) {
+        fs.readFile(__dirname + '/views/index.ejs', 'utf-8', function (error, data) {
+          if (error) {
+            console.log(error);
+            res.status(500).send("Internal server error");
+          } else {
+            res.render(__dirname + '/views/index.ejs', { users: results });
+          }
+        });
+      }
     });
-
-    // res.render(__dirname + '/views/index.ejs', { users: results });
-
-
-});
+  });
 
 
 app.post('/submit', function (req, res) {
