@@ -103,7 +103,7 @@ app.get('/login', function (req, res) {
 });
 
 
-app.get('/login/:id', function (req, res) {
+app.get('/user/:id', function (req, res) {
     // Post.findById(req.params.title, function (err, post) {
         
         // const title = req.body.title;
