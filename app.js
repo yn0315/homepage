@@ -219,7 +219,7 @@ app.post('/loginAction', function (req, res) {
             console.log(error);
             res.status(500).send("Internal server error");
           } else {
-            res.render(__dirname + '/views/index.ejs', { users: results });
+            res.redirect(`/user/${results[0].user_id}`);
           }
         });
       } else {
