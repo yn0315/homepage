@@ -107,9 +107,9 @@ app.get('/user/:id', function (req, res) {
     // Post.findById(req.params.title, function (err, post) {
         
         // const title = req.body.title;
-        const id = req.params.id;
+        const $id = req.params.id;
 
-        let select_query = `select * from my_db.member where user_id = '${id}'`;
+        let select_query = `select * from my_db.member where user_id = '${$id}'`;
         // let select_query = `select * from my_db.contact`;
         console.log(select_query);
         let commit_query = `commit`;
