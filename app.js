@@ -163,9 +163,9 @@ app.post('/loginAction', function (req, res) {
             console.log("1111111111111111111111");
             if (results[0].user_pw === $pw) {
                 console.log("!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-                res.header('Content-Type','text/plain');
+                // res.header('Content-Type','text/plain');
                 // res.send('200', {user: results});
-                res.send('200');
+                // res.send('200');
                 console.log(results);
                
 
