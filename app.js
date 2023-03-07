@@ -169,20 +169,20 @@ app.post('/loginAction', function (req, res) {
                 console.log(results);
                 // res.redirect('/', {user: results});
                 // res.send('200');
-                res.render(__dirname + '/views/index.ejs', { users: results});
+                // res.render(__dirname + '/views/index.ejs', { users: results});
 
 
 
 
-                // fs.readFile(__dirname + '/views/index.ejs', 'utf-8', function (error, data) {
-                //     if (error) {
-                //         console.log(error);
-                //     } else {
-                //         res.writeHead(200, {user: results});
+                fs.readFile(__dirname + '/views/index.ejs', 'utf-8', function (error, data) {
+                    if (error) {
+                        console.log(error);
+                    } else {
+                        res.writeHead(200, {user: results});
             
-                //         res.end(data);
-                //     }
-                // });
+                        res.end(data);
+                    }
+                });
                
 
 
