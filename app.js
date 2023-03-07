@@ -175,13 +175,20 @@ app.post('/loginAction', function (req, res) {
 
 
                 fs.readFile(__dirname + '/views/index.ejs', 'utf-8', function (error, data) {
+                    // if (error) {
+                    //     console.log(error);
+                    // } else {
+                    //     res.writeHead(200, {user: results});
+            
+                    //     res.end(data);
+                    // }
+
                     if (error) {
                         console.log(error);
-                    } else {
-                        res.writeHead(200, {user: results});
-            
-                        res.end(data);
-                    }
+                        res.status(500).send("Internal server error");
+                      } else {
+                        res.render('index', { users: results });
+                      }
                 });
                
 
