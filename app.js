@@ -213,7 +213,7 @@ app.post('/loginAction', function (req, res) {
     connection.query(select_query, function (err, results, fields) {
       if (err) throw err;
   
-      if (results[0].user_id === $id && results[0].user_pw === $pw) {
+      if (results[0] && results[0].user_id === $id && results[0].user_pw === $pw) {
         fs.readFile(__dirname + '/views/index.ejs', 'utf-8', function (error, data) {
           if (error) {
             console.log(error);
@@ -222,6 +222,8 @@ app.post('/loginAction', function (req, res) {
             res.render(__dirname + '/views/index.ejs', { users: results });
           }
         });
+      } else {
+        res.status(401).send("Invalid credentials");
       }
     });
   });
