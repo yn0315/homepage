@@ -166,7 +166,9 @@ app.post('/loginAction', function (req, res) {
                 // res.header('Content-Type','text/plain');
                 // res.send('200', {user: results});
                 // res.send('200');
+                console.log(results);
                 res.render(__dirname + '/views/index.ejs', { users: results });
+
 
 
                 // res.end();
