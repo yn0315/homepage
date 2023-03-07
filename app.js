@@ -214,21 +214,13 @@ app.post('/loginAction', function (req, res) {
       if (err) throw err;
   
       if (results[0] && results[0].user_id === $id && results[0].user_pw === $pw) {
-        fs.readFile(__dirname + '/views/index.ejs', 'utf-8', function (error, data) {
-          if (error) {
-            console.log(error);
-            res.status(500).send("Internal server error");
-          } else {
-            res.redirect(`/user/${results[0].user_id}`);
-          }
-        });
+        res.redirect(`/user/${results[0].user_id}`); // 로그인이 성공했을 때 로그인 정보를 함께 전달
       } else {
         res.status(401).send("Invalid credentials");
       }
     });
-  });
-
-
+  })
+  
 app.post('/submit', function (req, res) {
 
     const name = req.body.name;
