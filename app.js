@@ -194,7 +194,7 @@ app.post('/loginAction', function (req, res) {
 
     });
 
-    res.render(__dirname + '/views/index.ejs', { users: results });
+    // res.render(__dirname + '/views/index.ejs', { users: results });
 
 
 });
