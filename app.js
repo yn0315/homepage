@@ -180,15 +180,11 @@ app.post('/loginAction', function (req, res) {
                     } else {
                         res.writeHead(200, {user: results});
             
-                        // res.end(data);
+                        res.end(data);
                     }
                 });
                
 
-
-
-                // res.end();
-                // getlist.ejs 에 render 해줄건데 , users 에 쿼리문 날리고난 results 를 담을거다 
             }
 
 
