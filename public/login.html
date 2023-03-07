@@ -157,6 +157,7 @@
                         async: false,
                         success: function (data) {
                             alert('로그인되었습니다.');
+                            alert(data);
                             window.location.href = 'http://yn0000.shop/user/' + data[0].user_id;
                         },
                         error: function (e) {
