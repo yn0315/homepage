@@ -167,7 +167,9 @@ app.post('/loginAction', function (req, res) {
                 // res.send('200', {user: results});
                 // res.send('200');
                 console.log(results);
-                res.redirect('/','200', {user: results});
+                // res.redirect('/', {user: results});
+                res.send('200');
+                res.render(__dirname + '/views/index.ejs', { users: results });
 
 
 
