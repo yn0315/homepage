@@ -39,9 +39,20 @@ ul{
     border-right: 1px solid #ddd;
 
 }
+#hamburger_open {
+    display: none;
+}
 
 #menu-trigger span{
     display: none;
+}
+
+
+#hamburger_open {
+    width: 240px;
+    height: 100vh;
+    position: fixed;
+    background: #000;
 }
 
 
@@ -907,6 +918,7 @@ display: none;
     top: 20px;
     width: 50px;
     height: 20px;
+    cursor: pointer;
 }
 #menu-trigger span{
     /* position: absolute; */
@@ -919,38 +931,6 @@ display: none;
     background: #000;
     border-radius: 10px;
 }
-
-/* 
-
-
-  .menu-trigger {
-    margin-right: 70px;
-    margin-bottom: 50px;
-  }
-  .menu-trigger,
-  .menu-trigger span {
-    display: inline-block;
-    transition: all .4s;
-    box-sizing: border-box;
-  }
-  
-  .menu-trigger {
-    position: relative;
-    width: 50px;
-    height: 44px;
-  }
-  
-  .menu-trigger span {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background-color: #fff;
-    border-radius: 4px;
-  }
-
- */
-
 
 
 #header h1 {
@@ -982,6 +962,10 @@ section.me {
     
 }
 
-
-
+#hamburger_open {
+    width: 240px;
+    height: 100vh;
+    position: fixed;
+    background: #000;
 }
+

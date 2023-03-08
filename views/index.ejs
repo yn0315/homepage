@@ -143,12 +143,49 @@
 
         </div>
 
-        <a id="menu-trigger" class="" href="#">
+        <a id="menu-trigger" class="">
             <span></span>
             <span></span>
             <span></span>
           </a>
     </header>
+    <div id="hamburger_open" class="">
+        <div id="inner_hamburger_open">
+            <div id="hamburger_menu">
+                <ul class="menu_ul">
+                    <li><a href="#">포트폴리오</a></li>
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">인터뷰작성</a></li>
+                </ul>
+                <ul id="second_menu" class="menu_ul">
+                    <li><a href="#">브랜딩</a></li>
+                    <li><a href="#">로고디자인</a></li>
+                    <li><a href="#">네이밍</a></li>
+                    <li><a href="#">편집디자인</a></li>
+                    <li><a href="#">홈페이지</a></li>
+
+                </ul>
+                <ul id="third_menu" class="menu_ul">
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">문의</a></li>
+                    <li><a href="#">후기</a></li>
+
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        $('#menu-trigger').on('click', function (e) { {
+            // e.preventDefault();
+            const $hamburgerMenu = document.getElementById('hamburger_open');
+            $hamburgerMenu.style.display="inline-block";
+
+        }
+    </script>
     <section id="main">
         <div id="mainScreen">
             <div id="picture_div_one">
