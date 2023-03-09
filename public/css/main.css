@@ -981,6 +981,20 @@ section.me {
     padding: 0;
 }
 
+.visible {
+    animation: openHam 1s;
+
+}
+
+@keyframes openHam {
+    0% {
+        width: 0px;
+    }
+    100% {
+        width: 220px;
+    }
+}
+
 .ham_logo {
     padding-top: 50px;
     margin-left: 10px;
