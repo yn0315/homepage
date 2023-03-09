@@ -991,8 +991,11 @@ section.me {
         width: 0px;
         opacity: 0;
     }
-    100% {
+    80% {
         width: 220px;
+    }
+    100% {
+        
         opacity: 1;
     }
 }
