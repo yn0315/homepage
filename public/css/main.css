@@ -974,8 +974,7 @@ section.me {
     
 }
 
-
-.ham_inner_header {
+#ham_inner_header {
 
     width: 220px;
     height: 100vh;
