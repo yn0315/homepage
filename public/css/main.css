@@ -1175,7 +1175,7 @@ section.me {
 #about {
     position: relative;
     text-align: center;
-    margin-left: 260px;
+    margin-left: 0;
     padding-top: 50px;
     
 }
