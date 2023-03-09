@@ -982,6 +982,8 @@ section.me {
     line-height: 2;
     z-index: 10;
     background: white;
+    margin: 0;
+    padding: 0;
 }
 
 
