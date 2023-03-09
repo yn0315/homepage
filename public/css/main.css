@@ -1027,7 +1027,8 @@ section.me {
 
 #picture_div_one {
     display: block;
-    position: absolute;
+    position: relative;
+    text-align: center;
     
     
     margin-bottom: 0;
