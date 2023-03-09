@@ -1007,6 +1007,162 @@ section.me {
 }
 
 
+}
 
+@media screen and (max-width: 414px) {
+
+    section.me .contact h3 {
+        color: #000;
+        font-size: 15px;
+        font-weight: 400;
+        margin-bottom: 5%
+    }
+    
+
+    
+#mainScreen{
+    display: block;
+    margin: 0;
+}
+
+#picture_div_one {
+    display: inline-block;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    margin: 0;
+    
+}
+
+#img_album_one {
+    margin: 0;
+    display: inline-block;
+    float: left;
+    margin: 0;
+    
+}
+
+#img_album_one li {
+    width: 36em;
+    overflow: hidden;
+}
+
+#img_album_one li a .img-box{
+    overflow: hidden;
+}
+
+#img_album_one li img {
+    transition: 0.7s;
+    animation: mainOpen 2s;
+}
+
+@keyframes mainOpen {
+    0% {
+        width: 0em;
+    }
+    100% {
+        width: 36em;
+    }
+}
+
+#img_album_one li a:hover img {
+    transform: scale(1.2);
+    overflow: hidden;
+   
+}
+
+
+
+#img_album_one li img{
+    width: 100%;
+    /* width: 36em; */
+}
+
+#img_album_two li a .img-box{
+    overflow: hidden;
+}
+
+
+#img_album_two li a img{
+    width: 18em;
+    transition: 0.7s;
+    animation: mainOpen_other 2s;
+}
+
+@keyframes mainOpen_other {
+    0% {
+        width: 0em;
+    }
+    100% {
+        width: 18em;
+    }
+}
+
+
+#img_album_two li a:hover img {
+    transform: scale(1.2);
+    overflow: hidden;
+}
+
+#img_album_one {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+#img_album_two{
+    /* position: relative; */
+    margin: 0;
+    display: grid;
+    
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+
+    /* 각 요소들 위치 변경 */
+    justify-items: center;
+    align-items: center;
+    gap: 0;
+
+}
+
+
+#img_album_three li img{
+    width: 18em;
+    transition: 0.7s;
+    animation: mainOpen_other 2s;
+
+}
+
+@keyframes mainOpen_other {
+    0% {
+        width: 0em;
+    }
+    100% {
+        width: 18em;
+    }
+}
+
+#img_album_three li a .img-box{
+    overflow: hidden;
+}
+
+#img_album_three li a:hover img {
+    transform: scale(1.2);
+    overflow: hidden;
+}
+
+#img_album_three{
+    /* position: relative; */
+    display: grid;
+    
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto;
+    /* grid-auto-columns: 100px; */
+
+    /* 각 요소들 위치 변경 */
+    justify-items: center;
+    align-items: center;
+    gap: 0;
+    margin: 0;
+
+}
 
 }
