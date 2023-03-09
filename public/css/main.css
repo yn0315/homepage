@@ -930,6 +930,7 @@ section.me .contact h3 {
     width: 50px;
     height: 20px;
     cursor: pointer;
+    background-color: transparent;
 }
 #menu-trigger span{
     /* position: absolute; */
