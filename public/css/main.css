@@ -1027,7 +1027,8 @@ section.me {
 }
 
 #picture_div_one {
-    display: block;
+    display: flex;
+    flex-direction: row;
 /* 
     margin-bottom: 0;
     padding-bottom: 0; */
@@ -1036,10 +1037,7 @@ section.me {
 }
 
 #img_album_one {
-    /* margin: 0; */
     display: block;
-    /* float: left; */
-    
 }
 
 #img_album_one ul {
@@ -1057,7 +1055,7 @@ section.me {
 }
 
 #img_album_one li img {
-    display: block;
+
     transition: 0.7s;
     animation: mainOpen 2s;
 }
