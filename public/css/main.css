@@ -1028,7 +1028,7 @@ section.me {
 
 #picture_div_one {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 /* 
     margin-bottom: 0;
     padding-bottom: 0; */
