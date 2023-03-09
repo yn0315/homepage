@@ -1027,6 +1027,7 @@ section.me {
 
 #picture_div_one {
     display: block;
+
     margin-bottom: 0;
     padding-bottom: 0;
     margin: 0;
@@ -1042,7 +1043,11 @@ section.me {
 }
 
 #img_album_one ul {
-    display: block;
+    text-align: center;
+
+		vertical-align:middle;
+
+		display: table-cell;
 } 
 
 #img_album_one li {
