@@ -989,9 +989,11 @@ section.me {
 @keyframes openHam {
     0% {
         width: 0px;
+        opacity: 0;
     }
     100% {
         width: 220px;
+        opacity: 1;
     }
 }
 
