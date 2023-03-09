@@ -1021,6 +1021,12 @@ section.me {
     }
 
     
+    #main {
+        position: relative;
+        left: 50px;
+        width: 80%;
+        margin-top: 0;
+    }
 #mainScreen{
     display: block;
     margin: 0;
@@ -1029,11 +1035,7 @@ section.me {
 #picture_div_one {
     display: flex;
     flex-direction: column;
-/* 
-    margin-bottom: 0;
-    padding-bottom: 0; */
-    /* margin: 0; */
-    
+
 }
 
 #img_album_one {
