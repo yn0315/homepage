@@ -1027,6 +1027,8 @@ section.me {
 
 #picture_div_one {
     display: block;
+    position: absolute;
+    
     
     margin-bottom: 0;
     padding-bottom: 0;
@@ -1114,7 +1116,7 @@ section.me {
 }
 
 #img_album_two{
-    position: relative;
+    /* position: relative; */
     margin: 0;
     display: grid;
     
