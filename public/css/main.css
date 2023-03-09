@@ -1036,7 +1036,7 @@ section.me {
 #img_album_one {
     margin: 0;
     display: block;
-    float: left;
+    /* float: left; */
     margin: 0;
     
 }
