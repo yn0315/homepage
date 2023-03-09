@@ -1021,6 +1021,13 @@ section.me {
     }
     
 
+    #main {
+        position: relative;
+        display: block;
+        width: 80%;
+        margin-top: 0;
+
+    }
     
 #mainScreen{
     display: block;
