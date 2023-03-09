@@ -1058,6 +1058,7 @@ section.me {
 }
 
 #img_album_one li img {
+    display: block;
     transition: 0.7s;
     animation: mainOpen 2s;
 }
