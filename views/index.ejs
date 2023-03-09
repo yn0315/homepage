@@ -72,7 +72,7 @@
 
         function exit24() {
             const winName = document.getElementById('button24');
-            setCookie(winName, "done", ((1/24)/60)/12);
+            setCookie(winName, "done", ((1 / 24) / 60) / 12);
             // var obj = eval( "window." + winName );
             // obj.style.display = "none";
             console.log('pop_up24');
@@ -148,44 +148,47 @@
             <span></span>
             <span></span>
         </button>
-        <div id="hamburger_open" class="">
-            <div id="inner_hamburger_open">
-                <div id="hamburger_menu">
-                    <ul class="menu_ul">
-                        <li><a href="#">포트폴리오</a></li>
-                        <li><a href="#">회사소개</a></li>
-                        <li><a href="#">인터뷰작성</a></li>
-                    </ul>
-                    <ul id="second_menu" class="menu_ul">
-                        <li><a href="#">브랜딩</a></li>
-                        <li><a href="#">로고디자인</a></li>
-                        <li><a href="#">네이밍</a></li>
-                        <li><a href="#">편집디자인</a></li>
-                        <li><a href="#">홈페이지</a></li>
-    
-                    </ul>
-                    <ul id="third_menu" class="menu_ul">
-                        <li><a href="#">공지사항</a></li>
-                        <li><a href="#">문의</a></li>
-                        <li><a href="#">후기</a></li>
-    
-                    </ul>
-                </div>
-    
+        <div class="ham_inner_header">
+            <h1 class="logo">
+                <a href="http://yn0000.shop">
+                    <img id="logo_img" src="/img/logo_img.gif" alt="로고">
+                </a>
+            </h1>
+
+            <div id="menu">
+                <ul class="menu_ul">
+                    <li><a href="#">포트폴리오</a></li>
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">인터뷰작성</a></li>
+                </ul>
+                <ul id="second_menu" class="menu_ul">
+                    <li><a href="#">브랜딩</a></li>
+                    <li><a href="#">로고디자인</a></li>
+                    <li><a href="#">네이밍</a></li>
+                    <li><a href="#">편집디자인</a></li>
+                    <li><a href="#">홈페이지</a></li>
+
+                </ul>
+                <ul id="third_menu" class="menu_ul">
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">문의</a></li>
+                    <li><a href="#">후기</a></li>
+
+                </ul>
             </div>
-    
-        </div>
     </header>
 
 
     <script>
 
-        $('#menu-trigger').on('click', function (e) { {
-            // e.preventDefault();
-            const $hamburgerMenu = document.getElementById('hamburger_open');
-            // $hamburgerMenu.style.display="inline-block";
+        $('#menu-trigger').on('click', function (e) {
+            {
+                // e.preventDefault();
+                const $hamburgerMenu = document.getElementById('hamburger_open');
+                // $hamburgerMenu.style.display="inline-block";
 
-        }
+            }
+        })
     </script>
     <section id="main">
         <div id="mainScreen">
