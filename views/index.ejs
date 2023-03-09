@@ -186,7 +186,9 @@
                 // e.preventDefault();
                 const $hamburgerMenu = document.getElementById('ham_inner_header');
                 if ($hamburgerMenu.className === "invisible") {
-                    $hamburgerMenu.className = "";
+                    $hamburgerMenu.className = "visible";
+                    $hamburgerMenu.style.width = '220px';
+
                 } else {
                     $hamburgerMenu.className = "invisible";
                 }
