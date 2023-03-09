@@ -897,7 +897,9 @@ section.me .contact .request_box {
 }
 
 @media screen and (max-width: 768px) {
-
+body {
+    display: block;
+}
     
 #header {
     width: 760px;
