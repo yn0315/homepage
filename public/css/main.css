@@ -974,12 +974,16 @@ section.me {
     
 }
 
-#hamburger_open {
-    width: 240px;
+
+.ham_inner_header {
+
+    width: 220px;
     height: 100vh;
-    position: fixed;
-    background: #000;
+    font-size: 13px;
+    line-height: 2;
+    z-index: 10;
 }
+
 
 
 
