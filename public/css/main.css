@@ -1172,4 +1172,24 @@ section.me {
 
 }
 
+#about {
+    position: relative;
+    text-align: center;
+    margin-left: 260px;
+    padding-top: 50px;
+    
+}
+
+#about #inner_about {
+    display: inline-block;
+}
+
+#about #inner_about p {
+    font-size: 15px;
+}
+
+#about #inner_about img {
+    width: 300px;
+}
+
 }
