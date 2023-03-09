@@ -72,7 +72,7 @@
 
         function exit24() {
             const winName = document.getElementById('button24');
-            setCookie(winName, "done", 1);
+            setCookie(winName, "done", (1/24)/60/12);
             // var obj = eval( "window." + winName );
             // obj.style.display = "none";
             console.log('pop_up24');
@@ -143,11 +143,11 @@
 
         </div>
 
-        <a id="menu-trigger" class="">
+        <button id="menu-trigger" type="button" class="">
             <span></span>
             <span></span>
             <span></span>
-          </a>
+        </button>
     </header>
     <div id="hamburger_open" class="">
         <div id="inner_hamburger_open">

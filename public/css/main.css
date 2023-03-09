@@ -39,6 +39,8 @@ ul{
     border-right: 1px solid #ddd;
 
 }
+
+
 #hamburger_open {
     display: none;
 }
@@ -444,7 +446,7 @@ section.me .contact{
 
 section.me .contact .request_box {
     display: inline-block;
-    width: 1120px;
+    width: 70vw;
     height: 550px;
     border: 1px solid black;
     text-align: center;
@@ -528,6 +530,7 @@ textarea.contactForm {
     border: none;
     border-bottom: 1px solid black;
     padding: 0;
+    
 
 }
 
@@ -740,7 +743,7 @@ section.me .contact {
 
 section.me .contact h3 {
     color: #000;
-    font-size: 35px;
+    font-size: 30px;
     font-weight: 400;
     margin-bottom: 5%
 }
@@ -756,11 +759,11 @@ section.me .contact{
 
 section.me .contact .request_box {
     display: inline-block;
-    width: 700px;
+    width: 60vw;
     height: 550px;
     border: 1px solid black;
     text-align: center;
-    font-size: 16px;
+    font-size: 13px;
 
 
 }
@@ -911,6 +914,14 @@ section.me .contact .request_box {
 display: none;
 }
 
+
+section.me .contact h3 {
+    color: #000;
+    font-size: 25px;
+    font-weight: 400;
+    margin-bottom: 5%
+}
+
 /* 햄버거버튼 */
 
 #menu-trigger {
@@ -956,7 +967,7 @@ display: none;
 }
 
 section.me {
-    position: relative;;
+    position: relative;
     margin-left: 0;
     margin-bottom: 150px;
     
@@ -969,3 +980,6 @@ section.me {
     background: #000;
 }
 
+
+
+}
