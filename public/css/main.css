@@ -1049,6 +1049,7 @@ section.me {
 } 
 
 #img_album_one li {
+    display: block;
     width: 18em;
     overflow: hidden;
 }
