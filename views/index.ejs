@@ -148,7 +148,7 @@
             <span></span>
             <span></span>
         </button>
-        <div class="ham_inner_header">
+        <div class="ham_inner_header" class="invisible">
             <h1 class="logo">
                 <a href="http://yn0000.shop">
                     <img id="logo_img" src="/img/logo_img.gif" alt="로고">
@@ -184,7 +184,8 @@
         $('#menu-trigger').on('click', function (e) {
             {
                 // e.preventDefault();
-                const $hamburgerMenu = document.getElementById('hamburger_open');
+                const $hamburgerMenu = document.getElementById('ham_inner_header');
+                $hamburgerMenu.className = "";
                 // $hamburgerMenu.style.display="inline-block";
 
             }
