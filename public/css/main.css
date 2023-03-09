@@ -1021,7 +1021,7 @@ section.me {
 
     
 #mainScreen{
-    display: inline-block;
+    display: block;
     margin: 0;
 }
 
