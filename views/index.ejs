@@ -185,12 +185,12 @@
             {
                 // e.preventDefault();
                 const $hamburgerMenu = document.getElementById('ham_inner_header');
-                // if ($hamburgerMenu.className === "invisible") {
-                //     $hamburgerMenu.className = "";
-                // } else {
-                //     $hamburgerMenu.className = "invisible";
-                // }
-                $hamburgerMenu.classList.toggle = "invisible";
+                if ($hamburgerMenu.className === "invisible") {
+                    $hamburgerMenu.className = "";
+                } else {
+                    $hamburgerMenu.className = "invisible";
+                }
+                // $hamburgerMenu.classList.toggle = "invisible";
                 // $hamburgerMenu.style.display="inline-block";
 
             }
