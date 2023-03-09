@@ -1027,7 +1027,7 @@ section.me {
 
 #picture_div_one {
     display: block;
-
+    
     margin-bottom: 0;
     padding-bottom: 0;
     margin: 0;
@@ -1043,11 +1043,7 @@ section.me {
 }
 
 #img_album_one ul {
-    text-align: center;
-
-		vertical-align:middle;
-
-		display: table-cell;
+    display: block;
 } 
 
 #img_album_one li {
@@ -1118,7 +1114,7 @@ section.me {
 }
 
 #img_album_two{
-    /* position: relative; */
+    position: relative;
     margin: 0;
     display: grid;
     
