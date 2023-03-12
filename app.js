@@ -291,6 +291,7 @@ app.post('/shopping', function(req, res) {
     }
     
     res.render('cart', {data : data});
+    res.end();
     // res.send('200');
 
 
