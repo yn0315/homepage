@@ -66,12 +66,12 @@ app.use(session({
 
     secret: 'secret', //세션을 암호화해줌
     resave: false, //세션을 항상 저장할지 여부
-    saveUninitialized : true, //세션아이디를 사용하기 전까지 미발급
+    saveUninitialized: true, //세션아이디를 사용하기 전까지 미발급
     store: sessionStore,//데이터 저장형식
     cookie: {
         maxAge: 24000 * 60 * 60 // 쿠키 유효기간 24시간
-      }
-    
+    }
+
 }));
 
 // req.session. ..... 로 사용 가능
@@ -105,7 +105,7 @@ app.get('/', function (req, res) {
     //         res.end(data);
     //     }
     // });
-    res.render('index', {displayname : session.displayname});
+    res.render('index', { displayname: session.displayname });
 
 });
 
@@ -142,7 +142,7 @@ app.get('/homepage', function (req, res) {
 
     //sql에 저장된 정보를 같이 보낼 경우 딕셔너리로 만들어서 통째로 보내야 함
 
-    res.render('homepage', {displayname : session.displayname});
+    res.render('homepage', { displayname: session.displayname });
 
 
 });
@@ -193,33 +193,33 @@ app.post('/loginAction', function (req, res) {
     const $id = req.body.id;
     const $pw = req.body.pw;
     const select_query = `select * from my_db.member where user_id ='${$id}'`;
-  
+
     connection.query(select_query, function (err, results, fields) {
-      if (err) throw err;
-  
-      if (results[0] && results[0].user_id === $id && results[0].user_pw === $pw) {
+        if (err) throw err;
 
-        req.session.displayname = req.body.id;
-        console.log(req.session.displayname);
-        req.session.save(() =>{
-            res.send('200');
-        });
-        // res.redirect(`/user/${results[0].user_id}`); // 로그인이 성공했을 때 로그인 정보를 함께 전달
-        // res.header('Content-Type', 'text/plain');
-        // res.send('200',res.render(__dirname + '/views/index.ejs', {data : results[0].user_id}));
-        
-      }else {
-          res.send('500');
-      }
+        if (results[0] && results[0].user_id === $id && results[0].user_pw === $pw) {
+
+            req.session.displayname = req.body.id;
+            console.log(req.session.displayname);
+            req.session.save(() => {
+                res.send('200');
+            });
+            // res.redirect(`/user/${results[0].user_id}`); // 로그인이 성공했을 때 로그인 정보를 함께 전달
+            // res.header('Content-Type', 'text/plain');
+            // res.send('200',res.render(__dirname + '/views/index.ejs', {data : results[0].user_id}));
+
+        } else {
+            res.send('500');
+        }
     });
-  })
+})
 
-  app.get('/logout', function (req, res) {
+app.get('/logout', function (req, res) {
     delete req.session.displayname;
     req.session.save(() => {
         res.redirect('/');
     })
-  })
+})
 
 
 app.post('/submit', function (req, res) {
@@ -266,7 +266,7 @@ app.post('/submit', function (req, res) {
         else {
             console.log('ok');
 
-            res.header('Content-Type','text/plain');
+            res.header('Content-Type', 'text/plain');
             res.send('200');
             // res.redirect('/');
 
@@ -279,10 +279,10 @@ app.post('/submit', function (req, res) {
 
 });
 
-app.post('/shopping', function(req, res) {
+app.post('/shopping', function (req, res) {
 
     let name = req.body.name;
-    let goodsName = req.body.goodsName; 
+    let goodsName = req.body.goodsName;
     let number = req.body.number;
     let price = req.body.price;
     let session = req.session;
@@ -290,19 +290,19 @@ app.post('/shopping', function(req, res) {
     //sql로 집어넣기
 
     let select_query = `select * from my_db.cart where goods_name ='${goodsName}'`;
-    
-    
+
+
     connection.query(select_query, function (err, results, fields) {
         console.log(results);
         if (err) {
             console.log(err);
         }
-        else if(results) {
+        else if (results) {
             let goodsNum = results[0].goods_number;
-            console.log(goodsNum,"goodsNum!!!");
+            console.log(goodsNum, "goodsNum!!!");
 
             let update_query = `update my_db.cart set goods_number ='${number + goodsNum}' where user_id ='${session.displayname}'`;
-            connection/query(update_query, function(err,results, fields){
+            connection / query(update_query, function (err, results, fields) {
 
 
                 if (err) {
@@ -311,24 +311,24 @@ app.post('/shopping', function(req, res) {
                 else {
                     // const data = fs.readFileSync(__dirname +'/views/index.ejs', 'utf-8');
                     console.log('ok');
-                    res.render('cart', {sendData : results});
+                    res.render('cart', { sendData: results });
                     // res.end(res.redirect('/'));
-        
+
                     //    res.end(data); 
-        
+
                 }
 
 
             })
 
-           
 
-        }else {
+
+        } else {
             let insert_query = `insert into my_db.cart values('${name}','${goodsName}','${number}','${price}')`;
             // let select_query = `select * from my_db.contact`;
             console.log(insert_query);
             let commit_query = `commit`;
-        
+
             connection.query(insert_query, function (err, results, fields) {
                 if (err) {
                     console.log(err);
@@ -339,13 +339,12 @@ app.post('/shopping', function(req, res) {
                     res.header('Content-Type', 'text/plain');
                     res.send('200');
                     // res.end(res.redirect('/'));
-        
-                    //    res.end(data); 
-        
-                }
-        }
 
-    })
+                    //    res.end(data); 
+
+                }
+            })
+        }
 
     })
 
@@ -368,7 +367,7 @@ app.get('/cart', function (req, res) {
     //sql문 가져와서 보내기
     let session = req.session;
 
-    
+
     let select_query = `select * from my_db.cart where user_id ='${session.displayname}'`;
     // let select_query = `select * from my_db.contact`;
 
@@ -382,12 +381,12 @@ app.get('/cart', function (req, res) {
 
             console.log('ok');
 
-            res.render('cart', {sendData : results});
+            res.render('cart', { sendData: results });
 
 
         }
     })
 
-    
+
 
 });
