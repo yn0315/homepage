@@ -84,15 +84,13 @@
                 <form action="/shopping" method="post">
                     <ul>
                         <% if(sendData){ %>
-                            <% sendData.forEach(function (value) { %>  
                             
                             
                         <li>
-                            <p><%=value.goodsName%></p>
-                            <p><span><%=value.price%></span>원</p><p><%=value.number%>개</p>
+                            <p><%=sendData.goodsName%></p>
+                            <p><span><%=sendData.price%></span>원</p><p><%=sendData.number%>개</p>
                         
                         </li>
-                        <% }); %>
                         
                         <% } %>
                     </ul>
