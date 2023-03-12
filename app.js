@@ -310,7 +310,7 @@ app.get('/cart', function (req, res) {
     //     price : req.body.price
     // }
 
-
+    console.log("cart!!!!!!!!");
     res.render('cart', {data : data});
 
 });
