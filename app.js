@@ -21,7 +21,7 @@ app.use((morgan('dev')));
 
 const PORT = process.env.PORT || 3000;
 
-var data = {};
+var sendData = {};
 
 // app.use(cors());
 
@@ -286,14 +286,14 @@ app.post('/shopping', function(req, res) {
     // let price = req.body.price;
     var session = req.session;
 
-    data = {
+    sendData = {
         displayname : session.displayname,
         goodsName : req.body.goodsName,
         number : req.body.number,
         price : req.body.price
     }
 
-    console.log(data, "data!!!!");
+    console.log(sendData, "data!!!!");
 
     res.send('200');
 
@@ -305,6 +305,18 @@ app.post('/shopping', function(req, res) {
 app.get('/cart', function (req, res) {
 
     // console.log("cart!!!!!!!!");
+    if(data != null) {
     res.render('cart', {data : data});
-
+    }
+    else {
+        fs.readFile(__dirname + '/views/cart.ejs', 'utf-8', function (error, data) {
+            if (error) {
+                console.log(error);
+            } else {
+                res.writeHead(200, { 'Content-Type': 'text/html' });
+    
+                res.end(data);
+            }
+        });
+    }
 });

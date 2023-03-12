@@ -58,7 +58,7 @@
                 <p>(주)디자인오브</p>
                 <p>brand@brand.co.kr</p>
             </div>
-            <% if(data.displayname){ %>
+            <% if(sendData.displayname){ %>
                 <ul id="and_page">
                     <li><a id="login_logout" href="/logout">LOGOUT</a></li>
                     <li><a href="#">CART</a></li>
@@ -83,12 +83,12 @@
             <div id="inner_list_div">
                 <form action="/shopping" method="post">
                     <ul>
-                        <% if(data){ %>
+                        <% if(sendData){ %>
                             
                             
                         <li>
-                            <p><%=data.goodsName%></p>
-                            <p><span><%=data.price%></span>원</p><input class="inputNum" type="text" placeholder="수량"><%=data.number%>
+                            <p><%=sendData.goodsName%></p>
+                            <p><span><%=sendData.price%></span>원</p><input class="inputNum" type="text" placeholder="수량"><%=sendData.number%>
                         
                         </li>
                         
