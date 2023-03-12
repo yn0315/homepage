@@ -116,12 +116,20 @@
                 console.log("cartbutton click!");
                 console.log(e.target.parentElement.id);
                 console.log(e.target.previousSibling.value);
+                console.log(e.target.previousSibling.previousSibling);
+                let p =e.target.previousSibling.previousSibling;
+                let span = p.querySelector('span');
+                let price = span.textContent;
+
+                console.log(price, "price!!!");
+                console.log(e.target.previousSibling.value * price);
                 console.log('<%=displayname%>');
 
                 var param = {
                     "name": '<%=displayname%>',
                     "goodsName": e.target.parentElement.id,
-                    "number": e.target.previousSibling.value
+                    "number": e.target.previousSibling.value,
+                    "price": e.target.previousSibling.value * price 
                 }
                 console.log(param);
                 $.ajax({
