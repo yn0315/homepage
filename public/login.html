@@ -87,7 +87,7 @@
 
                     </div>
 
-                    <button id="login_button" onclick="loginSubmit()" type="button">로그인</button>
+                    <button id="login_button" type="button">로그인</button>
 
                 </form>
             </div>
@@ -95,26 +95,26 @@
 
         <script>
             //인풋창이 비어있는지 확인
-            function isEmpty(value) {
-                if(value === null || value === 'undefined' || value === "") {
-                    return false;
-                }else {
-                    return true;
-                }
+            // function isEmpty(value) {
+            //     if(value === null || value === 'undefined' || value === "") {
+            //         return false;
+            //     }else {
+            //         return true;
+            //     }
 
-            }
+            // }
 
-            //로그인 함수
-            function loginSubmit() {
-                let form = document.form;
-                let id = isEmpty(document.getElementById('id'));
-                let pw = isEmpty(document.getElementById('pw'));
-                if(id === true && pw === true) {
-                    form.submit();
-                }else {
-                    alert('다시 입력해주세요');
-                }
-            }
+            // //로그인 함수
+            // function loginSubmit() {
+            //     let form = document.form;
+            //     let id = isEmpty(document.getElementById('id'));
+            //     let pw = isEmpty(document.getElementById('pw'));
+            //     if(id === true && pw === true) {
+            //         form.submit();
+            //     }else {
+            //         alert('다시 입력해주세요');
+            //     }
+            // }
 
             // function value() {
             //     var val = false
@@ -167,26 +167,25 @@
                 // }
 
 
-            //     if (value()) {
-            //         var param = {
-            //             "id": $('#id').val(),
-            //             "pw": $('#pw').val()
-            //         }
-            //         $.ajax({
-            //             type: "post",
-            //             url: "/loginAction",
-            //             data: param,
-            //             async: false,
-            //             success: function (data) {
-            //                 alert('로그인되었습니다.');
-            //                 alert(data);
-            //                 window.location.href = 'http://yn0000.shop/user/' + data[0].user_id;
-            //             },
-            //             error: function (e) {
-            //                 alert(e.reponseText);
-            //             }
-            //         });
-            //     }
+                if (value()) {
+                    var param = {
+                        "id": $('#id').val(),
+                        "pw": $('#pw').val()
+                    }
+                    $.ajax({
+                        type: "post",
+                        url: "/loginAction",
+                        data: param,
+                        async: false,
+                        success: function (data) {
+                            alert('로그인되었습니다.');
+                            alert(data);
+                        },
+                        error: function (e) {
+                            alert(e.reponseText);
+                        }
+                    });
+                }
 
             // })
         </script>
