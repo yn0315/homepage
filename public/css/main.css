@@ -1013,6 +1013,12 @@ section.me {
     margin-top: 0;
 }
 
+#login_form_outBox {
+    text-align: center;
+    margin-left: 10%;
+    margin-top: 100px;
+}
+
 
 }
 
@@ -1199,4 +1205,9 @@ section.me {
     width: 300px;
 }
 
+#login_form_outBox {
+    text-align: center;
+    margin-left: 10%;
+    margin-top: 100px;
+}
 }
