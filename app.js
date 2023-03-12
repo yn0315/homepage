@@ -310,14 +310,14 @@ app.get('/cart', function (req, res) {
     // }
     // else {
         
-        fs.readFile(__dirname + '/views/cart.ejs', 'utf-8', function (error, data) {
-            if (error) {
-                console.log(error);
-            } else {
-                res.writeHead(200, { 'Content-Type': 'text/html' });
+        // fs.readFile(__dirname + '/views/cart.ejs', 'utf-8', function (error, data) {
+        //     if (error) {
+        //         console.log(error);
+        //     } else {
+        //         res.writeHead(200, { 'Content-Type': 'text/html' });
     
-                res.end(data);
-            }
-        });
+        //         res.end(data);
+        //     }
+        // });
     // }
 });
