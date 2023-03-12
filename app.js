@@ -280,20 +280,44 @@ app.post('/submit', function (req, res) {
 
 app.post('/shopping', function(req, res) {
 
-    // let name = req.body.name;
-    // let goodsName = req.body.goodsName; 
-    // let number = req.body.number;
-    // let price = req.body.price;
+    let name = req.body.name;
+    let goodsName = req.body.goodsName; 
+    let number = req.body.number;
+    let price = req.body.price;
     var session = req.session;
 
-    sendData = {
-        displayname : session.displayname,
-        goodsName : req.body.goodsName,
-        number : req.body.number,
-        price : req.body.price
-    }
+    //sql로 집어넣기
 
-    res.send('200');
+
+    let insert_query = `insert into my_db.cart values('${name}','${goodsName}','${number}','${price}')`;
+    // let select_query = `select * from my_db.contact`;
+    console.log(insert_query);
+    let commit_query = `commit`;
+
+    connection.query(insert_query, function (err, results, fields) {
+        if (err) {
+            console.log(err);
+        }
+        else {
+            // const data = fs.readFileSync(__dirname +'/views/index.ejs', 'utf-8');
+            console.log('ok');
+            res.header('Content-Type', 'text/plain');
+            res.send('200');
+            // res.end(res.redirect('/'));
+
+            //    res.end(data); 
+
+        }
+    })
+
+    // sendData = {
+    //     displayname : session.displayname,
+    //     goodsName : req.body.goodsName,
+    //     number : req.body.number,
+    //     price : req.body.price
+    // }
+
+    // res.send('200');
 
 
 
@@ -302,19 +326,31 @@ app.post('/shopping', function(req, res) {
 
 app.get('/cart', function (req, res) {
 
-    // if(sendData != null) {
-    res.render('cart', {sendData : sendData});
-    // }
-    // else {
-        
-    //     fs.readFile(__dirname + '/views/cart.ejs', 'utf-8', function (error, data) {
-    //         if (error) {
-    //             console.log(error);
-    //         } else {
-    //             res.writeHead(200, { 'Content-Type': 'text/html' });
+    //sql문 가져와서 보내기
+
     
-    //             res.end(data);
-    //         }
-    //     });
-    // }
+    let select_query = `select * from my_db.cart where user_id =${session.displayname}`;
+    // let select_query = `select * from my_db.contact`;
+
+
+    connection.query(select_query, function (err, results, fields) {
+        console.log(results[0]);
+        if (err) {
+            console.log(err);
+        }
+        else {
+            // const data = fs.readFileSync(__dirname +'/views/index.ejs', 'utf-8');
+            console.log('ok');
+            res.header('Content-Type', 'text/plain');
+            res.send('200');
+            res.render('cart', {sendData : results[0]});
+            // res.end(res.redirect('/'));
+
+            //    res.end(data); 
+
+        }
+    })
+
+    
+
 });
