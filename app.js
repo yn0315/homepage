@@ -204,6 +204,7 @@ app.post('/loginAction', function (req, res) {
       if (results[0] && results[0].user_id === $id && results[0].user_pw === $pw) {
         // res.redirect(`/user/${results[0].user_id}`); // 로그인이 성공했을 때 로그인 정보를 함께 전달
         res.render('/', {data : result[0].user_id});
+        res.end();
       } else {
         // res.status(401).send("Invalid credentials");
       }
