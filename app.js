@@ -91,15 +91,16 @@ app.set('view engine', 'ejs');
 
 
 app.get('/', function (req, res) {
-    fs.readFile(__dirname + '/views/index.ejs', 'utf-8', function (error, data) {
-        if (error) {
-            console.log(error);
-        } else {
-            res.writeHead(200, { 'Content-Type': 'text/html' });
+    // fs.readFile(__dirname + '/views/index.ejs', 'utf-8', function (error, data) {
+    //     if (error) {
+    //         console.log(error);
+    //     } else {
+    //         res.writeHead(200, { 'Content-Type': 'text/html' });
 
-            res.end(data);
-        }
-    });
+    //         res.end(data);
+    //     }
+    // });
+    res.render(__dirname + '/views/index.ejs', {displayname : req.session.displayname});
 
 });
 
@@ -202,9 +203,12 @@ app.post('/loginAction', function (req, res) {
       if (err) throw err;
   
       if (results[0] && results[0].user_id === $id && results[0].user_pw === $pw) {
+
+        req.session.displayname = req.body.id;
         // res.redirect(`/user/${results[0].user_id}`); // 로그인이 성공했을 때 로그인 정보를 함께 전달
-        res.header('Content-Type', 'text/plain');
-        res.send('200',res.render(__dirname + '/views/index.ejs', {data : results[0].user_id}));
+        // res.header('Content-Type', 'text/plain');
+        // res.send('200',res.render(__dirname + '/views/index.ejs', {data : results[0].user_id}));
+        res.redirect('/');
       }else {
           res.send('500');
       }
