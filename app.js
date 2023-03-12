@@ -278,8 +278,9 @@ app.post('/submit', function (req, res) {
 
 app.post('/shopping', function(req, res) {
 
-    const name = req.body.name;
-    const number = req.body.number;
+    let name = req.body.name;
+    let goodsName = req.body.goodsName; 
+    let number = req.body.number;
     res.send('200');
 
 

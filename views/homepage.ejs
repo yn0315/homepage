@@ -119,7 +119,8 @@
                 console.log('<%=displayname%>');
 
                 var param = {
-                    "name": e.target.parentElement.id,
+                    "name": '<%=displayname%>',
+                    "goodsName": e.target.parentElement.id,
                     "number": e.target.previousSibling.value
                 }
                 console.log(param);
