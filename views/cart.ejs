@@ -34,7 +34,7 @@
                     <li><a href="#">로고디자인</a></li>
                     <li><a href="#">네이밍</a></li>
                     <li><a href="#">편집디자인</a></li>
-                    <li><a href="#">홈페이지</a></li>
+                    <li><a href="/homepage">홈페이지</a></li>
 
                 </ul>
                 <ul id="third_menu" class="menu_ul">
@@ -84,13 +84,15 @@
                 <form action="/shopping" method="post">
                     <ul>
                         <% if(sendData){ %>
+                            <% sendData.forEach(function (value) { %>  
                             
                             
                         <li>
-                            <p><%=sendData.goodsName%></p>
-                            <p><span><%=sendData.price%></span>원</p><p><%=sendData.number%>개</p>
+                            <p><%=value.goodsName%></p>
+                            <p><span><%=value.price%></span>원</p><p><%=value.number%>개</p>
                         
                         </li>
+                        <% }); %>
                         
                         <% } %>
                     </ul>
