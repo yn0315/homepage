@@ -311,7 +311,7 @@ app.post('/shopping', function (req, res) {
                 else {
                     // const data = fs.readFileSync(__dirname +'/views/index.ejs', 'utf-8');
                     console.log('ok');
-                    res.render('cart', { sendData: results });
+                    res.send('200');
                     // res.end(res.redirect('/'));
 
                     //    res.end(data); 
