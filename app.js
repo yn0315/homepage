@@ -284,7 +284,7 @@ app.post('/shopping', function(req, res) {
     let goodsName = req.body.goodsName; 
     let number = req.body.number;
     let price = req.body.price;
-    var session = req.session;
+    let session = req.session;
 
     //sql로 집어넣기
 
@@ -327,6 +327,7 @@ app.post('/shopping', function(req, res) {
 app.get('/cart', function (req, res) {
 
     //sql문 가져와서 보내기
+    let session = req.session;
 
     
     let select_query = `select * from my_db.cart where user_id =${session.displayname}`;
