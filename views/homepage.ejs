@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header id="header">
+        <div class="inner_header">
+            <h1 class="logo">
+                <a href="http://yn0000.shop">
+                    <img id="logo_img" src="/img/logo_img.gif" alt="로고">
+                </a>
+            </h1>
+
+            <div id="menu">
+                <ul class="menu_ul">
+                    <li><a href="#">포트폴리오</a></li>
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">인터뷰작성</a></li>
+                </ul>
+                <ul id="second_menu" class="menu_ul">
+                    <li><a href="#">브랜딩</a></li>
+                    <li><a href="#">로고디자인</a></li>
+                    <li><a href="#">네이밍</a></li>
+                    <li><a href="#">편집디자인</a></li>
+                    <li><a href="#">홈페이지</a></li>
+
+                </ul>
+                <ul id="third_menu" class="menu_ul">
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">문의</a></li>
+                    <li><a href="#">후기</a></li>
+
+                </ul>
+            </div>
+            <!-- 파일다운로드 -->
+            <a id="file_download" href="/txt/server.txt" target="_blank" download="server.txt">회사소개서 다운</a>
+
+            <div class="tel_no">
+                <div>
+                    <p>1544-1234</p>
+                    <p>평일 9-6시 (점심 01:00 - 2시)</p>
+                </div>
+            </div>
+            <div class="info_box">
+                <p>우리 1005-000-000000</p>
+                <p>(주)디자인오브</p>
+                <p>brand@brand.co.kr</p>
+            </div>
+            <% if(displayname){ %>
+            <ul id="and_page">
+                <li><a id="login_logout" href="/logout">LOGOUT</a></li>
+                <li><a href="#">CART</a></li>
+                <li><a href="#">MYPAGE</a></li>
+            </ul>
+            <!-- <div id ="loginUser" class="">
+                
+                    <p id="userN"><%= displayname %>님</p>
+                </div> -->
+                <% }else{ %>
+                    <ul id="and_page">
+                        <li><a id="login_logout" href="/login">LOGIN</a></li>
+                        <li><a href="/join">JOIN</a></li>
+                        <li><a href="#">CART</a></li>
+                        <li><a href="#">MYPAGE</a></li>
+                    </ul>
+                <% } %>
+            
+
+        </div>
+
+        <section id="homepageSection">
+            <div id="list_div">
+                <ul>
+                    <li></li>
+                </ul>
+
+            </div>
+            
+        </section>
+    
+</body>
+</html>

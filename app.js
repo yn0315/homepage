@@ -133,29 +133,27 @@ app.get('/login', function (req, res) {
 
 });
 
+app.get('/homepage', function (req, res) {
 
-app.get('/user/:id', function (req, res) {
-    // Post.findById(req.params.title, function (err, post) {
-        
-        // const title = req.body.title;
-        const $id = req.params.id;
-        console.log($id);
+    // var session = req.session;
 
-        let select_query = `select * from my_db.member where user_id = '${$id}'`;
-        // let select_query = `select * from my_db.contact`;
-        console.log(select_query);
-        let commit_query = `commit`;
-    
-       
-        connection.query(select_query, function(err, results, fields){
-            if (err) throw err;  // 에러 있으면 띄우고
-            console.log(results);
-            
-            res.render(__dirname + '/views/index.ejs', {users : results}); 
-            
-        });
+    // res.render('homepage', {displayname : session.displayname});
+    fs.readFile(__dirname + '/views/homepage.ejs', 'utf-8', function (error, data) {
+        if (error) {
+            console.log(error);
+        } else {
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+
+            res.end(data);
+        }
+    });
+
+
 
 });
+
+
+
 
 
 app.post('/joinAction', function (req, res) {
