@@ -293,8 +293,6 @@ app.post('/shopping', function(req, res) {
         price : req.body.price
     }
 
-    console.log(sendData, "data!!!!");
-
     res.send('200');
 
 
@@ -304,20 +302,19 @@ app.post('/shopping', function(req, res) {
 
 app.get('/cart', function (req, res) {
 
-    console.log("cart!!!!!!!!");
-    if(sendData != null) {
+    // if(sendData != null) {
     res.render('cart', {sendData : sendData});
-    }
-    else {
+    // }
+    // else {
         
-        fs.readFile(__dirname + '/views/cart.ejs', 'utf-8', function (error, data) {
-            if (error) {
-                console.log(error);
-            } else {
-                res.writeHead(200, { 'Content-Type': 'text/html' });
+    //     fs.readFile(__dirname + '/views/cart.ejs', 'utf-8', function (error, data) {
+    //         if (error) {
+    //             console.log(error);
+    //         } else {
+    //             res.writeHead(200, { 'Content-Type': 'text/html' });
     
-                res.end(data);
-            }
-        });
-    }
+    //             res.end(data);
+    //         }
+    //     });
+    // }
 });
