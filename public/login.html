@@ -123,7 +123,7 @@
 
             //     return val;
             // }
-            // $('#login_button').on('click', function () {
+            $('#login_button').on('click', function () {
                 // if (value()) {
 
                 //     var param = {
@@ -176,7 +176,7 @@
                         type: "post",
                         url: "/loginAction",
                         data: param,
-                        async: true,
+                        async: false,
                         success: function (data) {
                             alert('로그인되었습니다.');
                             alert(data);
@@ -187,7 +187,7 @@
                     });
                 }
 
-            // })
+            })
         </script>
     </section>
 
