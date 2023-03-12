@@ -90,16 +90,16 @@ app.set('view engine', 'ejs');
 
 
 app.get('/', function (req, res) {
-    // fs.readFile(__dirname + '/views/index.ejs', 'utf-8', function (error, data) {
-    //     if (error) {
-    //         console.log(error);
-    //     } else {
-    //         res.writeHead(200, { 'Content-Type': 'text/html' });
+    fs.readFile(__dirname + '/views/index.ejs', 'utf-8', function (error, data) {
+        if (error) {
+            console.log(error);
+        } else {
+            res.send(200, {displayname : req.session.displayname});
 
-    //         res.end(data);
-    //     }
-    // });
-    res.render(__dirname + '/views/index.ejs', {displayname : req.session.displayname});
+            res.end(data);
+        }
+    });
+    
 
 });
 
