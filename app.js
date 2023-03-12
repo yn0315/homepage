@@ -1,3 +1,6 @@
+var session = require('express-session');
+var mysqlStore = require('express-mysql-session')(session);
+
 var express = require('express');
 var app = express();
 var fs = require('fs');
@@ -46,7 +49,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-const conn = {  // mysql 접속 설정
+const options = {  // mysql 접속 설정
     host: '127.0.0.1',
     port: 3306,
     user: 'root',
@@ -54,8 +57,33 @@ const conn = {  // mysql 접속 설정
     database: 'my_db'
 };
 
-var connection = mysql.createConnection(conn); // DB 커넥션 생성
+var sessionStore = new mysqlStore(options);
+
+app.use(session({
+    key:'session',
+    secret: 'secret', //세션을 암호화해줌
+    resave: false, //세션을 항상 저장할지 여부
+    saveUninitialized : true, //세션아이디를 사용하기 전까지 미발급
+    store: sessionStore,//데이터 저장형식
+    cookie: {
+        maxAge: 24000 * 60 * 60 // 쿠키 유효기간 24시간
+      }
+    
+}));
+
+// req.session. ..... 로 사용 가능
+
+// req.session.destroy();
+// res.clearCookie('sid');
+// req.session.userid = id;
+
+
+
+
+var connection = mysql.createConnection(options); // DB 커넥션 생성
 connection.connect();   // DB 접속
+
+
 
 // var router = express.Router();
 
