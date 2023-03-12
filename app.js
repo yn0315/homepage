@@ -330,7 +330,7 @@ app.get('/cart', function (req, res) {
     let session = req.session;
 
     
-    let select_query = `select * from my_db.cart where user_id =${session.displayname}`;
+    let select_query = `select * from my_db.cart where user_id ='${session.displayname}''`;
     // let select_query = `select * from my_db.contact`;
 
 
