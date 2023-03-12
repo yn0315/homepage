@@ -11,6 +11,7 @@ const path = require('path');
 const http = require('http');
 const morgan = require('morgan');
 const cors = require('cors');
+const { query } = require('express');
 // const options = {
 //     key: fs.readFileSync('/path/to/private.key'),
 //     cert: fs.readFileSync('/path/to/certificate.crt'),
@@ -288,7 +289,41 @@ app.post('/shopping', function(req, res) {
 
     //sql로 집어넣기
 
+    let select_query = `select * from my_db.cart where goods_name ='${goodsName}'`;
+    
 
+    connection.query(select_query, function (err, results, fields) {
+        console.log(results);
+        if (err) {
+            console.log(err);
+        }
+        else {
+            let goodsNum = results[0].goods_number;
+
+            let update_query = `update my_db.cart set goods_number ='${number + goodsNum}' where user_id ='${session.displayname}''`;
+            connection/query(update_query, function(err,results, fields){
+
+
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    // const data = fs.readFileSync(__dirname +'/views/index.ejs', 'utf-8');
+                    console.log('ok');
+                    res.render('cart', {sendData : results});
+                    // res.end(res.redirect('/'));
+        
+                    //    res.end(data); 
+        
+                }
+
+
+            })
+
+           
+
+        }
+    })
     let insert_query = `insert into my_db.cart values('${name}','${goodsName}','${number}','${price}')`;
     // let select_query = `select * from my_db.contact`;
     console.log(insert_query);
