@@ -205,6 +205,7 @@ app.post('/loginAction', function (req, res) {
       if (results[0] && results[0].user_id === $id && results[0].user_pw === $pw) {
 
         req.session.displayname = req.body.id;
+        console.log(req.session.displayname);
         req.session.save(() =>{
             res.redirect('/');
         });
