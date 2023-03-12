@@ -289,7 +289,7 @@ app.post('/shopping', function (req, res) {
 
     //sql로 집어넣기
 
-    let select_query = `select * from my_db.cart where goods_name ='${goodsName}'`;
+    let select_query = `select * from my_db.cart where user_id = '${session.displayname}' , goods_name ='${goodsName}'`;
 
 
     connection.query(select_query, function (err, results, fields) {
