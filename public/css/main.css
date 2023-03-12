@@ -713,18 +713,24 @@ textarea.contactForm {
 
 #homepageSection {
     position: relative;
-    left: 270px;
-    width: 80%;
-    margin-top: 0;
+    left: 300px;
+    width: 70vw;
+    /* height: 100vh; */
+    /* margin-top: 0; */
+    /* margin-left: 270px; */
+    /* background: #000; */
+    /* position: absolute; */
+    top: 100px;
 
 }
 
 #list_div {
+    position: relative;
     text-align: center;
 }
 
 #inner_list_div {
-    display: inline-block;
+    /* display: inline-block; */
 }
 
 #inner_list_div ul li {
@@ -736,8 +742,18 @@ textarea.contactForm {
     width: 200px;
 }
 
+.inputNum {
+    border: 1px solid black;
+    padding: 5px;
+}
 
-
+.cartButton {
+    margin-left: 20px;
+    padding: 5px;
+    background: #000;
+    color: white;
+    font-weight: bold;
+}
 
 
 

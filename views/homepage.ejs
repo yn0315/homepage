@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    
+
     <link rel="stylesheet" href="./css/main.css">
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
+
 <body>
     <header id="header">
         <div class="inner_header">
@@ -57,12 +59,12 @@
                 <p>brand@brand.co.kr</p>
             </div>
             <% if(displayname){ %>
-            <ul id="and_page">
-                <li><a id="login_logout" href="/logout">LOGOUT</a></li>
-                <li><a href="#">CART</a></li>
-                <li><a href="#">MYPAGE</a></li>
-            </ul>
-            <!-- <div id ="loginUser" class="">
+                <ul id="and_page">
+                    <li><a id="login_logout" href="/logout">LOGOUT</a></li>
+                    <li><a href="#">CART</a></li>
+                    <li><a href="#">MYPAGE</a></li>
+                </ul>
+                <!-- <div id ="loginUser" class="">
                 
                     <p id="userN"><%= displayname %>님</p>
                 </div> -->
@@ -73,28 +75,42 @@
                         <li><a href="#">CART</a></li>
                         <li><a href="#">MYPAGE</a></li>
                     </ul>
-                <% } %>
-            
+                    <% } %>
+
 
         </div>
+    </header>
 
-        <section id="homepageSection">
-            <div id="list_div">
-                <div id="inner_list_div">
+    <section id="homepageSection">
+        <div id="list_div">
+            <div id="inner_list_div">
                 <form action="/shopping" method="post">
                     <ul>
-                    <li><img src="/img/kimchi.jpg"><p></p></li>
-                    <li><img src="/img/king.jpg"></li>
-                    <li><img src="/img/moo.jpg"></li>
-                    <li><img src="/img/neoguri.jpg"></li>
-                    <li><img src="/img/sin.jpg"></li>
-                    <li><img src="/img/zzapa.jpg"></li>
-                </ul>
-            </form>
-        </div>
+                        <li id="kimchi"><img src="/img/kimchi.jpg">
+                            <p>김치라면</p><input class="inputNum" type="text" placeholder="수량"><button class="cartButton" type="button">담기</button>
+                        </li>
+                        <li id="king"><img src="/img/king.jpg">
+                            <p>왕뚜껑</p><input class="inputNum" type="text" placeholder="수량"><button class="cartButton" type="button">담기</button>
+                        </li>
+                        <li id="moo"><img src="/img/moo.jpg">
+                            <p>무파마</p><input class="inputNum"  type="text" placeholder="수량"><button class="cartButton" type="button">담기</button>
+                        </li>
+                        <li id="neoguri"><img src="/img/neoguri.jpg">
+                            <p>너구리</p><input class="inputNum" type="text" placeholder="수량"><button class="cartButton" type="button">담기</button>
+                        </li>
+                        <li id="sin"><img src="/img/sin.jpg">
+                            <p>신라면</p><input class="inputNum" type="text" placeholder="수량"><button class="cartButton" type="button">담기</button>
+                        </li>
+                        <li id="zzapa"><img src="/img/zzapa.jpg">
+                            <p>짜파구리</p><input class="inputNum" type="text" placeholder="수량"><button class="cartButton" type="button">담기</button>
+                        </li>
+                    </ul>
+                </form>
             </div>
-            
-        </section>
-    
+        </div>
+
+    </section>
+
 </body>
+
 </html>
