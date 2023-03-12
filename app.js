@@ -342,8 +342,8 @@ app.get('/cart', function (req, res) {
         else {
             // const data = fs.readFileSync(__dirname +'/views/index.ejs', 'utf-8');
             console.log('ok');
-            res.header('Content-Type', 'text/plain');
-            res.send('200');
+            // res.header('Content-Type', 'text/plain');
+            // res.send('200');
             res.render('cart', {sendData : results});
             // res.end(res.redirect('/'));
 
