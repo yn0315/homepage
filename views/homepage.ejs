@@ -146,6 +146,16 @@
                         "price": e.target.previousSibling.value * price
 
                     }
+                }else{
+
+                    param = {
+                        "name": 'cookie..?',
+                        "goodsName": e.target.parentElement.id,
+                        "number": e.target.previousSibling.value,
+                        "price": e.target.previousSibling.value * price
+
+                    }
+
                 }
                 console.log(param);
                 $.ajax({
