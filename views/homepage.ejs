@@ -108,6 +108,40 @@
                 </form>
             </div>
         </div>
+        <script>
+
+
+            $('.cartButton').on('click', function (e) {
+
+                console.log("cartbutton click!");
+                console.log(e.target.parentElement.id);
+                console.log(e.target.previousSibling.value);
+
+                var param = {
+                    "name": e.target.parentElement.id,
+                    "number": e.target.previousSibling.value
+                }
+                console.log(param);
+                $.ajax({
+                    type: "post",
+                    url: "/shopping",
+                    data: param,
+                    async: false,
+                    success: function (data) {
+
+                        alert('장바구니에 등록되었습니다.');
+
+                    },
+                    error: function (e) {
+                        alert(e.reponseText);
+                    }
+                });
+
+
+
+
+            })
+        </script>
 
     </section>
 
