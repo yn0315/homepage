@@ -135,18 +135,19 @@ app.get('/login', function (req, res) {
 
 app.get('/homepage', function (req, res) {
 
-    // var session = req.session;
+    var session = req.session;
 
-    // res.render('homepage', {displayname : session.displayname});
-    fs.readFile(__dirname + '/views/homepage.ejs', 'utf-8', function (error, data) {
-        if (error) {
-            console.log(error);
-        } else {
-            res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.render('homepage', {displayname : session.displayname});
+    
+    // fs.readFile(__dirname + '/views/homepage.ejs', 'utf-8', function (error, data) {
+    //     if (error) {
+    //         console.log(error);
+    //     } else {
+    //         res.writeHead(200, { 'Content-Type': 'text/html' });
 
-            res.end(data);
-        }
-    });
+    //         res.end(data);
+    //     }
+    // });
 
 
 
