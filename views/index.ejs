@@ -133,13 +133,7 @@
                 <li><a href="#">CART</a></li>
                 <li><a href="#">MYPAGE</a></li>
             </ul>
-            <div class="">
-                <!-- <% if displayname !== null %> -->
-                <% var displayname = req.session.displayname%>
-                    <p>
-                        <%=displayname%>님
-                    </p>
-
+            <div id ="loginUser" class="">
             </div>
 
         </div>
@@ -334,6 +328,13 @@
         </div>
 
         <script>
+            function display(){
+            var displayname = req.session.displayname();
+            }
+
+            display();
+
+
             // const form = document.querySelector('#request_form');
 
             // function submitInput(e){
