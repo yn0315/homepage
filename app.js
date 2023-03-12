@@ -21,6 +21,8 @@ app.use((morgan('dev')));
 
 const PORT = process.env.PORT || 3000;
 
+var data = {};
+
 // app.use(cors());
 
 // const corsOptions = {
@@ -282,17 +284,17 @@ app.post('/shopping', function(req, res) {
     let goodsName = req.body.goodsName; 
     let number = req.body.number;
     let price = req.body.price;
+    var session = req.session;
 
-    let data = {
+    data = {
         displayname : session.displayname,
         goodsName : req.body.goodsName,
         number : req.body.number,
         price : req.body.price
     }
     
-    res.render('cart', {data : data});
-    res.end();
-    // res.send('200');
+
+    res.send('200');
 
 
 
@@ -300,13 +302,13 @@ app.post('/shopping', function(req, res) {
 
 
 app.get('/cart', function (req, res) {
-    var session = req.session;
-    let data = {
-        displayname : session.displayname,
-        goodsName : req.body.goodsName,
-        number : req.body.number,
-        price : req.body.price
-    }
+    // var session = req.session;
+    // let data = {
+    //     displayname : session.displayname,
+    //     goodsName : req.body.goodsName,
+    //     number : req.body.number,
+    //     price : req.body.price
+    // }
 
 
     res.render('cart', {data : data});
