@@ -299,6 +299,7 @@ app.post('/shopping', function(req, res) {
         }
         else if(results) {
             let goodsNum = results[0].goods_number;
+            console.log(goodsNum,"goodsNum!!!");
 
             let update_query = `update my_db.cart set goods_number ='${number + goodsNum}' where user_id ='${session.displayname}'`;
             connection/query(update_query, function(err,results, fields){
