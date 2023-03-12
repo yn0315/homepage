@@ -134,6 +134,11 @@
                 <li><a href="#">MYPAGE</a></li>
             </ul>
             <div id ="loginUser" class="">
+                <% if(displayname){ %>
+                    <h2>Welcome! <%= displayname %></h2>
+                <% }else{ %>
+                    <h2> Please Login. </h2>
+                <% } %>
             </div>
 
         </div>
@@ -328,11 +333,6 @@
         </div>
 
         <script>
-            function display(){
-            var displayname = session.displayname;
-            }
-
-            display();
 
 
             // const form = document.querySelector('#request_form');
