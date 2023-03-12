@@ -344,7 +344,7 @@ app.get('/cart', function (req, res) {
             console.log('ok');
             // res.header('Content-Type', 'text/plain');
             // res.send('200');
-            res.render('cart', {sendData : results});
+            res.render('cart', {sendData : results},{displayname: session.displayname});
             // res.end(res.redirect('/'));
 
             //    res.end(data); 
