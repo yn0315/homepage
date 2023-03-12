@@ -334,7 +334,7 @@ app.get('/cart', function (req, res) {
 
 
     connection.query(select_query, function (err, results, fields) {
-        console.log(results[0]);
+        console.log(results);
         if (err) {
             console.log(err);
         }
@@ -343,7 +343,7 @@ app.get('/cart', function (req, res) {
             console.log('ok');
             res.header('Content-Type', 'text/plain');
             res.send('200');
-            res.render('cart', {sendData : results[0]});
+            res.render('cart', {sendData : results});
             // res.end(res.redirect('/'));
 
             //    res.end(data); 
