@@ -137,18 +137,9 @@ app.get('/homepage', function (req, res) {
 
     var session = req.session;
 
+    //sql에 저장된 정보를 같이 보낼 경우 딕셔너리로 만들어서 통째로 보내야 함
+
     res.render('homepage', {displayname : session.displayname});
-    
-    // fs.readFile(__dirname + '/views/homepage.ejs', 'utf-8', function (error, data) {
-    //     if (error) {
-    //         console.log(error);
-    //     } else {
-    //         res.writeHead(200, { 'Content-Type': 'text/html' });
-
-    //         res.end(data);
-    //     }
-    // });
-
 
 
 });

@@ -182,6 +182,24 @@
 
                 </ul>
             </div>
+            <% if(displayname){ %>
+                <ul id="and_page">
+                    <li><a id="login_logout" href="/logout">LOGOUT</a></li>
+                    <li><a href="#">CART</a></li>
+                    <li><a href="#">MYPAGE</a></li>
+                </ul>
+                <!-- <div id ="loginUser" class="">
+                    
+                        <p id="userN"><%= displayname %>님</p>
+                    </div> -->
+                    <% }else{ %>
+                        <ul id="and_page">
+                            <li><a id="login_logout" href="/login">LOGIN</a></li>
+                            <li><a href="/join">JOIN</a></li>
+                            <li><a href="#">CART</a></li>
+                            <li><a href="#">MYPAGE</a></li>
+                        </ul>
+                    <% } %>
     </header>
 
 
