@@ -127,19 +127,25 @@
                 <p>(주)디자인오브</p>
                 <p>brand@brand.co.kr</p>
             </div>
+            <% if(displayname){ %>
             <ul id="and_page">
-                <li><a id="login_logout" href="/login">LOGIN</a></li>
-                <li><a href="/join">JOIN</a></li>
+                <li><a id="login_logout" href="/logout">LOGOUT</a></li>
                 <li><a href="#">CART</a></li>
                 <li><a href="#">MYPAGE</a></li>
             </ul>
             <div id ="loginUser" class="">
-                <% if(displayname){ %>
+                
                     <p>Welcome! <%= displayname %></p>
+                </div>
                 <% }else{ %>
-                    <p> Please Login. </p>
+                    <ul id="and_page">
+                        <li><a id="login_logout" href="/login">LOGIN</a></li>
+                        <li><a href="/join">JOIN</a></li>
+                        <li><a href="#">CART</a></li>
+                        <li><a href="#">MYPAGE</a></li>
+                    </ul>
                 <% } %>
-            </div>
+            
 
         </div>
 

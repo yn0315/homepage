@@ -221,6 +221,14 @@ app.post('/loginAction', function (req, res) {
     });
   })
 
+  app.get('/logout', function (req, res) {
+    delete req.session.displayname;
+    req.session.save(() => {
+        res.redirect('/');
+    })
+  })
+
+
 app.post('/submit', function (req, res) {
 
     const name = req.body.name;
