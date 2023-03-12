@@ -94,7 +94,7 @@ app.get('/', function (req, res) {
         if (error) {
             console.log(error);
         } else {
-            res.send(200, {displayname : req.session.displayname});
+            res.writeHead(200, { 'Content-Type': 'text/html' });
 
             res.end(data);
         }
