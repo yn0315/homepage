@@ -205,6 +205,8 @@ app.post('/loginAction', function (req, res) {
         // res.redirect(`/user/${results[0].user_id}`); // 로그인이 성공했을 때 로그인 정보를 함께 전달
         res.header('Content-Type', 'text/plain');
         res.send('200');
+      }else {
+          res.send('500');
       }
     });
   })
