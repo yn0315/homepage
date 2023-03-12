@@ -58,7 +58,7 @@
                 <p>(주)디자인오브</p>
                 <p>brand@brand.co.kr</p>
             </div>
-            <% if(displayname){ %>
+            <% if(data.displayname){ %>
                 <ul id="and_page">
                     <li><a id="login_logout" href="/logout">LOGOUT</a></li>
                     <li><a href="#">CART</a></li>
@@ -86,97 +86,44 @@
             <div id="inner_list_div">
                 <form action="/shopping" method="post">
                     <ul>
-                        <li id="kimchi"><img src="/img/kimchi.jpg">
-                            <p>김치라면</p>
+                        <% if(data){ %>
+                        <li id="kimchi">
+                            <p><%=displayname%>></p>
                             <p><span>1000</span>원</p><input class="inputNum" type="text" placeholder="수량"><button
                                 class="cartButton" type="button">담기</button>
                         </li>
-                        <li id="king"><img src="/img/king.jpg">
+                        <li id="king">
                             <p>왕뚜껑</p>
                             <p><span>1200</span>원</p><input class="inputNum" type="text" placeholder="수량"><button
                                 class="cartButton" type="button">담기</button>
                         </li>
-                        <li id="moo"><img src="/img/moo.jpg">
+                        <li id="moo">
                             <p>무파마</p>
                             <p><span>1300</span>원</p><input class="inputNum" type="text" placeholder="수량"><button
                                 class="cartButton" type="button">담기</button>
                         </li>
-                        <li id="neoguri"><img src="/img/neoguri.jpg">
+                        <li id="neoguri">
                             <p>너구리</p>
                             <p><span>1400</span>원</p><input class="inputNum" type="text" placeholder="수량"><button
                                 class="cartButton" type="button">담기</button>
                         </li>
-                        <li id="sin"><img src="/img/sin.jpg">
+                        <li id="sin">
                             <p>신라면</p>
                             <p><span>1500</span>원</p><input class="inputNum" type="text" placeholder="수량"><button
                                 class="cartButton" type="button">담기</button>
                         </li>
-                        <li id="zzapa"><img src="/img/zzapa.jpg">
+                        <li id="zzapa">
                             <p>짜파구리</p>
                             <p><span>1600</span>원</p><input class="inputNum" type="text" placeholder="수량"><button
                                 class="cartButton" type="button">담기</button>
                         </li>
+                        <% } %>
                     </ul>
                 </form>
             </div>
         </div>
         <script>
 
-
-            $('.cartButton').on('click', function (e) {
-
-                // console.log("cartbutton click!");
-                // console.log(e.target.parentElement.id);
-                // console.log(e.target.previousSibling.value);
-                // console.log(e.target.previousSibling.previousSibling);
-                let p = e.target.previousSibling.previousSibling;
-                let span = p.querySelector('span');
-                let price = span.textContent;
-
-                // console.log(price, "price!!!");
-                // console.log(e.target.previousSibling.value * price);
-                console.log('<%=displayname%>');
-
-                var param = {}
-                if ('<%=displayname%>'.length > 0) {
-                    param = {
-                        "name": '<%=displayname%>',
-                        "goodsName": e.target.parentElement.id,
-                        "number": e.target.previousSibling.value,
-                        "price":price
-
-                    }
-                }else{
-
-                    param = {
-                        "name": 'cookie..?',
-                        "goodsName": e.target.parentElement.id,
-                        "number": e.target.previousSibling.value,
-                        "price": price
-
-                    }
-
-                }
-                console.log(param);
-                $.ajax({
-                    type: "post",
-                    url: "/shopping",
-                    data: param,
-                    async: false,
-                    success: function (data) {
-
-                        alert('장바구니에 등록되었습니다.');
-
-                    },
-                    error: function (e) {
-                        alert(e.reponseText);
-                    }
-                });
-
-
-
-
-            })
         </script>
 
     </section>

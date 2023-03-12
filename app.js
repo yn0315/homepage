@@ -284,9 +284,19 @@ app.post('/shopping', function(req, res) {
     res.send('200');
 
 
-
-
-
-
-
 })
+
+
+app.get('/cart', function (req, res) {
+    var session = req.session;
+    var data = {
+        displayname : session.displayname,
+        goodsName : req.body.goodsName,
+        number : req.body.number,
+        price : req.body.price
+    }
+
+
+    res.render('cart', {data : data});
+
+});
