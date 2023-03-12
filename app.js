@@ -60,7 +60,6 @@ const options = {  // mysql 접속 설정
 var sessionStore = new mysqlStore(options);
 
 app.use(session({
-    key:'session',
     secret: 'secret', //세션을 암호화해줌
     resave: false, //세션을 항상 저장할지 여부
     saveUninitialized : true, //세션아이디를 사용하기 전까지 미발급
