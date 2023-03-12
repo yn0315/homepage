@@ -753,6 +753,7 @@ textarea.contactForm {
     background: #000;
     color: white;
     font-weight: bold;
+    cursor: pointer;
 }
 
 
