@@ -305,8 +305,8 @@ app.post('/shopping', function(req, res) {
 app.get('/cart', function (req, res) {
 
     // console.log("cart!!!!!!!!");
-    if(data != null) {
-    res.render('cart', {data : data});
+    if(sendData != null) {
+    res.render('cart', {sendData : sendData});
     }
     else {
         fs.readFile(__dirname + '/views/cart.ejs', 'utf-8', function (error, data) {
