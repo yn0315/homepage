@@ -297,7 +297,7 @@ app.post('/shopping', function (req, res) {
         if (err) {
             console.log(err);
         }
-        else if (results) {
+        else if (results.length >0) {
             let goodsNum = results[0].goods_number;
             console.log(goodsNum, "goodsNum!!!");
 
