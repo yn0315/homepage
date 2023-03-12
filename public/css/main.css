@@ -245,6 +245,11 @@ ul{
     margin-left: 15px;
 }
 
+#userN {
+    color:gray;
+    font-size: 12px;
+}
+
 #main {
     position: relative;
     left: 270px;
