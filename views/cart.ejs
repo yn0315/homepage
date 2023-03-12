@@ -88,13 +88,13 @@
                     <ul>
                         <% if(data){ %>
                             
-                            <% data.forEach(function (value) { %>  
-                        <li id="kimchi">
-                            <p><%=value.goodsName%></p>
-                            <p><span><%=value.price%></span>원</p><input class="inputNum" type="text" placeholder="수량"><%=value.number%>
+                            <!-- <% data.forEach(function (value) { %>   -->
+                        <li>
+                            <p><%=data.goodsName%></p>
+                            <p><span><%=data.price%></span>원</p><input class="inputNum" type="text" placeholder="수량"><%=data.number%>
                         
                         </li>
-                        <% }); %>
+                        <!-- <% }); %> -->
                         <% } %>
                     </ul>
                 </form>
