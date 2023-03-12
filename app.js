@@ -281,7 +281,18 @@ app.post('/shopping', function(req, res) {
     let name = req.body.name;
     let goodsName = req.body.goodsName; 
     let number = req.body.number;
-    res.send('200');
+    let price = req.body.price;
+
+    let data = {
+        displayname : session.displayname,
+        goodsName : req.body.goodsName,
+        number : req.body.number,
+        price : req.body.price
+    }
+    
+    res.render('cart', {data : data});
+    // res.send('200');
+
 
 
 })
@@ -289,7 +300,7 @@ app.post('/shopping', function(req, res) {
 
 app.get('/cart', function (req, res) {
     var session = req.session;
-    var data = {
+    let data = {
         displayname : session.displayname,
         goodsName : req.body.goodsName,
         number : req.body.number,
