@@ -160,6 +160,24 @@
 
     </section>
 
+    <script>
+$('#menu-trigger').on('click', function (e) {
+    {
+        // e.preventDefault();
+        const $hamburgerMenu = document.getElementById('ham_inner_header');
+        if ($hamburgerMenu.className === "invisible") {
+            $hamburgerMenu.className = "visible";
+            // $hamburgerMenu.style.width = '220px';
+
+        } else {
+            $hamburgerMenu.className = "invisible";
+        }
+        // $hamburgerMenu.classList.toggle = "invisible";
+        // $hamburgerMenu.style.display="inline-block";
+
+    }
+})
+</script>
 </body>
 
 </html>
