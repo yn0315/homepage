@@ -366,7 +366,7 @@ app.post('/shopping', function (req, res) {
         let stringNum = String(randomNumber);
         console.log(stringNum,"random");
         session.userId = (stringNum);
-        let select_query = `select * from my_db.sessions where userid = '${stringNum}'`;
+        let select_query = `select * from my_db.sessions where userId = '${stringNum}'`;
 
 
         connection.query(select_query, function (err, results, fields) {
