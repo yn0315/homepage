@@ -288,7 +288,7 @@ app.post('/shopping', function (req, res) {
     //sql로 집어넣기
     //회원일경우
     if (req.session && req.session.displayname) {
-        
+
 
         let select_query = `select * from my_db.cart where user_id = '${session.displayname}' and goods_name ='${goodsName}'`;
 
@@ -351,7 +351,7 @@ app.post('/shopping', function (req, res) {
 
         })
         //비회원일 경우
-    }else {
+    } else {
 
         // const min = 1;
         // const max = 10;
@@ -361,48 +361,36 @@ app.post('/shopping', function (req, res) {
         // console.log(randomNumber);
 
         const min = 1;
-        const max = 10;
+        const max = 100000000;
         let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
         let stringNum = String(randomNumber);
-        console.log(stringNum,"random");
-        session.userId = (stringNum);
-        let select_query = `select * from my_db.sessions`;
+        console.log(stringNum, "random");
+        req.session.randomNumber = stringNum;
 
+        let insert_query = `insert into my_db.cart values('${stringNum}','${goodsName}','${number}','${price}')`;
+        // let select_query = `select * from my_db.contact`;
+        console.log(insert_query);
+        let commit_query = `commit`;
 
-        connection.query(select_query, function (err, results, fields) {
-            console.log(results);
+        connection.query(insert_query, function (err, results, fields) {
             if (err) {
                 console.log(err);
             }
-            else if (results.length > 0) {
-                // let userNum = results[0].userId;
-                console.log(results, "results!!!!!!!");
+            else {
+                // const data = fs.readFileSync(__dirname +'/views/index.ejs', 'utf-8');
+                console.log('ok');
+                res.header('Content-Type', 'text/plain');
+                res.send('200');
+                // res.end(res.redirect('/'));
 
-                // let update_query = `update my_db.cart set goods_number ='${plusNum}' where user_id ='${session.displayname}'`;
-                // connection.query(update_query, function (err, results, fields) {
+                //    res.end(data); 
 
-
-                    // if (err) {
-                    //     console.log(err);
-                    // }
-                    // else {
-                    //     // const data = fs.readFileSync(__dirname +'/views/index.ejs', 'utf-8');
-                    //     console.log('ok');
-                    //     res.header('Content-Type', 'text/plain');
-                    //     res.send('200');
-                    //     // res.end(res.redirect('/'));
-
-                    //     //    res.end(data); 
-
-                    // }
-
-
-                // })
             }
 
-
         })
-        
+
+
+
 
         res.send(String(randomNumber));
     }
@@ -413,19 +401,35 @@ app.get('/cart', function (req, res) {
 
     //sql문 가져와서 보내기, 세션정보 같이 보냄
     let session = req.session;
-    let select_query = `select * from my_db.cart where user_id ='${session.displayname}'`;
+    if (session.displayname) {
+        let select_query = `select * from my_db.cart where user_id ='${session.displayname}'`;
 
-    connection.query(select_query, function (err, results, fields) {
-        console.log(results);
-        if (err) {
-            console.log(err);
-        }
-        else {
+        connection.query(select_query, function (err, results, fields) {
+            console.log(results);
+            if (err) {
+                console.log(err);
+            }
+            else {
 
-            console.log('ok');
-            res.render('cart', { displayname: session.displayname, sendData: results });
-        }
-    })
+                console.log('ok');
+                res.render('cart', { displayname: session.displayname, sendData: results });
+            }
+        })
+    }else{
+        let select_query = `select * from my_db.cart where user_id ='${session.randomNumber}'`;
+
+        connection.query(select_query, function (err, results, fields) {
+            console.log(results);
+            if (err) {
+                console.log(err);
+            }
+            else {
+
+                console.log('ok');
+                res.render('cart', { displayname: session.displayname, sendData: results });
+            }
+        })
+    }
 
 
 });
