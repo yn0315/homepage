@@ -72,7 +72,7 @@ app.use(session({
     store: sessionStore,//데이터 저장형식
     cookie: {
         // maxAge: 24000 * 60 * 60 // 쿠키 유효기간 24시간
-        maxAge: 60 * 60 * 1
+        maxAge: 60 * 60 * 24
     }
 
 }));
