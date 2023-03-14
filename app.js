@@ -136,18 +136,9 @@ app.get('/join', function (req, res) {
 });
 
 app.get('/login', function (req, res) {
-    // fs.readFile(__dirname + '/public/login.html', 'utf-8', function (error, data) {
-    //     if (error) {
-    //         console.log(error);
-    //     } else {
-    //         res.writeHead(200, { 'Content-Type': 'text/html' });
 
-    //         res.end(data);
-    //     }
-    // });
     var session = req.session;
 
-    //sql에 저장된 정보를 같이 보낼 경우 딕셔너리로 만들어서 통째로 보내야 함
 
     res.render('login', { displayname: session.displayname ,randomNumber: session.randomNumber});
 
