@@ -89,14 +89,15 @@ app.use(session({
 var connection = mysql.createConnection(options); // DB 커넥션 생성
 connection.connect();   // DB 접속
 
-var sessions = req.session;
-
 // var router = express.Router();
 
 app.set('view engine', 'ejs');
 
 
 app.get('/', function (req, res) {
+    
+var sessions = req.session;
+
     
 
     //랜덤숫자가 존재하는 경우(비회원)
