@@ -734,12 +734,56 @@ textarea.contactForm {
 }
 
 #inner_list_div ul li {
+    position: relative;
     width: 300px;
     height: 400px;
 }
 
 #inner_list_div ul li img {
     width: 200px;
+}
+
+.cartGo_div{
+    position: absolute;
+    width: 300px;
+    height: 400px;
+    top: 0;
+    left: 0;
+
+}
+
+
+.cartGo_div:hover{
+    /* position: absolute;
+    width: 300px;
+    height: 400px;
+    top: 0;
+    left: 0; */
+    background: lightgray;
+    opacity: 0.7;
+}
+
+.cartGo_div button {
+    text-align: center;
+    margin-top: 150px;
+    padding: 10px;
+    background: #000;
+    opacity: 1;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+
+.cartGo_div:hover button{
+    display: inline-block;
+    text-align: center;
+    margin-top: 150px;
+    padding: 10px;
+    background: #000;
+    opacity: 1;
+    color: white;
+    cursor: pointer;
+
 }
 
 .inputNum {
