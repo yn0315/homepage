@@ -94,27 +94,7 @@
         </div>
 
         <script>
-            //인풋창이 비어있는지 확인
-            // function isEmpty(value) {
-            //     if(value === null || value === 'undefined' || value === "") {
-            //         return false;
-            //     }else {
-            //         return true;
-            //     }
 
-            // }
-
-            // //로그인 함수
-            // function loginSubmit() {
-            //     let form = document.form;
-            //     let id = isEmpty(document.getElementById('id'));
-            //     let pw = isEmpty(document.getElementById('pw'));
-            //     if(id === true && pw === true) {
-            //         form.submit();
-            //     }else {
-            //         alert('다시 입력해주세요');
-            //     }
-            // }
 
             function value() {
                 var val = false
@@ -124,48 +104,6 @@
                 return val;
             }
             $('#login_button').on('click', function () {
-                // if (value()) {
-
-                //     var param = {
-                //         "id": $('#id').val(),
-                //         "pw": $('#pw').val()
-                //     }
-
-                //     var login = {
-                //         "login": "login"
-                //     }
-                //     console.log(param);
-                //     var rvalue = new Array();
-                //     $.ajax({
-                //         type: "post",
-                //         url: "/loginAction",
-                //         data: param,
-                //         async: false,
-                //         success: function (data) {
-                //             alert('로그인되었습니다.');
-                //             alert(data);
-                //             window.location.href = data;
-                //             $.ajax({
-                //                 url: '/user/' + data.id, // id는 동적으로 설정할 수 있습니다.
-                //                 type: 'GET',
-                //                 success: function (data) {
-                //                     // 성공 시 실행할 코드
-                //                     console.log(data);
-                //                 },
-                //                 error: function (xhr, status, error) {
-                //                     // 에러 발생 시 실행할 코드
-                //                     console.log(error);
-                //                 }
-                //             });
-                //         },
-                //         error: function (e) {
-                //             alert(e.reponseText);
-                //         }
-                //     });
-
-
-                // }
-
 
                 if (value()) {
                     var param = {

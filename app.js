@@ -204,10 +204,6 @@ app.post('/loginAction', function (req, res) {
             req.session.save(() => {
                 res.send('200');
             });
-            // res.redirect(`/user/${results[0].user_id}`); // 로그인이 성공했을 때 로그인 정보를 함께 전달
-            // res.header('Content-Type', 'text/plain');
-            // res.send('200',res.render(__dirname + '/views/index.ejs', {data : results[0].user_id}));
-
         } else {
             res.send('500');
         }
@@ -350,29 +346,15 @@ app.post('/shopping', function (req, res) {
 
     })
 
-    // sendData = {
-    //     displayname : session.displayname,
-    //     goodsName : req.body.goodsName,
-    //     number : req.body.number,
-    //     price : req.body.price
-    // }
-
-    // res.send('200');
-
-
 
 })
 
 
 app.get('/cart', function (req, res) {
 
-    //sql문 가져와서 보내기
+    //sql문 가져와서 보내기, 세션정보 같이 보냄
     let session = req.session;
-
-
     let select_query = `select * from my_db.cart where user_id ='${session.displayname}'`;
-    // let select_query = `select * from my_db.contact`;
-
 
     connection.query(select_query, function (err, results, fields) {
         console.log(results);
@@ -382,13 +364,9 @@ app.get('/cart', function (req, res) {
         else {
 
             console.log('ok');
-
             res.render('cart', {displayname: session.displayname, sendData: results });
-
-
         }
     })
-
 
 
 });
