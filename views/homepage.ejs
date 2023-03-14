@@ -205,9 +205,16 @@
 
                 alert('<%=displayname%>',"displayname");
                 alert('<%=randomNumber%>', "randomNumber");
+
+                if('<%=displayname%>' || '<%=randomNumber%>') {
+                alert("있음");
+            }
+
             }
 
             start();
+
+            
 
             let $login = document.getElementById('cartLogin');
             $login.addEventListener('click', function (){
