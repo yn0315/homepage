@@ -142,20 +142,21 @@
                 <!-- <form action="/shopping" method="post"> -->
                     <ul>
                         <li id="kimchi"><img src="/img/kimchi.jpg">
-
-                            <% if(!displayname && randomNumber){%>
+                            <div id="in">
+                            <% if(!displayname){%>
                             <div id="go"class="cartGo_div">
                             <button id="cartLogin"class="cartLogin">로그인</button>
                             <button class="notLoginOrder">비회원 주문</button>
                         </div>
                         <% } %>
+                    </div>
                             <p>김치라면</p>
                             <p><span>1000</span>원</p>
                             <input class="inputNum" type="text" placeholder="수량"><button
                                 class="cartButton" type="button">담기</button>
                         </li>
                         <li id="king"><img src="/img/king.jpg">
-                            <% if(!displayname && randomNumber){%>
+                            <% if(!displayname){%>
                             <div class="cartGo_div">
                                 <button id="cartLogin" class="cartLogin">로그인</button>
                                 <button class="notLoginOrder">비회원 주문</button>
@@ -166,7 +167,7 @@
                                 class="cartButton" type="button">담기</button>
                         </li>
                         <li id="moo"><img src="/img/moo.jpg">
-                            <% if(!displayname && randomNumber){%>
+                            <% if(!displayname){%>
                             <div class="cartGo_div">
                                 <button id="cartLogin" class="cartLogin">로그인</button>
                                 <button class="notLoginOrder">비회원 주문</button>
@@ -177,7 +178,7 @@
                                 class="cartButton" type="button">담기</button>
                         </li>
                         <li id="neoguri"><img src="/img/neoguri.jpg">
-                            <% if(!displayname && randomNumber){%>
+                            <% if(!displayname){%>
                             <div class="cartGo_div">
                                 <button id="cartLogin" class="cartLogin">로그인</button>
                                 <button class="notLoginOrder">비회원 주문</button>
@@ -188,7 +189,7 @@
                                 class="cartButton" type="button">담기</button>
                         </li>
                         <li id="sin"><img src="/img/sin.jpg">
-                            <% if(!displayname && randomNumber){%>
+                            <% if(!displayname){%>
                             <div class="cartGo_div">
                                 <button id="cartLogin" class="cartLogin">로그인</button>
                                 <button class="notLoginOrder">비회원 주문</button>
@@ -199,7 +200,7 @@
                                 class="cartButton" type="button">담기</button>
                         </li>
                         <li id="zzapa"><img src="/img/zzapa.jpg">
-                            <% if(!displayname && randomNumber){%>
+                            <% if(!displayname){%>
                             <div class="cartGo_div">
                                 <button id="cartLogin" class="cartLogin">로그인</button>
                                 <button class="notLoginOrder">비회원 주문</button>
@@ -225,6 +226,8 @@
                 let $div = document.getElementsByClassName('cartGo_div');
                 $div.className = "invisible";
                 alert($div.className);
+                let $in = document.getElementById('in');
+                $in.className = "invisible";
             }
 
             }
