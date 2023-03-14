@@ -234,20 +234,36 @@
                 alert("있음");
                 
                 //////////////////////////////////////////////////////////
-                var $in = document.querySelectorAll('#in');
-                $in.forEach(function(element) {
-                    
-                    element.className = "invisible";
-                    
-                    
-
-                })
+             
                 
             }
 
             }
 
             start();
+
+
+            var $unUser = document.querySelectorAll('.notLoginOrde');
+            $unUser.forEach(function(element) {
+                element.addEventListener('click', function() {
+
+                    var $in = document.querySelectorAll('#in');
+                    $in.forEach(function (el) {
+
+                        el.className = "invisible";
+
+
+
+                    })
+
+
+                })
+               
+
+            })
+
+
+            
 
             
 
