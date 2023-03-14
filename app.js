@@ -392,7 +392,7 @@ app.post('/shopping', function (req, res) {
 
 
 
-        res.send(String(randomNumber));
+        // res.send(String(randomNumber));
     }
 })
 
