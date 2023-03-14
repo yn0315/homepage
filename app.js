@@ -13,6 +13,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const { query } = require('express');
 const { runInNewContext } = require('vm');
+const { Session } = require('inspector');
 // const options = {
 //     key: fs.readFileSync('/path/to/private.key'),
 //     cert: fs.readFileSync('/path/to/certificate.crt'),
@@ -358,7 +359,14 @@ app.post('/shopping', function (req, res) {
         // window.crypto.getRandomValues(array);
         // const randomNumber = array[0] % (max - min + 1) + min;
         // console.log(randomNumber);
-        res.send('100');
+
+        const min = 1;
+        const max = 10;
+        const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+        console.log(randomNumber);
+        // session.userId = ();
+
+        res.send(randomNumber);
     }
 })
 
