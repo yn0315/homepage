@@ -59,12 +59,15 @@
                 <p>brand@brand.co.kr</p>
             </div>
             <% if(displayname){ %>
-                <ul id="and_page">
-                    <li><a id="login_logout" href="/logout">LOGOUT</a></li>
-                    <li><a href="#">CART</a></li>
-                    <li><a href="#">MYPAGE</a></li>
-                </ul>
-
+            <ul id="and_page">
+                <li><a id="login_logout" href="/logout">LOGOUT</a></li>
+                <li><a href="/cart">CART</a></li>
+                <li><a href="#">MYPAGE</a></li>
+            </ul>
+            <!-- <div id ="loginUser" class="">
+                
+                    <p id="userN"><%= displayname %>님</p>
+                </div> -->
                 <% }else{ %>
                     <ul id="and_page">
                         <li><a id="login_logout" href="/login">LOGIN</a></li>
@@ -72,11 +75,64 @@
                         <li><a href="/cart">CART</a></li>
                         <li><a href="#">MYPAGE</a></li>
                     </ul>
-                    <% } %>
-
+                <% } %>
+            
 
         </div>
+
+        <button id="menu-trigger" type="button" class="">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div id="ham_inner_header" class="invisible">
+            <h1 class="ham_logo">
+                <a href="http://yn0000.shop">
+                    <img id="logo_img" src="/img/logo_img.gif" alt="로고">
+                </a>
+            </h1>
+
+            <div id="menu">
+                <ul class="menu_ul">
+                    <li><a href="#">포트폴리오</a></li>
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">인터뷰작성</a></li>
+                </ul>
+                <ul id="second_menu" class="menu_ul">
+                    <li><a href="#">브랜딩</a></li>
+                    <li><a href="#">로고디자인</a></li>
+                    <li><a href="#">네이밍</a></li>
+                    <li><a href="#">편집디자인</a></li>
+                    <li><a href="/homepage">홈페이지</a></li>
+
+                </ul>
+                <ul id="third_menu" class="menu_ul">
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">문의</a></li>
+                    <li><a href="#">후기</a></li>
+
+                </ul>
+            </div>
+            <% if(displayname){ %>
+                <ul id="and_page">
+                    <li><a id="login_logout" href="/logout">LOGOUT</a></li>
+                    <li><a href="#">CART</a></li>
+                    <li><a href="#">MYPAGE</a></li>
+                </ul>
+                <!-- <div id ="loginUser" class="">
+                    
+                        <p id="userN"><%= displayname %>님</p>
+                    </div> -->
+                    <% }else{ %>
+                        <ul id="and_page">
+                            <li><a id="login_logout" href="/login">LOGIN</a></li>
+                            <li><a href="/join">JOIN</a></li>
+                            <li><a href="/cart">CART</a></li>
+                            <li><a href="#">MYPAGE</a></li>
+                        </ul>
+                    <% } %>
     </header>
+
 
     <section id="homepageSection">
         <div id="list_div">
