@@ -101,7 +101,7 @@ app.get('/', function (req, res) {
 
     //랜덤숫자가 존재하는 경우(비회원)
     if(session.randomNumber){
-        console.log(session.);
+        
     res.render('index', { displayname: session.displayname , randomNumber: session.randomNumber});
 
     }else {
