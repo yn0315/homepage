@@ -146,7 +146,7 @@
                             <% if(!displayname){%>
                             <div id="go"class="cartGo_div">
                             <button id="cartLogin"class="cartLogin">로그인</button>
-                            <button class="notLoginOrder">비회원 주문</button>
+                            <button id="unUser"class="notLoginOrder">비회원 주문</button>
                         </div>
                         <% } %>
                     </div>
@@ -160,7 +160,7 @@
                             <% if(!displayname){%>
                             <div class="cartGo_div">
                                 <button id="cartLogin" class="cartLogin">로그인</button>
-                                <button class="notLoginOrder">비회원 주문</button>
+                                <button id="unUser" class="notLoginOrder">비회원 주문</button>
                             </div>
                             <% } %>
                         </div>
@@ -173,7 +173,7 @@
                             <% if(!displayname){%>
                             <div class="cartGo_div">
                                 <button id="cartLogin" class="cartLogin">로그인</button>
-                                <button class="notLoginOrder">비회원 주문</button>
+                                <button id="unUser" class="notLoginOrder">비회원 주문</button>
                             </div>
                             <% } %>
                         </div>
@@ -186,7 +186,7 @@
                             <% if(!displayname){%>
                             <div class="cartGo_div">
                                 <button id="cartLogin" class="cartLogin">로그인</button>
-                                <button class="notLoginOrder">비회원 주문</button>
+                                <button id="unUser" class="notLoginOrder">비회원 주문</button>
                             </div>
                             <% } %>
                         </div>
@@ -199,7 +199,7 @@
                             <% if(!displayname){%>
                             <div class="cartGo_div">
                                 <button id="cartLogin" class="cartLogin">로그인</button>
-                                <button class="notLoginOrder">비회원 주문</button>
+                                <button id="unUser" class="notLoginOrder">비회원 주문</button>
                             </div>
                             <% } %>
                         </div>
@@ -212,7 +212,7 @@
                             <% if(!displayname){%>
                             <div class="cartGo_div">
                                 <button id="cartLogin" class="cartLogin">로그인</button>
-                                <button class="notLoginOrder">비회원 주문</button>
+                                <button id="unUser" class="notLoginOrder">비회원 주문</button>
                             </div>
                             <% } %>
                         </div>
@@ -243,7 +243,7 @@
             start();
 
 
-            var $unUser = document.querySelectorAll('.notLoginOrde');
+            var $unUser = document.querySelectorAll('#unUser');
             $unUser.forEach(function(element) {
                 element.addEventListener('click', function() {
                     alert("click!!");
