@@ -1420,7 +1420,7 @@ section.me {
   
   .btn {
     position:relative;
-    margin-left: 50%;
+    margin-left: 40%;
     transform: translateX(-50%);
     margin-bottom: 40px;
     width:350px;
