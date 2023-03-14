@@ -131,7 +131,7 @@ app.get('/join', function (req, res) {
 
     //sql에 저장된 정보를 같이 보낼 경우 딕셔너리로 만들어서 통째로 보내야 함
 
-    res.render(__dirname + '/public/join.html', { displayname: session.displayname ,randomNumber: session.randomNumber});
+    res.render('join', { displayname: session.displayname ,randomNumber: session.randomNumber});
 
 });
 
