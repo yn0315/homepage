@@ -352,13 +352,13 @@ app.post('/shopping', function (req, res) {
         //비회원일 경우
     }else {
 
-        const min = 1;
-        const max = 10;
-        const array = new Uint32Array(1);
-        window.crypto.getRandomValues(array);
-        const randomNumber = array[0] % (max - min + 1) + min;
-        console.log(randomNumber);
-        res.send(randomNumber);
+        // const min = 1;
+        // const max = 10;
+        // const array = new Uint32Array(1);
+        // window.crypto.getRandomValues(array);
+        // const randomNumber = array[0] % (max - min + 1) + min;
+        // console.log(randomNumber);
+        res.send('100');
     }
 })
 
