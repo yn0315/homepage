@@ -61,12 +61,12 @@
                 <p>brand@brand.co.kr</p>
             </div>
             <% if(displayname){ %>
-            <ul id="and_page">
-                <li><a id="login_logout" href="/logout">LOGOUT</a></li>
-                <li><a href="/cart">CART</a></li>
-                <li><a href="#">MYPAGE</a></li>
-            </ul>
-            <!-- <div id ="loginUser" class="">
+                <ul id="and_page">
+                    <li><a id="login_logout" href="/logout">LOGOUT</a></li>
+                    <li><a href="/cart">CART</a></li>
+                    <li><a href="#">MYPAGE</a></li>
+                </ul>
+                <!-- <div id ="loginUser" class="">
                 
                     <p id="userN"><%= displayname %>님</p>
                 </div> -->
@@ -77,8 +77,8 @@
                         <li><a href="/cart">CART</a></li>
                         <li><a href="#">MYPAGE</a></li>
                     </ul>
-                <% } %>
-            
+                    <% } %>
+
 
         </div>
 
@@ -125,13 +125,13 @@
                     
                         <p id="userN"><%= displayname %>님</p>
                     </div> -->
-                    <% }else{ %>
-                        <ul id="and_page">
-                            <li><a id="login_logout" href="/login">LOGIN</a></li>
-                            <li><a href="/join">JOIN</a></li>
-                            <li><a href="/cart">CART</a></li>
-                            <li><a href="#">MYPAGE</a></li>
-                        </ul>
+                <% }else{ %>
+                    <ul id="and_page">
+                        <li><a id="login_logout" href="/login">LOGIN</a></li>
+                        <li><a href="/join">JOIN</a></li>
+                        <li><a href="/cart">CART</a></li>
+                        <li><a href="#">MYPAGE</a></li>
+                    </ul>
                     <% } %>
     </header>
 
@@ -141,15 +141,22 @@
             <div id="inner_list_div">
                 <form action="/shopping" method="post">
                     <ul>
-                        <% sendData.forEach(function (value) { %>  
-                            
-                        <li>
-                            <p><%=value.goods_name%></p>
-                            <p><span><%=value.goods_price%></span>원</p><p><%=value.goods_number%>개</p>
-                        
-                        </li>
-                        
-                        <% }); %>
+                        <% sendData.forEach(function (value) { %>
+
+                            <li>
+                                <p>
+                                    <%=value.goods_name%>
+                                </p>
+                                <p><span>
+                                        <%=value.goods_price%>
+                                    </span>원</p>
+                                <p>
+                                    <%=value.goods_number%>개
+                                </p>
+
+                            </li>
+
+                            <% }); %>
                     </ul>
                 </form>
             </div>
@@ -161,23 +168,23 @@
     </section>
 
     <script>
-$('#menu-trigger').on('click', function (e) {
-    {
-        // e.preventDefault();
-        const $hamburgerMenu = document.getElementById('ham_inner_header');
-        if ($hamburgerMenu.className === "invisible") {
-            $hamburgerMenu.className = "visible";
-            // $hamburgerMenu.style.width = '220px';
+        $('#menu-trigger').on('click', function (e) {
+            {
+                // e.preventDefault();
+                const $hamburgerMenu = document.getElementById('ham_inner_header');
+                if ($hamburgerMenu.className === "invisible") {
+                    $hamburgerMenu.className = "visible";
+                    // $hamburgerMenu.style.width = '220px';
 
-        } else {
-            $hamburgerMenu.className = "invisible";
-        }
-        // $hamburgerMenu.classList.toggle = "invisible";
-        // $hamburgerMenu.style.display="inline-block";
+                } else {
+                    $hamburgerMenu.className = "invisible";
+                }
+                // $hamburgerMenu.classList.toggle = "invisible";
+                // $hamburgerMenu.style.display="inline-block";
 
-    }
-})
-</script>
+            }
+        })
+    </script>
 </body>
 
 </html>
