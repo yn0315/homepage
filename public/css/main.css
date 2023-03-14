@@ -1089,6 +1089,7 @@ section.me {
 #join {
     position: relative;
     margin-top: 100px;
+    width: 70vw;
     text-align: center;
     left: 0;
 }
