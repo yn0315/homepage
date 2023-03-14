@@ -178,8 +178,13 @@
                         data: param,
                         async: false,
                         success: function (data) {
+                            if(data ==='200'){
                             alert('로그인되었습니다.');
                             window.location.replace('/');
+                            }else {
+                                alert('다시작성해주세요.');
+                            }
+
                         },
                         error: function (e) {
                             alert(e.reponseText);
