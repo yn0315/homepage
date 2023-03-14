@@ -365,7 +365,7 @@ app.post('/shopping', function (req, res) {
         let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
         let stringNum = String(randomNumber);
         console.log(stringNum,"random");
-
+        session.userId = (stringNum);
         let select_query = `select * from my_db.sessions where userid = '${stringNum}'`;
 
 
@@ -402,7 +402,7 @@ app.post('/shopping', function (req, res) {
 
 
         })
-        // session.userId = ();
+        
 
         res.send(String(randomNumber));
     }
