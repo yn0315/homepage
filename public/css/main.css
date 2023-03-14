@@ -949,6 +949,8 @@ section.me .contact .request_box {
 }
 
 
+
+
 }
 
 @media screen and (max-width: 768px) {
@@ -1069,6 +1071,19 @@ section.me {
     text-align: center;
     margin-left: 10%;
     margin-top: 100px;
+}
+
+#homepageSection {
+    position: relative;
+    left: 200px;
+    width: 70vw;
+    /* height: 100vh; */
+    /* margin-top: 0; */
+    /* margin-left: 270px; */
+    /* background: #000; */
+    /* position: absolute; */
+    top: 100px;
+
 }
 
 
@@ -1311,4 +1326,18 @@ section.me {
     height: 380px;
 
 }
+
+#homepageSection {
+    position: relative;
+    left: 0;
+    width: 70vw;
+    /* height: 100vh; */
+    /* margin-top: 0; */
+    /* margin-left: 270px; */
+    /* background: #000; */
+    /* position: absolute; */
+    top: 100px;
+
+}
+
 }
