@@ -98,6 +98,13 @@ app.set('view engine', 'ejs');
 app.get('/', function (req, res) {
     var session = req.session;
 
+    const min = 1;
+    const max = 100000000;
+    let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    let stringNum = String(randomNumber);
+    console.log(stringNum, "random");
+    req.session.randomNumber = stringNum;
+
     // fs.readFile(__dirname + '/views/index.ejs', 'utf-8', function (error, data) {
     //     if (error) {
     //         console.log(error);
@@ -107,7 +114,7 @@ app.get('/', function (req, res) {
     //         res.end(data);
     //     }
     // });
-    res.render('index', { displayname: session.displayname });
+    res.render('index', { displayname: session.displayname , randomNumber: session.randomNumber});
 
 });
 
@@ -144,7 +151,7 @@ app.get('/homepage', function (req, res) {
 
     //sql에 저장된 정보를 같이 보낼 경우 딕셔너리로 만들어서 통째로 보내야 함
 
-    res.render('homepage', { displayname: session.displayname });
+    res.render('homepage', { displayname: session.displayname ,randomNumber: session.randomNumber});
 
 
 });
@@ -360,14 +367,14 @@ app.post('/shopping', function (req, res) {
         // const randomNumber = array[0] % (max - min + 1) + min;
         // console.log(randomNumber);
 
-        const min = 1;
-        const max = 100000000;
-        let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-        let stringNum = String(randomNumber);
-        console.log(stringNum, "random");
-        req.session.randomNumber = stringNum;
+        // const min = 1;
+        // const max = 100000000;
+        // let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+        // let stringNum = String(randomNumber);
+        // console.log(stringNum, "random");
+        // req.session.randomNumber = stringNum;
 
-        let insert_query = `insert into my_db.cart values('${stringNum}','${goodsName}','${number}','${price}')`;
+        let insert_query = `insert into my_db.cart values('${session.randomNumber}','${goodsName}','${number}','${price}')`;
         // let select_query = `select * from my_db.contact`;
         console.log(insert_query);
         let commit_query = `commit`;
@@ -415,7 +422,7 @@ app.get('/cart', function (req, res) {
                 res.render('cart', { displayname: session.displayname, sendData: results });
             }
         })
-    }else{
+    }else if(session.randomNumber){
         let select_query = `select * from my_db.cart where user_id ='${session.randomNumber}'`;
 
         connection.query(select_query, function (err, results, fields) {
