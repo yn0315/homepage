@@ -98,24 +98,25 @@ app.set('view engine', 'ejs');
 app.get('/', function (req, res) {
     var session = req.session;
 
-    const min = 1;
-    const max = 100000000;
-    let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-    let stringNum = String(randomNumber);
-    console.log(stringNum, "random");
-    req.session.randomNumber = stringNum;
+    
+    // const min = 1;
+    // const max = 100000000;
+    // let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    // let stringNum = String(randomNumber);
+    // console.log(stringNum, "random");
+    // req.session.randomNumber = stringNum;
 
-    // fs.readFile(__dirname + '/views/index.ejs', 'utf-8', function (error, data) {
-    //     if (error) {
-    //         console.log(error);
-    //     } else {
-    //         res.writeHead(200, { 'Content-Type': 'text/html' });
-
-    //         res.end(data);
-    //     }
-    // });
+    if(session.randomNumber){
     res.render('index', { displayname: session.displayname , randomNumber: session.randomNumber});
-
+    }else {
+        const min = 1;
+        const max = 100000000;
+        let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+        let stringNum = String(randomNumber);
+        console.log(stringNum, "random");
+        req.session.randomNumber = stringNum;
+        res.render('index', { displayname: session.displayname , randomNumber: session.randomNumber});
+    }
 });
 
 
@@ -360,22 +361,8 @@ app.post('/shopping', function (req, res) {
         //비회원일 경우
     } else {
 
-        // const min = 1;
-        // const max = 10;
-        // const array = new Uint32Array(1);
-        // window.crypto.getRandomValues(array);
-        // const randomNumber = array[0] % (max - min + 1) + min;
-        // console.log(randomNumber);
-
-        // const min = 1;
-        // const max = 100000000;
-        // let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-        // let stringNum = String(randomNumber);
-        // console.log(stringNum, "random");
-        // req.session.randomNumber = stringNum;
-
         let insert_query = `insert into my_db.cart values('${session.randomNumber}','${goodsName}','${number}','${price}')`;
-        // let select_query = `select * from my_db.contact`;
+
         console.log(insert_query);
         let commit_query = `commit`;
 
@@ -384,13 +371,11 @@ app.post('/shopping', function (req, res) {
                 console.log(err);
             }
             else {
-                // const data = fs.readFileSync(__dirname +'/views/index.ejs', 'utf-8');
+
                 console.log('ok');
                 res.header('Content-Type', 'text/plain');
                 res.send('200');
-                // res.end(res.redirect('/'));
 
-                //    res.end(data); 
 
             }
 
