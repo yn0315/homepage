@@ -961,7 +961,8 @@ body {
     height: 100px;
     line-height: 100px;
     background: rgba(0, 0, 0, 0.2);
-    position: fixed;
+    position: static;
+    
     z-index: 3;
 
 }
