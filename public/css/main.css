@@ -1286,4 +1286,26 @@ section.me {
     margin-left: 10%;
     margin-top: 100px;
 }
+
+
+#join {
+    position: relative;
+    text-align: center;
+    left: 0;
+}
+
+#join_outer_box {
+    display: inline-block;
+    text-align: center;
+    width: 400px;
+    height: 400px;
+}
+
+#join_inner_box {
+    display: inline-block;
+    text-align: center;
+    width: 400px;
+    height: 400px;
+
+}
 }
