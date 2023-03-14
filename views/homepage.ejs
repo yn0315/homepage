@@ -245,11 +245,22 @@
             
 
             let $login = document.querySelectorAll('#cartLogin');
-            $login.addEventListener('click', function (){
 
-                window.location.replace('http://yn0000.shop/login');
+            $login.forEach(function(element) {
+            element.addEventListener("click", function() {
+            
+            
+            window.location.replace('http://yn0000.shop/login');
 
-            })
+                });   
+            });
+
+
+            // $login.addEventListener('click', function (){
+
+            //     window.location.replace('http://yn0000.shop/login');
+
+            // })
 
 
 
