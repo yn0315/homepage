@@ -12,6 +12,7 @@ const http = require('http');
 const morgan = require('morgan');
 const cors = require('cors');
 const { query } = require('express');
+const { runInNewContext } = require('vm');
 // const options = {
 //     key: fs.readFileSync('/path/to/private.key'),
 //     cert: fs.readFileSync('/path/to/certificate.crt'),
@@ -284,69 +285,81 @@ app.post('/shopping', function (req, res) {
     let session = req.session;
 
     //sql로 집어넣기
+    //회원일경우
+    if (req.session && req.session.displayname) {
+        
 
-    let select_query = `select * from my_db.cart where user_id = '${session.displayname}' and goods_name ='${goodsName}'`;
-
-
-    connection.query(select_query, function (err, results, fields) {
-        console.log(results);
-        if (err) {
-            console.log(err);
-        }
-        else if (results.length >0) {
-            let goodsNum = results[0].goods_number;
-            console.log(goodsNum, "goodsNum!!!");
-            let plusNum = parseInt(goodsNum) + parseInt(number);
-
-            let update_query = `update my_db.cart set goods_number ='${plusNum}' where user_id ='${session.displayname}'`;
-            connection.query(update_query, function (err, results, fields) {
+        let select_query = `select * from my_db.cart where user_id = '${session.displayname}' and goods_name ='${goodsName}'`;
 
 
-                if (err) {
-                    console.log(err);
-                }
-                else {
-                    // const data = fs.readFileSync(__dirname +'/views/index.ejs', 'utf-8');
-                    console.log('ok');
-                    res.header('Content-Type', 'text/plain');
-                    res.send('200');
-                    // res.end(res.redirect('/'));
+        connection.query(select_query, function (err, results, fields) {
+            console.log(results);
+            if (err) {
+                console.log(err);
+            }
+            else if (results.length > 0) {
+                let goodsNum = results[0].goods_number;
+                console.log(goodsNum, "goodsNum!!!");
+                let plusNum = parseInt(goodsNum) + parseInt(number);
 
-                    //    res.end(data); 
-
-                }
-
-
-            })
+                let update_query = `update my_db.cart set goods_number ='${plusNum}' where user_id ='${session.displayname}'`;
+                connection.query(update_query, function (err, results, fields) {
 
 
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                        // const data = fs.readFileSync(__dirname +'/views/index.ejs', 'utf-8');
+                        console.log('ok');
+                        res.header('Content-Type', 'text/plain');
+                        res.send('200');
+                        // res.end(res.redirect('/'));
 
-        } else {
-            let insert_query = `insert into my_db.cart values('${name}','${goodsName}','${number}','${price}')`;
-            // let select_query = `select * from my_db.contact`;
-            console.log(insert_query);
-            let commit_query = `commit`;
+                        //    res.end(data); 
 
-            connection.query(insert_query, function (err, results, fields) {
-                if (err) {
-                    console.log(err);
-                }
-                else {
-                    // const data = fs.readFileSync(__dirname +'/views/index.ejs', 'utf-8');
-                    console.log('ok');
-                    res.header('Content-Type', 'text/plain');
-                    res.send('200');
-                    // res.end(res.redirect('/'));
-
-                    //    res.end(data); 
-
-                }
-            })
-        }
-
-    })
+                    }
 
 
+                })
+
+
+
+            } else {
+                let insert_query = `insert into my_db.cart values('${name}','${goodsName}','${number}','${price}')`;
+                // let select_query = `select * from my_db.contact`;
+                console.log(insert_query);
+                let commit_query = `commit`;
+
+                connection.query(insert_query, function (err, results, fields) {
+                    if (err) {
+                        console.log(err);
+                    }
+                    else {
+                        // const data = fs.readFileSync(__dirname +'/views/index.ejs', 'utf-8');
+                        console.log('ok');
+                        res.header('Content-Type', 'text/plain');
+                        res.send('200');
+                        // res.end(res.redirect('/'));
+
+                        //    res.end(data); 
+
+                    }
+                })
+            }
+
+        })
+        //비회원일 경우
+    }else {
+
+        const min = 1;
+        const max = 10;
+        const array = new Uint32Array(1);
+        window.crypto.getRandomValues(array);
+        const randomNumber = array[0] % (max - min + 1) + min;
+        console.log(randomNumber);
+        res.send(randomNumber);
+    }
 })
 
 
@@ -364,7 +377,7 @@ app.get('/cart', function (req, res) {
         else {
 
             console.log('ok');
-            res.render('cart', {displayname: session.displayname, sendData: results });
+            res.render('cart', { displayname: session.displayname, sendData: results });
         }
     })
 
