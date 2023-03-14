@@ -139,7 +139,7 @@
     <section id="homepageSection">
         <div id="list_div">
             <div id="inner_list_div">
-                <form action="/shopping" method="post">
+                <!-- <form action="/shopping" method="post"> -->
                     <ul>
                         <li id="kimchi"><img src="/img/kimchi.jpg">
                             <div id="go"class="cartGo_div">
@@ -197,7 +197,7 @@
                                 class="cartButton" type="button">담기</button>
                         </li>
                     </ul>
-                </form>
+                <!-- </form> -->
             </div>
         </div>
         <script>
@@ -212,66 +212,66 @@
 
 
 
-            // $('.cartButton').on('click', function (e) {
+            $('.cartButton').on('click', function (e) {
 
-            //     // console.log("cartbutton click!");
-            //     // console.log(e.target.parentElement.id);
-            //     // console.log(e.target.previousSibling.value);
-            //     // console.log(e.target.previousSibling.previousSibling);
-            //     let p = e.target.previousSibling.previousSibling;
-            //     let span = p.querySelector('span');
-            //     let price = span.textContent;
+                // console.log("cartbutton click!");
+                // console.log(e.target.parentElement.id);
+                // console.log(e.target.previousSibling.value);
+                // console.log(e.target.previousSibling.previousSibling);
+                let p = e.target.previousSibling.previousSibling;
+                let span = p.querySelector('span');
+                let price = span.textContent;
 
-            //     // console.log(price, "price!!!");
-            //     // console.log(e.target.previousSibling.value * price);
-            //     console.log('<%=displayname%>');
+                // console.log(price, "price!!!");
+                // console.log(e.target.previousSibling.value * price);
+                console.log('<%=displayname%>');
 
-            //     var param = {}
-            //     if ('<%=displayname%>'.length > 0) {
-            //         param = {
-            //             "name": '<%=displayname%>',
-            //             "goodsName": e.target.parentElement.id,
-            //             "number": e.target.previousSibling.value,
-            //             "price":price
+                var param = {}
+                if ('<%=displayname%>'.length > 0) {
+                    param = {
+                        "name": '<%=displayname%>',
+                        "goodsName": e.target.parentElement.id,
+                        "number": e.target.previousSibling.value,
+                        "price":price
 
-            //         }
-            //     }else{
+                    }
+                }else{
 
-            //         param = {
-            //             "name": 'cookie..?',
-            //             "goodsName": e.target.parentElement.id,
-            //             "number": e.target.previousSibling.value,
-            //             "price": price
+                    param = {
+                        "name": 'cookie..?',
+                        "goodsName": e.target.parentElement.id,
+                        "number": e.target.previousSibling.value,
+                        "price": price
 
-            //         }
+                    }
 
-            //     }
-            //     console.log(param);
-            //     $.ajax({
-            //         type: "post",
-            //         url: "/shopping",
-            //         data: param,
-            //         async: false,
-            //         success: function (data) {
-            //             if(data === '200'){
-            //             console.log(data,"data!!!");
+                }
+                console.log(param);
+                $.ajax({
+                    type: "post",
+                    url: "/shopping",
+                    data: param,
+                    async: false,
+                    success: function (data) {
+                        if(data === '200'){
+                        console.log(data,"data!!!");
 
-            //             alert('장바구니에 등록되었습니다.');
-            //             }
-            //             else {
-            //                 alert(data);
-            //             }
-            //         },
-            //         error: function (e) {
+                        alert('장바구니에 등록되었습니다.');
+                        }
+                        else {
+                            alert(data);
+                        }
+                    },
+                    error: function (e) {
                         
-            //             alert(e.reponseText);
-            //         }
-            //     });
+                        alert(e.reponseText);
+                    }
+                });
 
 
 
 
-            // })
+            })
 
 
     $('#menu-trigger').on('click', function (e) {
