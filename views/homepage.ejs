@@ -235,7 +235,14 @@
                 
                 //////////////////////////////////////////////////////////
                 var $in = document.querySelectorAll('#in');
-                $in.className = "invisible";
+                $in.forEach(function(element) {
+                    element.addEventListener("click", function() {
+                        element.className = "invisible";
+                    })
+                    
+
+                })
+                
             }
 
             }
