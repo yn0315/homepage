@@ -89,21 +89,20 @@ app.use(session({
 var connection = mysql.createConnection(options); // DB 커넥션 생성
 connection.connect();   // DB 접속
 
+
+
 // var router = express.Router();
 
 app.set('view engine', 'ejs');
 
 
 app.get('/', function (req, res) {
-    
-var sessions = req.session;
-
-    
+    var session = req.session;
 
     //랜덤숫자가 존재하는 경우(비회원)
-    if(sessions.randomNumber){
+    if(session.randomNumber){
         
-    res.render('index', { displayname: sessions.displayname , randomNumber: sessions.randomNumber});
+    res.render('index', { displayname: session.displayname , randomNumber: session.randomNumber});
 
     }else {
         const min = 1;
@@ -112,7 +111,7 @@ var sessions = req.session;
         let stringNum = String(randomNumber);
         console.log(stringNum, "random");
         req.session.randomNumber = stringNum;
-        res.render('index', { displayname: sessions.displayname , randomNumber: sessions.randomNumber});
+        res.render('index', { displayname: session.displayname , randomNumber: session.randomNumber});
     }
 });
 
@@ -145,11 +144,11 @@ app.get('/login', function (req, res) {
 
 app.get('/homepage', function (req, res) {
 
-    // var session = req.session;
+    var session = req.session;
 
     //sql에 저장된 정보를 같이 보낼 경우 딕셔너리로 만들어서 통째로 보내야 함
 
-    res.render('homepage', { displayname: sessions.displayname ,randomNumber: sessions.randomNumber});
+    res.render('homepage', { displayname: session.displayname ,randomNumber: session.randomNumber});
 
 
 });
@@ -288,14 +287,14 @@ app.post('/shopping', function (req, res) {
     let goodsName = req.body.goodsName;
     let number = req.body.number;
     let price = req.body.price;
-    // let session = req.session;
+    var session = req.session;
 
     //sql로 집어넣기
     //회원일경우
-    if (req.sessions && req.sessions.displayname) {
+    if (req.session && req.session.displayname) {
 
 
-        let select_query = `select * from my_db.cart where user_id = '${sessions.displayname}' and goods_name ='${goodsName}'`;
+        let select_query = `select * from my_db.cart where user_id = '${session.displayname}' and goods_name ='${goodsName}'`;
 
 
         connection.query(select_query, function (err, results, fields) {
@@ -308,7 +307,7 @@ app.post('/shopping', function (req, res) {
                 console.log(goodsNum, "goodsNum!!!");
                 let plusNum = parseInt(goodsNum) + parseInt(number);
 
-                let update_query = `update my_db.cart set goods_number ='${plusNum}' where user_id ='${sessions.displayname}' and goods_name = '${goodsName}'`;
+                let update_query = `update my_db.cart set goods_number ='${plusNum}' where user_id ='${session.displayname}' and goods_name = '${goodsName}'`;
                 connection.query(update_query, function (err, results, fields) {
 
 
@@ -359,7 +358,7 @@ app.post('/shopping', function (req, res) {
     } else {
         
         
-        let select_query = `select * from my_db.cart where user_id = '${sessions.randomNumber}' and goods_name ='${goodsName}'`;
+        let select_query = `select * from my_db.cart where user_id = '${session.randomNumber}' and goods_name ='${goodsName}'`;
 
 
         connection.query(select_query, function (err, results, fields) {
@@ -372,7 +371,7 @@ app.post('/shopping', function (req, res) {
                 console.log(goodsNum, "goodsNum!!!");
                 let plusNum = parseInt(goodsNum) + parseInt(number);
 
-                let update_query = `update my_db.cart set goods_number ='${plusNum}' where user_id ='${sessions.randomNumber}' and goods_name = '${goodsName}'`;
+                let update_query = `update my_db.cart set goods_number ='${plusNum}' where user_id ='${session.randomNumber}' and goods_name = '${goodsName}'`;
                 connection.query(update_query, function (err, results, fields) {
 
 
@@ -392,7 +391,7 @@ app.post('/shopping', function (req, res) {
 
 
             } else {
-                let insert_query = `insert into my_db.cart values('${sessions.randomNumber}','${goodsName}','${number}','${price}')`;
+                let insert_query = `insert into my_db.cart values('${session.randomNumber}','${goodsName}','${number}','${price}')`;
 
                 console.log(insert_query);
                 let commit_query = `commit`;
@@ -419,9 +418,9 @@ app.post('/shopping', function (req, res) {
 app.get('/cart', function (req, res) {
 
     //sql문 가져와서 보내기, 세션정보 같이 보냄
-    // let session = req.session;
-    if (sessions.displayname) {
-        let select_query = `select * from my_db.cart where user_id ='${sessions.displayname}'`;
+    var session = req.session;
+    if (session.displayname) {
+        let select_query = `select * from my_db.cart where user_id ='${session.displayname}'`;
 
         connection.query(select_query, function (err, results, fields) {
             console.log(results);
@@ -431,11 +430,11 @@ app.get('/cart', function (req, res) {
             else {
 
                 console.log('ok');
-                res.render('cart', { displayname: sessions.displayname, sendData: results });
+                res.render('cart', { displayname: session.displayname, sendData: results });
             }
         })
-    }else if(sessions.randomNumber){
-        let select_query = `select * from my_db.cart where user_id ='${sessions.randomNumber}'`;
+    }else if(session.randomNumber){
+        let select_query = `select * from my_db.cart where user_id ='${session.randomNumber}'`;
 
         connection.query(select_query, function (err, results, fields) {
             console.log(results);
@@ -445,7 +444,7 @@ app.get('/cart', function (req, res) {
             else {
 
                 console.log('ok');
-                res.render('cart', { displayname: sessions.displayname, sendData: results });
+                res.render('cart', { displayname: session.displayname, sendData: results });
             }
         })
     }
