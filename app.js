@@ -366,7 +366,7 @@ app.post('/shopping', function (req, res) {
         console.log(randomNumber);
         // session.userId = ();
 
-        res.send(randomNumber);
+        res.send(toString(randomNumber));
     }
 })
 
