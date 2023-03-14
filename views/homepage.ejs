@@ -143,7 +143,7 @@
                     <ul>
                         <li id="kimchi"><img src="/img/kimchi.jpg">
 
-                            <% if(displayname === '' && randomNumber === 0){%>
+                            <% if(displayname === '' && randomNumber){%>
                             <div id="go"class="cartGo_div">
                             <button id="cartLogin"class="cartLogin">로그인</button>
                             <button class="notLoginOrder">비회원 주문</button>
@@ -151,8 +151,8 @@
                         <% } %>
                             <p>김치라면</p>
                             <p><span>1000</span>원</p>
-                            <!-- <input class="inputNum" type="text" placeholder="수량"><button
-                                class="cartButton" type="button">담기</button> -->
+                            <input class="inputNum" type="text" placeholder="수량"><button
+                                class="cartButton" type="button">담기</button>
                         </li>
                         <li id="king"><img src="/img/king.jpg">
                             <div class="cartGo_div">
