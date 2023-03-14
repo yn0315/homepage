@@ -1086,6 +1086,11 @@ section.me {
 
 }
 
+#join {
+    position: relative;
+    text-align: center;
+    left: 0;
+}
 
 }
 
