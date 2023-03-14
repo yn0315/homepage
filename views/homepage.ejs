@@ -143,7 +143,7 @@
                     <ul>
                         <li id="kimchi"><img src="/img/kimchi.jpg">
 
-                            <% if(displayname === '' && randomNumber){%>
+                            <% if(displayname == '' && randomNumber){%>
                             <div id="go"class="cartGo_div">
                             <button id="cartLogin"class="cartLogin">로그인</button>
                             <button class="notLoginOrder">비회원 주문</button>
@@ -214,7 +214,6 @@
 
                 let $div = document.getElementsByClassName('cartGo_div');
                 $div.className = "invisible";
-                $div.style.display = "none";
                 alert($div.className);
             }
 
