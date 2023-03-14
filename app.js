@@ -310,7 +310,7 @@ app.post('/shopping', function (req, res) {
                 console.log(goodsNum, "goodsNum!!!");
                 let plusNum = parseInt(goodsNum) + parseInt(number);
 
-                let update_query = `update my_db.cart set goods_number ='${plusNum}' where user_id ='${session.displayname}'`;
+                let update_query = `update my_db.cart set goods_number ='${plusNum}' where user_id ='${session.displayname}' and goods_name = '${goodsName}'`;
                 connection.query(update_query, function (err, results, fields) {
 
 
