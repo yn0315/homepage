@@ -71,7 +71,8 @@ app.use(session({
     saveUninitialized: true, //세션아이디를 사용하기 전까지 미발급
     store: sessionStore,//데이터 저장형식
     cookie: {
-        maxAge: 24000 * 60 * 60 // 쿠키 유효기간 24시간
+        // maxAge: 24000 * 60 * 60 // 쿠키 유효기간 24시간
+        maxAge: 0
     }
 
 }));
@@ -100,7 +101,9 @@ app.get('/', function (req, res) {
 
     //랜덤숫자가 존재하는 경우(비회원)
     if(session.randomNumber){
+        console.log(session.);
     res.render('index', { displayname: session.displayname , randomNumber: session.randomNumber});
+
     }else {
         const min = 1;
         const max = 100000000;
@@ -380,10 +383,6 @@ app.post('/shopping', function (req, res) {
                         console.log('ok');
                         res.header('Content-Type', 'text/plain');
                         res.send('200');
-                        // res.end(res.redirect('/'));
-
-                        //    res.end(data); 
-
                     }
 
 
@@ -393,7 +392,7 @@ app.post('/shopping', function (req, res) {
 
             } else {
                 let insert_query = `insert into my_db.cart values('${session.randomNumber}','${goodsName}','${number}','${price}')`;
-                // let select_query = `select * from my_db.contact`;
+
                 console.log(insert_query);
                 let commit_query = `commit`;
 
@@ -406,20 +405,12 @@ app.post('/shopping', function (req, res) {
                         console.log('ok');
                         res.header('Content-Type', 'text/plain');
                         res.send('200');
-                        // res.end(res.redirect('/'));
-
-                        //    res.end(data); 
-
                     }
                 })
             }
 
         })
 
-
-
-
-        // res.send(String(randomNumber));
     }
 })
 
@@ -460,3 +451,4 @@ app.get('/cart', function (req, res) {
 
 
 });
+
