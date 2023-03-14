@@ -1289,6 +1289,7 @@ section.me {
 
 
 #join {
+    margin-top: 100px;
     position: relative;
     text-align: center;
     left: 0;
@@ -1297,15 +1298,15 @@ section.me {
 #join_outer_box {
     display: inline-block;
     text-align: center;
-    width: 400px;
-    height: 400px;
+    width: 380px;
+    height: 380px;
 }
 
 #join_inner_box {
     display: inline-block;
     text-align: center;
-    width: 400px;
-    height: 400px;
+    width: 380px;
+    height: 380px;
 
 }
 }
