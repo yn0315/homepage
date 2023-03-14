@@ -362,11 +362,49 @@ app.post('/shopping', function (req, res) {
 
         const min = 1;
         const max = 10;
-        const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-        console.log(randomNumber);
+        let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+        let stringNum = String(randomNumber);
+        console.log(stringNum,"random");
+
+        let select_query = `select * from my_db.sessions where userid = '${stringNum}'`;
+
+
+        connection.query(select_query, function (err, results, fields) {
+            console.log(results);
+            if (err) {
+                console.log(err);
+            }
+            else if (results.length > 0) {
+                let userNum = results[0].userId;
+                console.log(userNum, "exist!!!!!");
+
+                // let update_query = `update my_db.cart set goods_number ='${plusNum}' where user_id ='${session.displayname}'`;
+                // connection.query(update_query, function (err, results, fields) {
+
+
+                    // if (err) {
+                    //     console.log(err);
+                    // }
+                    // else {
+                    //     // const data = fs.readFileSync(__dirname +'/views/index.ejs', 'utf-8');
+                    //     console.log('ok');
+                    //     res.header('Content-Type', 'text/plain');
+                    //     res.send('200');
+                    //     // res.end(res.redirect('/'));
+
+                    //     //    res.end(data); 
+
+                    // }
+
+
+                // })
+            }
+
+
+        })
         // session.userId = ();
 
-        res.send(toString(randomNumber));
+        res.send(String(randomNumber));
     }
 })
 
