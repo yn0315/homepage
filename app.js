@@ -71,8 +71,8 @@ app.use(session({
     saveUninitialized: true, //세션아이디를 사용하기 전까지 미발급
     store: sessionStore,//데이터 저장형식
     cookie: {
-        maxAge: 24000 * 60 * 60 // 쿠키 유효기간 24시간
-        // maxAge: 0
+        // maxAge: 24000 * 60 * 60 // 쿠키 유효기간 24시간
+        maxAge: 60
     }
 
 }));
