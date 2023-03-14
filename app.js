@@ -366,7 +366,7 @@ app.post('/shopping', function (req, res) {
         let stringNum = String(randomNumber);
         console.log(stringNum,"random");
         session.userId = (stringNum);
-        let select_query = `select * from my_db.sessions where userId = '${stringNum}'`;
+        let select_query = `select * from my_db.sessions`;
 
 
         connection.query(select_query, function (err, results, fields) {
@@ -375,8 +375,8 @@ app.post('/shopping', function (req, res) {
                 console.log(err);
             }
             else if (results.length > 0) {
-                let userNum = results[0].userId;
-                console.log(userNum, "exist!!!!!");
+                // let userNum = results[0].userId;
+                console.log(results, "results!!!!!!!");
 
                 // let update_query = `update my_db.cart set goods_number ='${plusNum}' where user_id ='${session.displayname}'`;
                 // connection.query(update_query, function (err, results, fields) {
