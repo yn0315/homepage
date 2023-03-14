@@ -1329,7 +1329,7 @@ section.me {
 
 #homepageSection {
     position: relative;
-    left: 0;
+    left: 100px;
     text-align: center;
     width: 70vw;
     /* height: 100vh; */
