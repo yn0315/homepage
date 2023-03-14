@@ -1098,6 +1098,7 @@ section.me {
 #join_outer_box {
     display: inline-block;
     text-align: center;
+    left: 200px;
     width: 70vw;
     height: 1000px;
 }
