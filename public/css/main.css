@@ -1105,11 +1105,9 @@ section.me {
         /* position: absolute; */
         display: block;
         
-        margin-top: 10px;
-        height: 10px;
-
-
-        width: 100px;
+        margin-top: 2px;
+        height: 4px;
+        width: 50px;
         /* margin-top: 3px; */
         background: #000;
         border-radius: 10px;
