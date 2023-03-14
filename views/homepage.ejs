@@ -164,12 +164,17 @@
                     data: param,
                     async: false,
                     success: function (data) {
+                        if(data === '200'){
                         console.log(data,"data!!!");
 
                         alert('장바구니에 등록되었습니다.');
-
+                        }
+                        else {
+                            alert(data);
+                        }
                     },
                     error: function (e) {
+                        
                         alert(e.reponseText);
                     }
                 });
