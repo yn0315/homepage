@@ -961,6 +961,7 @@ body {
     height: 100px;
     line-height: 100px;
     background: rgba(0, 0, 0, 0.2);
+    /* /////// */
     position: static;
     
     z-index: 3;
@@ -1291,7 +1292,7 @@ section.me {
 
 #join {
     margin-top: 100px;
-    position: static;
+    position: relative;
     text-align: center;
     left: 0;
 }
