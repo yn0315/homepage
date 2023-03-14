@@ -283,6 +283,28 @@
 
         }
     })
+
+    $('.cartLogin').on('click', function() {
+
+        $.ajax({
+                    type: "get",
+                    url: "/login",
+                    async: false,
+                    success: function (data) {
+                        if(data === '200'){
+                        console.log(data,"data!!!");
+                        window.location.replace('http://yn0000.shop/login');
+
+                        }
+                    },
+                    error: function (e) {
+                        
+                        alert(e.reponseText);
+                    }
+                });
+    })
+
+
         </script>
 
     </section>
