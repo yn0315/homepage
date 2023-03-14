@@ -1094,6 +1094,23 @@ section.me {
     left: 0;
 }
 
+
+#join_outer_box {
+    display: inline-block;
+    text-align: center;
+    width: 70vw;
+    height: 1000px;
+}
+
+#join_inner_box {
+    display: inline-block;
+    text-align: center;
+    width: 500px;
+    height: 500px;
+
+}
+
+
 }
 
 @media screen and (max-width: 414px) {
