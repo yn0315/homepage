@@ -1330,6 +1330,7 @@ section.me {
 #homepageSection {
     position: relative;
     left: 0;
+    text-align: center;
     width: 70vw;
     /* height: 100vh; */
     /* margin-top: 0; */
