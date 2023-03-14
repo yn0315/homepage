@@ -383,7 +383,7 @@ app.get('/cart', function (req, res) {
 
             console.log('ok');
 
-            res.render('cart', { sendData: results });
+            res.render('cart', {displayname: session.displayname, sendData: results });
 
 
         }
